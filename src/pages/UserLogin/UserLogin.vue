@@ -8,11 +8,12 @@
       <input type="text" placeholder="请输入用户名" v-model="username">
       <input type="text" placeholder="请输入密码" v-model="pwd">
     </div>
-    <button :class="{active:pwd.length >0 && username.length > 0}">登录</button>
+    <button :class="{active:pwd.length >0 && username.length > 0}" @click="login">登录</button>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import { reqLogin } from "../../api";
   export default {
     data() {
       return {
@@ -21,7 +22,12 @@
       }
     },
     methods: {
-      
+      async login(){
+        let result = await reqLogin('admin','admin')
+        if(result.status === 0){
+          this.$router.replace('/profile')
+        }
+      }
     },
   }
 </script>

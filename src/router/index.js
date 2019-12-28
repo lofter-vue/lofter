@@ -94,6 +94,10 @@ export default new VueRouter({
         {
           path:"rankinglist",
           component:RankingList
+        },
+        {
+          path:'/novel',
+          redirect:'/novel/malechannel'
         }
       ]
     },

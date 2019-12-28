@@ -1,7 +1,7 @@
 <template>
   <div class="novelContainer">
     <div class="header">
-      <span class="iconfont icon-zuojiantou"></span>
+      <span @click="$router.replace('/profile')" class="iconfont icon-zuojiantou"></span>
       <div class="title">看小说</div>
     </div>
     <div class="input_user_container">
@@ -71,6 +71,8 @@
       height 40px
       border-bottom 1px solid #eee
       .icon-zuojiantou
+        position relative
+        z-index 20
         display inline-block
         font-size 20px
         margin 10px

@@ -2,13 +2,14 @@
   <div class='UserLogin'>
     <div class="header">
       <span @click="$router.replace('/login')"><i class='iconfont iconzuobian'></i></span>
-      <span class='loginTitle'>登录LOFTER</span>
+      <span class='loginTitle'>注册LOFTER</span>
     </div>
     <div class="content">
       <input type="text" placeholder="请输入用户名" v-model="username">
       <input type="text" placeholder="请输入密码" v-model="pwd">
+      <input type="text" placeholder="请确认密码" v-model="repwd">
     </div>
-    <button :class="{active:pwd.length >0 && username.length > 0}">登录</button>
+    <button :class="{active:pwd.length > 0 && username.length > 0 && repwd.length > 0}">注册</button>
   </div>
 </template>
 
@@ -17,7 +18,8 @@
     data() {
       return {
         username:'',
-        pwd:''
+        pwd:'',
+        repwd:''
       }
     },
     methods: {
@@ -33,9 +35,7 @@
   position relative
   background: linear-gradient(to top,white, #366263);
   .header
-    // width 100%
     height 60px
-    // background #366263
     line-height 60px
     font-size 18px
     position relative

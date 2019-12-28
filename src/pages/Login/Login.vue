@@ -21,8 +21,8 @@
       <div class="swiper-pagination"></div>
     </div>
     <div class='btn'>
-      <button class='login'>登录</button>
-      <button class='regist'>注册</button>
+      <button class='login' @click="$router.push('/userlogin')">登录</button>
+      <button class='regist' @click="$router.push('/register')">注册</button>
     </div>
   </div>
 </template>

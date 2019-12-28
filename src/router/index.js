@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 import Login from "@/pages/Login/Login";
 import UserLogin from "@/pages/UserLogin/UserLogin";
+import Register from "@/pages/Register/Register";
 import Home from "@/pages/Home/Home";
 import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
@@ -25,6 +26,10 @@ export default new VueRouter({
     {
       path:'/userlogin',
       component:UserLogin
+    },
+    {
+      path:'/register',
+      component:Register
     },
     {
       path:'/home',

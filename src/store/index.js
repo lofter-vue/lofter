@@ -4,7 +4,7 @@ import Vuex from "vuex";
 import mutations from "./mutations";
 import actions from "./actions";
 import getters from "./getters";
-import test from "./modules/test";
+import user from "./modules/user";
 
 Vue.use(Vuex)
 
@@ -13,6 +13,6 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    test
+    user
   }
 })

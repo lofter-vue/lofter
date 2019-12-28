@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Login from "@/pages/Login/Login";
+import UserLogin from "@/pages/UserLogin/UserLogin";
+import Register from "@/pages/Register/Register";
 import Home from "@/pages/Home/Home";
 import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
@@ -13,6 +16,7 @@ import Appear from '@/pages/Novel/children/Appear';
 import Classify from '@/pages/Novel/children/Classify';
 import RankingList from '@/pages/Novel/children/RankingList';
 
+
 //声明使用vue插件
 Vue.use(VueRouter)
 
@@ -21,35 +25,47 @@ export default new VueRouter({
   mode:'history',
   routes:[
     {
-      path:'/Home',
+      path:'/login',
+      component:Login
+    },
+    {
+      path:'/userlogin',
+      component:UserLogin
+    },
+    {
+      path:'/register',
+      component:Register
+    },
+    {
+      path:'/home',
       component:Home,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/Search',
+      path:'/search',
       component:Search,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/More',
+      path:'/more',
       component:More,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/Market',
+      path:'/market',
       component:Market,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/Profile',
+      path:'/profile',
       component:Profile,
       meta: {
         isShowFooter: true
@@ -83,7 +99,7 @@ export default new VueRouter({
     },
     {
       path:'/',
-      redirect:'/Home'
+      redirect:'/profile'
     },
   ]
 })

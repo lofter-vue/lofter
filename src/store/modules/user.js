@@ -1,7 +1,7 @@
 
 export default {
   state: {
-
+    token:''
   },
   actions: {
 

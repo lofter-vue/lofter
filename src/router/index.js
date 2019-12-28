@@ -1,11 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Login from "@/pages/Login/Login";
 import Home from "@/pages/Home/Home";
 import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
+
 
 
 //声明使用vue插件
@@ -15,6 +17,10 @@ Vue.use(VueRouter)
 export default new VueRouter({
   mode:'history',
   routes:[
+    {
+      path:'/Login',
+      component:Login
+    },
     {
       path:'/Home',
       component:Home,
@@ -52,7 +58,7 @@ export default new VueRouter({
     },
     {
       path:'/',
-      redirect:'/Home'
+      redirect:'/Login'
     },
   ]
 })

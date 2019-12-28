@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Login from "@/pages/Login/Login";
+import UserLogin from "@/pages/UserLogin/UserLogin";
 import Home from "@/pages/Home/Home";
 import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
@@ -18,39 +19,43 @@ export default new VueRouter({
   mode:'history',
   routes:[
     {
-      path:'/Login',
+      path:'/login',
       component:Login
     },
     {
-      path:'/Home',
+      path:'/userlogin',
+      component:UserLogin
+    },
+    {
+      path:'/home',
       component:Home,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/Search',
+      path:'/search',
       component:Search,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/More',
+      path:'/more',
       component:More,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/Market',
+      path:'/market',
       component:Market,
       meta: {
         isShowFooter: true
       }
     },
     {
-      path:'/Profile',
+      path:'/profile',
       component:Profile,
       meta: {
         isShowFooter: true
@@ -58,7 +63,7 @@ export default new VueRouter({
     },
     {
       path:'/',
-      redirect:'/Login'
+      redirect:'/profile'
     },
   ]
 })

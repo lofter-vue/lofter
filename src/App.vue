@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <router-view></router-view>
-    <foot-guide v-show="$route.meta.isShowFooter"></foot-guide>
+    <foot-guide v-show="$route.meta.isShowFooter" class="footer"></foot-guide>
   </div>
 </template>
 
@@ -14,4 +14,5 @@ export default {
 };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped></style>
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+</style>

@@ -6,7 +6,7 @@
     </div>
     <div class="content">
       <input type="text" placeholder="请输入用户名" v-model="username">
-      <input type="text" placeholder="请输入密码" v-model="pwd">
+      <input type="password" placeholder="请输入密码" v-model="pwd">
     </div>
     <button :class="{active:pwd.length >0 && username.length > 0}" @click="login">登录</button>
   </div>
@@ -14,6 +14,7 @@
 
 <script type="text/ecmascript-6">
 import { reqLogin } from "../../api";
+import { Toast } from "mint-ui";
   export default {
     data() {
       return {
@@ -23,9 +24,13 @@ import { reqLogin } from "../../api";
     },
     methods: {
       async login(){
-        let result = await reqLogin('admin','admin')
+        let result = await reqLogin(this.username,this.pwd)
         if(result.status === 0){
           this.$router.replace('/profile')
+        }else{
+          Toast('用户名或密码错误，请重新输入')
+          this.username = ''
+          this.pwd =''
         }
       }
     },

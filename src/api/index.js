@@ -1,6 +1,17 @@
 import myAxios from "./myaxios.js";
 
 //用户登录发送请求
-export const reqLogin = (username,password) => {
-  return myAxios.post('/login',{username,password}) 
-}
+export const reqLogin = (username,password) => myAxios.post('/login',{username,password})
+
+//用户注册发送请求
+export const reqRegister = (username,password) => myAxios.post('/manage/user/add',{username,password}) 
+
+//发送自动登录请求
+export const reqAutoLogin = () => myAxios('/auto_login')
+
+//首页资源发送请求
+export const reqHome = () => myAxios('/homeData',{
+  headers:{
+    needCheck:true
+  }
+})

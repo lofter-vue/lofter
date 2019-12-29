@@ -8,6 +8,9 @@
 <script>
 import FootGuide from "./components/FootGuide/FootGuide";
 export default {
+  created() {
+    this.$store.dispatch('autoLogin')
+  },
   components: {
     FootGuide
   }

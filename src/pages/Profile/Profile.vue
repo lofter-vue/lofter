@@ -96,7 +96,8 @@ import { MessageBox } from "mint-ui";
     methods: {
       logout(){
         MessageBox.confirm("确定退出?").then(()=>{
-          console.log('确定')
+          this.$store.dispatch('logOut')
+          this.$router.replace('/login')
         })
       }
     },

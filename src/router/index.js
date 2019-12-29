@@ -9,7 +9,12 @@ import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
-
+import Novel from '@/pages/Novel/Novel';
+import MaleChannel from '@/pages/Novel/children/MaleChannel';
+import FemaleChannel from '@/pages/Novel/children/FemaleChannel';
+import Appear from '@/pages/Novel/children/Appear';
+import Classify from '@/pages/Novel/children/Classify';
+import RankingList from '@/pages/Novel/children/RankingList';
 
 
 //声明使用vue插件
@@ -65,6 +70,36 @@ export default new VueRouter({
       meta: {
         isShowFooter: true
       }
+    },
+    {
+      path:'/novel',
+      component:Novel,
+      children:[
+        {
+          path:"malechannel",
+          component:MaleChannel
+        },
+        {
+          path:"femalechannel",
+          component:FemaleChannel
+        },
+        {
+          path:"appear",
+          component:Appear
+        },
+        {
+          path:"classify",
+          component:Classify
+        },
+        {
+          path:"rankinglist",
+          component:RankingList
+        },
+        {
+          path:'/novel',
+          redirect:'/novel/malechannel'
+        }
+      ]
     },
     {
       path:'/',

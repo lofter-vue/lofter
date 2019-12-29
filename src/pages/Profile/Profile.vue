@@ -71,7 +71,7 @@
         <i class="iconfont iconyingyong"></i>
         <span>个人应用</span>
       </li>
-      <li>
+      <li @click="$router.replace('/novel')">
         <i class="iconfont iconduxiaoshuo"></i>
         <span>看小说</span>
       </li>

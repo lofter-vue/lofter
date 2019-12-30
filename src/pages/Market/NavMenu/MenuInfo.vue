@@ -152,7 +152,8 @@ import MenuSwiper from './MenuSwiper'
     mounted(){
       this.scrollX =  new BScroll('.navBar',{
         scrollX:true,
-        click:true
+        click:true,
+        hasVerticalScroll:true
       }),
       this.scrollY = new BScroll('.concentContainer',{
         scrollY:true,

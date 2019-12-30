@@ -69,7 +69,8 @@ import 'swiper/css/swiper.css'
   export default {
     data () {
       return {
-        content: [
+        //图书数组
+        content:[
       {
         "bid": "7864932",
         "bookname": "重生之都市弃少",

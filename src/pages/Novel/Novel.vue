@@ -30,6 +30,7 @@
     data(){
       return {
         navIndex:0,
+        //导航数组
         navArr:[
           {
             name:'男频',
@@ -55,6 +56,7 @@
       }
     },
     methods:{
+      //点击切换导航下边的小红线
       changeNavIndex(index){
         this.navIndex = index
       }
@@ -66,6 +68,7 @@
   .novelContainer
     width 100%
     height 100%
+    overflow hidden
     .header
       width 100%
       height 40px

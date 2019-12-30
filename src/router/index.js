@@ -72,6 +72,7 @@ export default new VueRouter({
         isShowFooter: true
       }
     },
+    //导航页面路由
     {
       name:'menuinfo',
       path:'/menuinfo/:id',

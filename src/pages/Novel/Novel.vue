@@ -1,31 +1,34 @@
 <template>
   <div class="novelContainer">
-    <div class="header">
-      <span @click="$router.replace('/profile')" class="iconfont icon-zuojiantou"></span>
-      <div class="title">看小说</div>
-    </div>
-    <div class="input_user_container">
-      <div class="inputContainer">
-        <input type="text">
-        <i class="iconfont icon-Search"></i>
+    <div class="scrollContainer">
+      <div class="header">
+        <span @click="$router.replace('/profile')" class="iconfont icon-zuojiantou"></span>
+        <div class="title">看小说</div>
       </div>
-      <div class="iconfont icon-user1"></div>
-    </div>
-    <div class="navContainer">
-      <div class="routeContainer">
-        <div class="route" @click="changeNavIndex(index)" v-for="(item,index) in navArr" :key="index" >
-            <router-link  :to="item.route">
-              {{item.name}} 
-              <div :class="{line:navIndex===index}"></div>
-            </router-link>
+      <div class="input_user_container">
+        <div class="inputContainer">
+          <input type="text">
+          <i class="iconfont icon-Search"></i>
+        </div>
+        <div class="iconfont icon-user1"></div>
+      </div>
+      <div class="navContainer">
+        <div class="routeContainer">
+          <div class="route" @click="changeNavIndex(index)" v-for="(item,index) in navArr" :key="index" >
+              <router-link  :to="item.route">
+                {{item.name}} 
+                <div :class="{line:navIndex===index}"></div>
+              </router-link>
+          </div>
         </div>
       </div>
+      <router-view></router-view>
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import BScroll from 'better-scroll'
   export default {
     data(){
       return {
@@ -60,6 +63,12 @@
       changeNavIndex(index){
         this.navIndex = index
       }
+    },
+    mounted(){
+      this.NovelScrollY = new BScroll('.novelContainer',{
+        scrollY:true,
+        click:true
+      })
     }
   }
 </script>

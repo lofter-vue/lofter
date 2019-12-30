@@ -15,3 +15,6 @@ export const reqHome = () => myAxios('/homeData',{
     needCheck:true
   }
 })
+
+//更新头像
+export const reqUpdataAvatar = (_id,avatar) => myAxios.post('/updateAvatar',{_id,avatar})

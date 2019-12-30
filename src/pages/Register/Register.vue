@@ -43,15 +43,13 @@
         <i class="iconfont icondelete repwdI" v-show="repwd.length >0" @click="repwd=''"></i>
         <span style="color: red;font-size:18px;" v-show="errors.has('repwd')">{{ errors.first('repwd') }}</span>
       </div>
-
-
     </div>
     <button :class="{active:pwd.length > 0 && username.length > 0 && repwd.length > 0}" @click="register">注册</button>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import { reqRegister } from "../../api";
+import { reqRegister,reqLogin } from "../../api";
 import { Toast } from "mint-ui";
   export default {
     data() {
@@ -71,8 +69,16 @@ import { Toast } from "mint-ui";
           }else if(this.pwd !== this.repwd){
             Toast('两次输入密码不一致')
           }else{
+            let {username,pwd} = this
             let request = await reqRegister(this.username,this.pwd)
-            console.log(request)
+            if(request.status === 0){
+              let req = await reqLogin(username,pwd)
+              const {status,data} = req
+              if(status === 0){
+                this.$store.dispatch('saveUser',data)
+                this.$router.replace('profile')
+              }
+            }
           }
         }
       }
@@ -169,6 +175,10 @@ import { Toast } from "mint-ui";
     outline none 
     border none 
     background #bfbfc1
+    text-align center
+    line-height 60px
+    font-size 18px
+    color black
     &.active
       background #719293
 </style>

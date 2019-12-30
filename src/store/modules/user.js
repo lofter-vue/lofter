@@ -2,7 +2,8 @@ import {
   SAVE_USER,
   SAVE_TOKEN,
   REMOVE_USER,
-  REMOVE_TOKEN
+  REMOVE_TOKEN,
+  UPDATA_AVATAR
 } from "../mutations_types";
 
 import { reqAutoLogin } from "../../api";
@@ -51,6 +52,11 @@ export default {
     },
     [REMOVE_TOKEN](state){
       state.token = ''
+    },
+    [UPDATA_AVATAR](state,avatar){
+      console.log(avatar);
+      
+      state.userInfo.avatar = avatar
     }
   },
   getters: {

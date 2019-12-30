@@ -5,6 +5,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { reqHome } from "../../api";
   export default {
   }
 </script>

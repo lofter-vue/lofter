@@ -21,14 +21,14 @@
       <div class="swiper-pagination"></div>
     </div>
     <div class='btn'>
-      <button class='login' @click="$router.push('/userlogin')">登录</button>
-      <button class='regist' @click="$router.push('/register')">注册</button>
+      <button class='login' @click="$router.replace('/userlogin')">登录</button>
+      <button class='regist' @click="$router.replace('/register')">注册</button>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import Swiper from "swiper";
+import Swiper from "swiper"
 import "swiper/css/swiper.css";
   export default {
     mounted() {
@@ -41,7 +41,7 @@ import "swiper/css/swiper.css";
           el: ".swiper-pagination"
         }
       });
-    },
+    }
   }
 </script>
 

@@ -118,7 +118,7 @@ export default new VueRouter({
     },
     {
       path:'/',
-      redirect:'/profile'
+      redirect:'/search'
     },
   ]
 })

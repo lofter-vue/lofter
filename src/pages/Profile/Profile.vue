@@ -23,7 +23,7 @@
         </transition>
       </div>
       <div class="user-fav-fan">
-        <div>
+        <div @click="$router.push('/attention')">
           <span>{{userInfo.attention ? userInfo.attention.length : 0}}</span>
           <span>关注</span>
         </div>

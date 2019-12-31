@@ -7632,8 +7632,8 @@ minizlib@^1.2.1:
 
 mint-ui@^2.2.13:
   version "2.2.13"
-  resolved "https://registry.yarnpkg.com/mint-ui/-/mint-ui-2.2.13.tgz#856a2cba9608c6ecf21f0e521ce89ed8ddfe33d3"
-  integrity sha512-Xz1SFagHSzKOprwQv3fcekXT5RJvhh939zwZHcWeazk1OJrCjsD4I2qm49AEUCfT1AoYzC+rsZIwGP/J6LwVVw==
+  resolved "https://registry.npm.taobao.org/mint-ui/download/mint-ui-2.2.13.tgz#856a2cba9608c6ecf21f0e521ce89ed8ddfe33d3"
+  integrity sha1-hWosupYIxuzyHw5SHOie2N3+M9M=
   dependencies:
     array-find-index "^1.0.2"
     raf.js "0.0.4"

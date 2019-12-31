@@ -9,6 +9,9 @@ import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
+import Music from "@/pages/Music/Music.vue";
+import Text from "@/pages/Text/Text.vue";
+
 import MyAttention from "@/pages/MyAttention/MyAttention";
 import Novel from '@/pages/Novel/Novel';
 import MaleChannel from '@/pages/Novel/children/MaleChannel';
@@ -121,6 +124,15 @@ export default new VueRouter({
           redirect:'/novel/malechannel'
         }
       ]
+    },
+    {
+      path:'/Music',
+      component:Music,
+      
+    },
+    {
+      path:'/Text',
+      component:Text,
     },
     {
       path:'/',

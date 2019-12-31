@@ -1,0 +1,93 @@
+{
+  "id": "1587262",
+  "name": "LOFTER",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "689204",
+      "name": "编辑 铅笔 写 输入",
+      "font_class": "bianjiqianbixieshuru",
+      "unicode": "e7c8",
+      "unicode_decimal": 59336
+    },
+    {
+      "icon_id": "695512",
+      "name": "转发",
+      "font_class": "zhuanfa",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "784212",
+      "name": "版权",
+      "font_class": "banquan",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "826104",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "947484",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "1110418",
+      "name": "搜索 大",
+      "font_class": "sousuo4",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "1263284",
+      "name": "文件",
+      "font_class": "wenjian",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "1473537",
+      "name": "音乐",
+      "font_class": "yinyue",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "1494636",
+      "name": "网络",
+      "font_class": "wangluo",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "4867094",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "6615896",
+      "name": "位置",
+      "font_class": "weizhi",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "8214639",
+      "name": "播放",
+      "font_class": "bofang1",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    }
+  ]
+}

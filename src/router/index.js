@@ -9,6 +9,7 @@ import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
+import MyAttention from "@/pages/MyAttention/MyAttention";
 import Novel from '@/pages/Novel/Novel';
 import MaleChannel from '@/pages/Novel/children/MaleChannel';
 import FemaleChannel from '@/pages/Novel/children/FemaleChannel';
@@ -70,6 +71,10 @@ export default new VueRouter({
       meta: {
         isShowFooter: true
       }
+    },
+    {
+      path:'/attention',
+      component:MyAttention
     },
     {
       path:'/novel',

@@ -23,7 +23,7 @@
         </transition>
       </div>
       <div class="user-fav-fan">
-        <div>
+        <div @click="$router.push('/attention')">
           <span>{{userInfo.attention ? userInfo.attention.length : 0}}</span>
           <span>关注</span>
         </div>
@@ -167,6 +167,7 @@ import {UPDATA_AVATAR} from "../../store/mutations_types";
       line-height 120px
       position relative
 
+
       .userInfo
         float left
         margin-left 12px
@@ -304,15 +305,15 @@ import {UPDATA_AVATAR} from "../../store/mutations_types";
     li 
       height 40px 
       width 100%
+      display flex
+      justify-content start
       i   
-        float left
         width 10%
         height 41px
         text-align center
         line-height 41px
         font-size 16px
       span
-        float right
         width 90%
         height 40px
         border-bottom 1px solid #f5f3f3

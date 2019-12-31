@@ -1,11 +1,25 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Login from "@/pages/Login/Login";
+import UserLogin from "@/pages/UserLogin/UserLogin";
+import Register from "@/pages/Register/Register";
 import Home from "@/pages/Home/Home";
 import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
+import Music from "@/pages/Music/Music.vue";
+import Text from "@/pages/Text/Text.vue";
+
+import MyAttention from "@/pages/MyAttention/MyAttention";
+import Novel from '@/pages/Novel/Novel';
+import MaleChannel from '@/pages/Novel/children/MaleChannel';
+import FemaleChannel from '@/pages/Novel/children/FemaleChannel';
+import Appear from '@/pages/Novel/children/Appear';
+import Classify from '@/pages/Novel/children/Classify';
+import RankingList from '@/pages/Novel/children/RankingList';
+import MenuInfo from "@/pages/Market/NavMenu/MenuInfo";
 
 // 个人中心页面
 import Personal from '@/pages/Personal/Personal'
@@ -28,13 +42,30 @@ Vue.use(VueRouter)
 export default new VueRouter({
   mode:'history',
   routes:[
+      //登录首页页面路由
     {
-      path:'/home',
+      path:'/login', 
+      component:Login
+    },
+      //登录信息页面路由
+    {
+      path:'/userlogin',
+      component:UserLogin
+    },
+      //注册信息页面路由
+    {
+      path:'/register',
+      component:Register
+    },
+      //首页页面路由
+    {
+      path:'/home', 
       component:Home,
       meta: {
         isShowFooter: true
       }
     },
+      //发现页面路由
     {
       path:'/search',
       component:Search,
@@ -42,6 +73,7 @@ export default new VueRouter({
         isShowFooter: true
       }
     },
+      //加号页面路由
     {
       path:'/more',
       component:More,
@@ -49,6 +81,7 @@ export default new VueRouter({
         isShowFooter: true
       }
     },
+      //市集页面路由
     {
       path:'/market',
       component:Market,
@@ -56,15 +89,71 @@ export default new VueRouter({
         isShowFooter: true
       }
     },
+    //导航页面路由
     {
+      name:'menuinfo',
+      path:'/menuinfo/:id',
+      component:MenuInfo
+    },
+      //个人页面路由
+    {
+<<<<<<< HEAD
       path:'/profile',
+=======
+      path:'/profile', 
+>>>>>>> e88b8744d0aac74577fe062446203c8275396e6a
       component:Profile,
       meta: {
         isShowFooter: true
       }
     },
+      //看小说页面路由
+    {
+      path:'/attention',
+      component:MyAttention
+    },
+    {
+      path:'/novel',
+      component:Novel,
+      children:[
+        {
+          path:"malechannel", //男频页面路由
+          component:MaleChannel
+        },
+        {
+          path:"femalechannel",//女频页面路由
+          component:FemaleChannel
+        },
+        {
+          path:"appear",//出版页面路由
+          component:Appear
+        },
+        {
+          path:"classify",//分类页面路由
+          component:Classify
+        },
+        {
+          path:"rankinglist",//排行页面路由
+          component:RankingList
+        },
+        {
+          path:'/novel',
+          redirect:'/novel/malechannel'
+        }
+      ]
+    },
+    {
+      path:'/Music',
+      component:Music,
+      
+    },
+    {
+      path:'/Text',
+      component:Text,
+    },
     {
       path:'/',
+<<<<<<< HEAD
       redirect:'/home'
     },
     {
@@ -84,6 +173,9 @@ export default new VueRouter({
           redirect: '/personal/article'
         }
       ]
+=======
+      redirect:'/search'
+>>>>>>> e88b8744d0aac74577fe062446203c8275396e6a
     },
     {
       path: '/home_sub', // 首页轮播跳转页面

@@ -5,12 +5,6 @@ import 'mint-ui/lib/style.css'
 import router from "./router";
 import App from './App';
 import store from "./store";
-
-
-
-import router from "./router";
-import App from './App';
-import store from "./store";
 import './validate';
 //全局事件总线
 //Vue.prototype.$bus = new Vue()

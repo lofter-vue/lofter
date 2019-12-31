@@ -167,6 +167,7 @@ import {UPDATA_AVATAR} from "../../store/mutations_types";
       line-height 120px
       position relative
 
+
       .userInfo
         float left
         margin-left 12px

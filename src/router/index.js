@@ -6,6 +6,8 @@ import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
+import SwiperProducts from "@/pages/Market/SwiperProducts"
+
 
 
 //声明使用vue插件
@@ -41,7 +43,11 @@ export default new VueRouter({
       component:Market,
       meta: {
         isShowFooter: true
-      }
+      },
+    },
+    {
+      path:'/swiperProducts',
+      component:SwiperProducts,
     },
     {
       path:'/Profile',

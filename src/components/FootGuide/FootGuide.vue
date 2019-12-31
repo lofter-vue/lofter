@@ -47,7 +47,8 @@ export default {
 <style scoped lang="stylus" rel="stylesheet/stylus">
 @import '../../common/stylus/mixins.styl';
 
-.foot-guide 
+.foot-guide
+  z-index 9999
   top-border-1px(#cccccc);
   display: flex;
   position: fixed;

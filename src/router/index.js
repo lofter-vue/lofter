@@ -6,6 +6,9 @@ import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
+import Music from "@/pages/Music/Music.vue";
+import Text from "@/pages/Text/Text.vue";
+
 
 
 //声明使用vue插件
@@ -49,6 +52,15 @@ export default new VueRouter({
       meta: {
         isShowFooter: true
       }
+    },
+    {
+      path:'/Music',
+      component:Music,
+      
+    },
+    {
+      path:'/Text',
+      component:Text,
     },
     {
       path:'/',

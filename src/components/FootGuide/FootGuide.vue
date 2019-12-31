@@ -22,7 +22,7 @@
         </span>
       </span>
     </div>
-    <span class="guide-item" :class="{on:$route.path === '/home'}" @click="goto('/home')">
+    <span class="guide-item" :class="{on:$route.path === '/home'}" @click="goto(userInfo._id ?'/home' : '/login')">
       <span>
         <i class="iconfont iconshouye"></i>
       </span>
@@ -34,7 +34,7 @@
       </span>
       <span>发现</span>
     </span>
-    <span class="guide-item"  :class="{on:$route.path === '/more'}" @click="goto('/more')">
+    <span class="guide-item"  :class="{on:$route.path === '/more'}" @click="goto(userInfo._id ?'/more' : '/login')">
       
         <span @click="show=!show">
           <transition name="move">
@@ -45,13 +45,13 @@
         </span>
       
     </span>
-    <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto('/market')">
+    <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto(userInfo._id ?'/market' : '/login')">
       <span>
         <i class="iconfont icondingdan"></i>
       </span>
       <span>市集</span>
     </span>
-    <span class="guide-item" :class="{on:$route.path === '/profile'}" @click="goto('/profile')">
+    <span class="guide-item" :class="{on:$route.path === '/profile'}" @click="goto(userInfo._id ?'/profile' : '/login')">
       <span>
         <i class="iconfont icongeren"></i>
       </span>
@@ -62,6 +62,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { mapState } from "vuex";
 export default {
   data(){
     return{
@@ -74,7 +75,11 @@ export default {
         this.$router.replace(path)
       }
     },
-    
+  },
+  computed: {
+    ...mapState({
+      userInfo:state => state.user.userInfo
+    })
   },
 };
 </script>

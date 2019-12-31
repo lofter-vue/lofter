@@ -101,6 +101,9 @@ export default {
         line-height 40px
         i 
           font-size 28px
+
+.foot-guide
+  z-index 9999
   top-border-1px(#cccccc);
   display: flex;
   position: fixed;

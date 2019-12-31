@@ -1,0 +1,30 @@
+{
+  "id": "1587257",
+  "name": "Vue-search",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2407260",
+      "name": "搜索",
+      "font_class": "tubiao-",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "4333790",
+      "name": "喜欢",
+      "font_class": "xihuan",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "10939359",
+      "name": "向下箭头",
+      "font_class": "ico_arrowdown",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    }
+  ]
+}

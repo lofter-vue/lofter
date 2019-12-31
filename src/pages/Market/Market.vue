@@ -99,6 +99,8 @@
       <li><span class="iconfont icon-gouwuche"></span></li>
       <li><span class="iconfont icon-icondd1"></span></li>
     </ul>
+  <div>
+    <NavMenu />
   </div>
 </template>
 
@@ -137,6 +139,10 @@ import SwiperProducts from "../../pages/Market/SwiperProducts"
     },
     components: {
       ProductsList
+import NavMenu from './NavMenu/NavMenu'
+  export default {
+    components:{
+      NavMenu
     }
   }
 </script>
@@ -402,4 +408,9 @@ import SwiperProducts from "../../pages/Market/SwiperProducts"
     //         color #bbbbbb
     //         text-decoration line-through
       
+.aaa
+  width 100%
+  height 100px
+  margin 20px 0 
+  background-color red
 </style>

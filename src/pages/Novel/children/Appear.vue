@@ -1,11 +1,10 @@
 <template>
   <div>
-    home
+    出版
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import { reqHome } from "../../api";
   export default {
   }
 </script>

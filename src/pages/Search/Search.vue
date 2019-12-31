@@ -24,238 +24,249 @@
     <div class="swiper-container contentScroll swiper1">
       <div class="swiper-wrapper">
         <!-- 推荐 -->
-        <van-pull-refresh v-model="isLoading" @refresh="onRefresh"></van-pull-refresh>
-        <div class="swiper-slide all">
-          <ul class="contentWrap">
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
+        <!-- {{datas.data.search_tuijian.tuijian}} -->  
+        <div class="swiper-slide all" ref="scrollY">
+          <!-- v-for="(item,index) in datas.data.search_tuijian.tuijian" :key="index" -->
+          <ul class="contentWrap">  <!-- v-if="datas.search_tuijian" -->
+            <li class="contentItem">  <!-- v-for="(item,index) in datas.search_tuijian.tuijian" :key="index" -->
+              <img src="./images/2.jpg" alt="">
               <div class="itemIntro">
-                <p>开开心心</p>
+                <p></p>
                 <p>快快乐乐</p>
               </div>
               <div class="itemAuthor">杨九郎</div>
               <i class="iconfont icon-xihuan like">
                 <span>8人喜欢</span>
               </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
+            </li>  
+            <li class="contentItem">  <!-- v-for="(item,index) in datas.search_tuijian.tuijian" :key="index" -->
+              <img src="./images/2.jpg" alt="">
               <div class="itemIntro">
-                <p>开开心心</p>
+                <p></p>
                 <p>快快乐乐</p>
               </div>
               <div class="itemAuthor">杨九郎</div>
               <i class="iconfont icon-xihuan like">
                 <span>8人喜欢</span>
               </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
+            </li>  
+            <li class="contentItem">  <!-- v-for="(item,index) in datas.search_tuijian.tuijian" :key="index" -->
+              <img src="./images/2.jpg" alt="">
               <div class="itemIntro">
-                <p>开开心心</p>
+                <p></p>
                 <p>快快乐乐</p>
               </div>
               <div class="itemAuthor">杨九郎</div>
               <i class="iconfont icon-xihuan like">
                 <span>8人喜欢</span>
               </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
+            </li>  
+            <li class="contentItem">  <!-- v-for="(item,index) in datas.search_tuijian.tuijian" :key="index" -->
+              <img src="./images/2.jpg" alt="">
               <div class="itemIntro">
-                <p>开开心心</p>
+                <p></p>
                 <p>快快乐乐</p>
               </div>
               <div class="itemAuthor">杨九郎</div>
               <i class="iconfont icon-xihuan like">
                 <span>8人喜欢</span>
               </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
+            </li>  
+            <li class="contentItem">  <!-- v-for="(item,index) in datas.search_tuijian.tuijian" :key="index" -->
+              <img src="./images/2.jpg" alt="">
               <div class="itemIntro">
-                <p>开开心心</p>
+                <p></p>
                 <p>快快乐乐</p>
               </div>
               <div class="itemAuthor">杨九郎</div>
               <i class="iconfont icon-xihuan like">
                 <span>8人喜欢</span>
               </i>
-            </li>
-          </ul>
+            </li>  
+            <li class="contentItem">  <!-- v-for="(item,index) in datas.search_tuijian.tuijian" :key="index" -->
+              <img src="./images/2.jpg" alt="">
+              <div class="itemIntro">
+                <p></p>
+                <p>快快乐乐</p>
+              </div>
+              <div class="itemAuthor">杨九郎</div>
+              <i class="iconfont icon-xihuan like">
+                <span>8人喜欢</span>
+              </i>
+            </li>  
+          </ul> 
         </div>
-
         <!-- 游戏 -->
-        <div class="swiper-slide all">
-          <div class="swiper-container swiper2">
-            <div class="swiper-wrapper">
-              <div class="img swiper-slide">
-                <img class="imgS" src="./images/2.jpg" alt="">
-              </div>
-              <div class="img swiper-slide">
-                <img class="imgS" src="./images/3.jpg" alt="">
+        <div class="swiper-slide all" ref="scrollYY">
+          <div class="swiper2Warp">
+            <div class="swiper-container swiper2">
+              <div class="swiper-wrapper">
+                <div class="img swiper-slide">
+                  <img class="imgS" src="./images/2.jpg" alt="">
+                </div>
+                <div class="img swiper-slide">
+                  <img class="imgS" src="./images/3.jpg" alt="">
+                </div>
               </div>
             </div>
-          </div>
           
           
-          
-          <div class="imgScroll" ref="imgScroll">
-            <ul class="imgScrollWrap">
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
+            <div class="imgScroll" ref="imgScroll">
+              <ul class="imgScrollWrap">
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+                <li class="maskWarp">
+                  <div class="mask">
+                    <div class="wenzi">
+                    <p>第五人格</p>
+                    <span>7755人参与</span>
+                  </div> 
+                  </div>
+                  <img src="./images/3.jpg" alt="">  
+                </li>
+            
+              </ul>
+            </div>
+            
+
+            <ul class="contentWrap">
+              <li class="contentItem">
+                <img src="./images/1.jpg" alt="">
+                <div class="itemIntro">
+                  <p>开开心心</p>
+                  <p>快快乐乐</p>
                 </div>
-                <img src="./images/3.jpg" alt="">  
+                <div class="itemAuthor">杨九郎</div>
+                <i class="iconfont icon-xihuan like">
+                  <span>8人喜欢</span>
+                </i>
               </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
+              <li class="contentItem">
+                <img src="./images/1.jpg" alt="">
+                <div class="itemIntro">
+                  <p>开开心心</p>
+                  <p>快快乐乐</p>
                 </div>
-                <img src="./images/3.jpg" alt="">  
+                <div class="itemAuthor">杨九郎</div>
+                <i class="iconfont icon-xihuan like">
+                  <span>8人喜欢</span>
+                </i>
               </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
+              <li class="contentItem">
+                <img src="./images/1.jpg" alt="">
+                <div class="itemIntro">
+                  <p>开开心心</p>
+                  <p>快快乐乐</p>
                 </div>
-                <img src="./images/3.jpg" alt="">  
+                <div class="itemAuthor">杨九郎</div>
+                <i class="iconfont icon-xihuan like">
+                  <span>8人喜欢</span>
+                </i>
               </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
+              <li class="contentItem">
+                <img src="./images/1.jpg" alt="">
+                <div class="itemIntro">
+                  <p>开开心心</p>
+                  <p>快快乐乐</p>
                 </div>
-                <img src="./images/3.jpg" alt="">  
+                <div class="itemAuthor">杨九郎</div>
+                <i class="iconfont icon-xihuan like">
+                  <span>8人喜欢</span>
+                </i>
               </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
+              <li class="contentItem">
+                <img src="./images/1.jpg" alt="">
+                <div class="itemIntro">
+                  <p>开开心心</p>
+                  <p>快快乐乐</p>
                 </div>
-                <img src="./images/3.jpg" alt="">  
+                <div class="itemAuthor">杨九郎</div>
+                <i class="iconfont icon-xihuan like">
+                  <span>8人喜欢</span>
+                </i>
               </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
-                </div>
-                <img src="./images/3.jpg" alt="">  
-              </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
-                </div>
-                <img src="./images/3.jpg" alt="">  
-              </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
-                </div>
-                <img src="./images/3.jpg" alt="">  
-              </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
-                </div>
-                <img src="./images/3.jpg" alt="">  
-              </li>
-              <li class="maskWarp">
-                <div class="mask">
-                  <div class="wenzi">
-                  <p>第五人格</p>
-                  <span>7755人参与</span>
-                </div> 
-                </div>
-                <img src="./images/3.jpg" alt="">  
-              </li>
-          
             </ul>
           </div>
-           
-
-          <ul class="contentWrap">
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
-              <div class="itemIntro">
-                <p>开开心心</p>
-                <p>快快乐乐</p>
-              </div>
-              <div class="itemAuthor">杨九郎</div>
-              <i class="iconfont icon-xihuan like">
-                <span>8人喜欢</span>
-              </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
-              <div class="itemIntro">
-                <p>开开心心</p>
-                <p>快快乐乐</p>
-              </div>
-              <div class="itemAuthor">杨九郎</div>
-              <i class="iconfont icon-xihuan like">
-                <span>8人喜欢</span>
-              </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
-              <div class="itemIntro">
-                <p>开开心心</p>
-                <p>快快乐乐</p>
-              </div>
-              <div class="itemAuthor">杨九郎</div>
-              <i class="iconfont icon-xihuan like">
-                <span>8人喜欢</span>
-              </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
-              <div class="itemIntro">
-                <p>开开心心</p>
-                <p>快快乐乐</p>
-              </div>
-              <div class="itemAuthor">杨九郎</div>
-              <i class="iconfont icon-xihuan like">
-                <span>8人喜欢</span>
-              </i>
-            </li>
-            <li class="contentItem">
-              <img src="./images/1.jpg" alt="">
-              <div class="itemIntro">
-                <p>开开心心</p>
-                <p>快快乐乐</p>
-              </div>
-              <div class="itemAuthor">杨九郎</div>
-              <i class="iconfont icon-xihuan like">
-                <span>8人喜欢</span>
-              </i>
-            </li>
-          </ul>
         </div>
-
       </div>
      
     </div>
@@ -265,12 +276,8 @@
 <script type="text/ecmascript-6">
   import Swiper from 'swiper'
   import 'swiper/css/swiper.min.css'
-  import datas from './json/search.json'
+  import { reqSearch } from '../../api/index.js'
   import BScroll from 'better-scroll'
-  import Vue from 'vue'
-  import {PullRefresh} from 'vant'
-
-  Vue.use(PullRefresh);
   
   export default {
 
@@ -278,10 +285,13 @@
     name:'search',
     data() {
       return {
-        data1:{},
+        datas:{},
         icon:'\ue654 陈情令',
         navIndex:0,
-        isLoading:false,
+        // loading:false, //是否处于加载状态
+        // finished: false,  //是否已加载完所有数据
+        // isLoading: false,   //是否处于下拉刷新状态
+        img1:'',
         navList:[
           '推荐',
           '游戏',
@@ -305,24 +315,57 @@
         this.navIndex = index
       },
 
-      onRefresh(){
-        console.log('xxxx')
-        setTimeout(() => {
-          this.$toast('刷新成功');
-          this.isLoading = false
-        }, 500);
-      }
+      // onLoad() {      //上拉加载
+      //   setTimeout(() => {
+      //     for (let i = 0; i < 15; i++) {
+      //       this.list.push(this.list.length + 1);
+      //     }
+      //     this.loading = false;
+      //     if (this.list.length >= 60) {
+      //       this.finished = true;
+      //     }
+      //   }, 500);
+      // },
+      // onRefresh(){
+      //   setTimeout(() => {
+      //     this.finished = false;
+      //     this.isLoading = false;
+      //     this.onLoad()
+      //   }, 500);
+      // }
     },
 
-    mounted() {
+    async mounted() {
+      
+      // let winHeight = document.documentElement.clientHeight                          //视口大小
+      // document.getElementById('list-content').style.height = (winHeight - 46) +'px'
+      // const result= await reqSearch()
+      // const {status,data} = result
+      // if(status === 0){
+      //   this.datas = data
+      //   this.img1 = data.search_tuijian.tuijian[0].bgImg
+      //   console.log(data)
+      // }
+      // this.datas= datas
+      // console.log('datas',datas)
+
       new BScroll(this.$refs.top,{
         scrollX:true,
         click:true
       })
+      new BScroll(this.$refs.scrollY,{
+        scrollY:true,
+        click:true
+      })
+      new BScroll(this.$refs.scrollYY,{
+            scrollY:true,
+            click:true
+      })
+      
       let imgScroll = new BScroll(this.$refs.imgScroll,{
         scrollX:true,
         click:true,
-        stopPropagation:true,
+        stopPropagation:true
       });  
     
       new Swiper('.swiper1',{
@@ -332,9 +375,15 @@
       new Swiper('.swiper2',{
         loop:true,
         autoplay:true
-      }),
-
-      this.data1 = JSON.parse(datas)
+      })   
+    },
+    
+    watch: {
+      datas(){
+        this.$nextTick(()=>{
+          
+        })
+      }
     },
   }
 
@@ -367,7 +416,6 @@
           margin-top 10px
       .navScroll 
         width 100%
-        padding-left 3%
         background white
         .navScrollWrap
           width 84%
@@ -382,7 +430,7 @@
               text-align center
               line-height 40px
               font-size 16px
-              margin 0 15px 0 9px 
+              margin 0 0 0 20px 
               &.active
                 bottom-border-1px(black)
         .sanjiao
@@ -399,7 +447,7 @@
         width 100%
         height 100%
         .all
-          width 375px
+          height 80vh
           background #eeeeee
           position relative
           // .swiper-pagination
@@ -454,12 +502,12 @@
               width 183px
               height 350px
               &:nth-child(2n+1)
-                margin 0px 3px 0 2px
+                margin 3px 2px 0 2px
               &:nth-child(2n)
-                margin 0px 3px 0px 0
+                margin 3px 0px 2px 3px
               img 
-                width 100%
-                height 70%
+                width 183px
+                // height 70%
               .itemIntro
                 margin 10px 0 10px 10px
                 font-size 14px

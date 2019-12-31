@@ -20,3 +20,6 @@ export const reqHome = () => myAxios('/homeData',{
 export const reqUpdataAvatar = (_id,avatar) => myAxios.post('/updateAvatar',{_id,avatar})
 
 export const reqAttentions = (_idList) => myAxios.post('/getAttentions',{_idList})
+
+//发送search页面数据请求
+export const reqSearch = () => myAxios.get('/searchList')

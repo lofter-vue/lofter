@@ -1,6 +1,6 @@
 <template>
   <div>
-    profile
+    <div class="btn" @click="$router.push('/personal')">跳转</div>
   </div>
 </template>
 
@@ -10,6 +10,8 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-
- 
+  .btn
+    width 100%
+    height 40px
+    background #bbffaa
 </style>

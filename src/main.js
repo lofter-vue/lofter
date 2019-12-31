@@ -4,6 +4,14 @@ import 'lib-flexible/flexible';
 import router from "./router";
 import App from './App';
 import store from "./store";
+
+import {Button,Actionsheet} from 'mint-ui'
+
+
+// 注册全局组件(mint-ui)
+Vue.component(Button.name, Button)
+Vue.component(Actionsheet.name, Actionsheet)
+
 //全局事件总线
 //Vue.prototype.$bus = new Vue()
 

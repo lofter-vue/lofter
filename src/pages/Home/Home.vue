@@ -1,6 +1,6 @@
 <template>
   <div>
-    home
+    <div class="btn" @click="$router.push('/home_sub')">跳转广告</div>
   </div>
 </template>
 
@@ -10,6 +10,8 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-
- 
+  .btn
+    width 100%
+    height 40px
+    background #bbffaa
 </style>

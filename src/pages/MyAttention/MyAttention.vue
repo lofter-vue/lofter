@@ -103,4 +103,28 @@
       background transparent
       color #49c734
       font-size 16px
+  ul
+    width 100%
+    background yellow
+    li
+      display block
+      width 100%
+      height 60px
+      display flex
+      justify-content space-between
+      .listLeft
+        width 50%
+        height 100%
+        background pink
+        span 
+          width 100%
+          height 100%
+          display flex
+          justify-content space-around
+          align-items center
+          img 
+            width 60px
+            height 70px
+            padding 10px 0
+            box-sizing border-box
 </style>

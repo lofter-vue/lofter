@@ -103,11 +103,13 @@ export default new VueRouter({
         isShowFooter: true
       }
     },
-      //看小说页面路由
-    {
+    //关注页面
+    { 
+      name:'attention',
       path:'/attention',
       component:MyAttention
     },
+      //看小说页面路由
     {
       path:'/novel',
       component:Novel,

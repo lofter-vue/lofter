@@ -20,7 +20,6 @@ instence.interceptors.request.use((config) => {
 
   //从store中获取登录用户的token
   const { token } = store.state.user
-  console.log(token)
   //若取到了token，将token数据放入配置项config的头中
   if (token){
     config.headers.Authorization = token
@@ -67,21 +66,6 @@ instence.interceptors.response.use(
       }else{
         MessageBox('请求错误，'+error.message)
       }
-    }
-
-
-
-    let { status } = error.response
-    if (status === 401) {
-      // const path = router.currentRoute.path
-      // if (path !== '/login') {
-      //   store.dispatch('logOut')
-      //   router.replace('/login')
-      //   Toast(response.data.message || '登录失效，请重新登录')
-      // }
-      console.log('无权限')
-    } else {
-      MessageBox(error.message)
     }
     return Promise.reject()
   }

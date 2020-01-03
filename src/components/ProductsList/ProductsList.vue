@@ -1,13 +1,13 @@
 <template>
   <div class="productsList">
-    <div class="listItem" v-for="(item, index) in 6" :key="index">
+    <div class="listItem" v-for="(item, index) in details" :key="index">
       <div class="picture">
-        <img src="../../common/images/01.png" alt="">
+        <img :src="item.imgUrl" alt="">
       </div> 
       <div class="description">
-        <p class="itemTitle">魔道祖师动画-集福立牌</p>
-        <p class="discounts" >满108减10</p>
-        <p class="price"><span class="now">￥30</span>  <span class="old">￥49</span></p>
+        <p class="itemTitle">{{item.title}}</p>
+        <p class="discounts" >{{item.discount}}</p>
+        <p class="price"><span class="now">￥{{item.newPrice}}</span>  <span class="old">￥{{item.oldPrice}}</span></p>
       </div>   
     </div>
   </div>
@@ -15,7 +15,9 @@
 
 <script type="text/ecmascript-6">
 import ProductsList from "../../components/ProductsList/ProductsList"
+
   export default {
+    props:["details"]
   }
 </script>
 

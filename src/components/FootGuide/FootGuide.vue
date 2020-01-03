@@ -85,12 +85,7 @@ export default {
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-<<<<<<< HEAD
-@import "../../common/stylus/mixins.styl"
-
-=======
 @import '../../common/stylus/mixins.styl';
->>>>>>> e88b8744d0aac74577fe062446203c8275396e6a
 .foot-guide 
   position relative
   .top

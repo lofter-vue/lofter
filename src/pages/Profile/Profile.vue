@@ -229,6 +229,7 @@ import {UPDATA_AVATAR} from "../../store/mutations_types";
           button
             width 20%
             height 90%
+            line-height 16px
             border-radius 10px
             background  #468c77
             font-size 16px

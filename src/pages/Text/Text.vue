@@ -93,8 +93,7 @@ import { reqUpdateArtical } from "../../api";
         var d = myDate.getDate()
         const _id = this.userInfo._id
         if (this.content == '') return
-        const articleObj = {title:this.article,content:this.content,date:`${y}年${m}月${d}日`}
-        console.log(articleObj)
+        const articleObj = JSON.stringify({title:this.article,content:this.content,date:`${y}年${m}月${d}日`})
         let result = await reqUpdateArtical(_id,articleObj)
         console.log(result)
           // this.$router.push({

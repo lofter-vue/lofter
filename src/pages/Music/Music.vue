@@ -32,62 +32,16 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { reqMusicPlay } from "../../api";
+import { log } from 'util';
   export default {
     data(){
       return{
         currentIndex:null,
         isPlay:false,
         oldRef:'',
-        list:[
-          { 
-            img:"http://p1.music.126.net/WPHmBisDxnoF4DrBLKwl3Q==/109951163169021112.jpg?param=130y130",
-            music:"http://t.hunlipic.com/?cbg",
-            title:'丑八怪',
-            name:'薛之谦',
-            id:'意外',
-            ref:"aa"
-          },
-          { 
-            img:"http://p2.music.126.net/q-y_2Ey9hNn4PpxhvlwczA==/98956046517104.jpg?param=130y130",
-            music:"http://t.hunlipic.com/?ahjd",
-            title:'爱很简单',
-            name:'陶喆',
-            id:'闭着眼睛去旅行',
-            ref:"bb"
-          },
-          { 
-            img:"https://y.gtimg.cn/music/photo_new/T002R300x300M0000008wVjT0MSG3T.jpg?max_age=2592000",
-            music:"http://t.hunlipic.com/?dxy",
-            title:'多幸运',
-            name:'韩安旭',
-            id:'多幸运',
-            ref:"cc"
-          },
-          { 
-            img:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002txODq44rjEe.jpg?max_age=2592000",
-            music:"http://t.hunlipic.com/?qfdy",
-            title:'情非得已',
-            name:'庾澄庆',
-            id:'海啸',
-            ref:"dd"
-          },
-          { 
-            img:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002Isqaw4Gnqkn.jpg?max_age=2592000",
-            music:"http://t.hunlipic.com/?wzzhn",
-            title:'我只在乎你',
-            name:'邓丽君',
-            id:'邓丽君精选',
-            ref:"ee"
-          },
-          { 
-            img:"https://y.gtimg.cn/music/photo_new/T002R300x300M0000034bzu226F71i.jpg?max_age=2592000",
-            music:"http://t.hunlipic.com/?zjsa",
-            title:'这就是爱',
-            name:'张杰',
-            id:'Just For Start',
-            ref:"ff"
-          },
-        ]
+        list:[]
+        
       }
     },
     methods:{
@@ -112,25 +66,6 @@
             this.isPlay = true
           }
         }
-
-        // console.log(this.$refs[ref][0]);
-        // if(isPlay){
-        //   if(this.currentIndex !== index){
-        //     this.isPlay = false
-        //     this.currentIndex = index
-        //   }
-        //   this.playIndex = index
-        //   this.isPlay = true
-        //   if(this.playIndex == index) {
-        //     this.isup = false
-        //   }
-        //   this.$refs[ref][0].play()
-        // }else{
-        //   this.isup = true
-        //   this.isPlay = false
-        //   this.$refs[ref][0].pause()
-          
-        // }
         
         
       },
@@ -141,8 +76,13 @@
       
       
     },
-    mounted(){
-    }
+    async mounted(){
+      let result = await reqMusicPlay()
+      const {status,data} = result
+      if (status === 0) {
+        this.list = data
+      }
+    },
   }
 </script>
 

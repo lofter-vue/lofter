@@ -1,54 +1,60 @@
 <template>
-  <div class="container">
-    <div class="wapper">
-      <div class="scroll">
-        <ul class="mySub">
-          <li class="title">我的订阅</li>
-          <!-- <li class="item" v-for="(mySub,index) in list.mySubs" :key="index">
-              <img class="img" src="../Attention/img/avactar.jpg" alt="">
-              <span>{{mySub}}</span>
-            </li> -->
-          <ul class="list-group">
+  <VuePullRefresh :on-refresh="onRefresh">
+    <div class="container">
+      <div class="wapper">
+        <div class="scroll">
+          <ul class="mySub">
+            <li class="title">我的订阅</li>
+            <!-- <li class="item" v-for="(mySub,index) in list.mySubs" :key="index">
+                <img class="img" src="../Attention/img/avactar.jpg" alt="">
+                <span>{{mySub}}</span>
+              </li> -->
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                v-for="(mySub, index) in list.mySubs"
+                :key="index"
+              >
+                <img class="img" :src="mySub.img" alt="" />
+                {{ mySub.category }}
+                <span class="badge">12</span>
+              </li>
+            </ul>
+          </ul>
+          <ul class="mySub">
+            <!-- <li class="title">推荐订阅</li> 
+                <li class="item" v-for="(recSub,index) in list.recSubs" :key="index">
+                <img class="img" src="../Attention/img/avactar.jpg" alt="">
+                <span>{{recSub}}</span>
+                </li> -->
+            <li class="title">推荐订阅</li>
             <li
               class="list-group-item"
-              v-for="(mySub, index) in list.mySubs"
+              v-for="(recSub, index) in list.recSubs"
               :key="index"
             >
-              <img class="img" :src="mySub.img" alt="" />
-              {{ mySub.category }}
-              <span class="badge">12</span>
+              <img class="img" :src="recSub.img" alt="" />
+              {{ recSub.category }}
+              <span class="badge init" @click="subscr">{{isSub?"取消订阅" : "订阅"}}</span>
             </li>
           </ul>
-        </ul>
-        <ul class="mySub">
-          <!-- <li class="title">推荐订阅</li> 
-              <li class="item" v-for="(recSub,index) in list.recSubs" :key="index">
-              <img class="img" src="../Attention/img/avactar.jpg" alt="">
-              <span>{{recSub}}</span>
-              </li> -->
-          <li class="title">推荐订阅</li>
-          <li
-            class="list-group-item"
-            v-for="(recSub, index) in list.recSubs"
-            :key="index"
-          >
-            <img class="img" :src="recSub.img" alt="" />
-            {{ recSub.category }}
-            <span class="badge init" @click="subscr">{{isSub?"取消订阅" : "订阅"}}</span>
-          </li>
-        </ul>
+        </div>
       </div>
     </div>
-  </div>
+  </VuePullRefresh>
 </template>
 
 <script type="text/ecmascript-6">
 import Vue from 'vue'
+import VuePullRefresh from 'vue-pull-refresh';
 import {mapState} from 'vuex'
 import {Toast} from 'mint-ui'
 import BScroll from 'better-scroll'
   export default {
     name:"Subscription",
+    components:{
+      VuePullRefresh
+    },
     data() {
       return {
         list:{
@@ -140,7 +146,14 @@ import BScroll from 'better-scroll'
             iconClass: 'iconfont icon-quxiao1'
         })
       }
-      }
+      },
+        onRefresh: function () {
+      return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+              resolve();
+          }, 1000);
+      });
+      },
     },
     computed: {
       ...mapState({

@@ -37,7 +37,7 @@
       <span class="guide-item"  :class="{on:$route.path === '/more'}">
           <span @click="start">
               <span :class="[rotate?'go':'aa']">
-                <i class="iconfont iconjiahao" style="font-size:36px"></i>
+                <i class="iconfont icon-jiahao" style="font-size:36px"></i>
               </span>
           </span>
       </span>

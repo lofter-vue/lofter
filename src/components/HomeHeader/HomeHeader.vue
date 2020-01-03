@@ -1,6 +1,6 @@
 <template>
   <div class="homeHeader">
-          <div class="left" :class="index==0? 'active':''" @click="showA(0)">
+          <div class="left" :class="index==0? 'active':''"  @click="showA(0)">
             关注
           </div>
             <div class="right" :class="index==1? 'active':''" @click="showA(1)">
@@ -16,7 +16,7 @@ import {mapState} from 'vuex'
     prop:["show","activeIndex"],
     data() {
       return {
-        index:0
+        index:0,
       }
     },
     methods: {
@@ -51,6 +51,8 @@ import {mapState} from 'vuex'
     margin-left 30%
     &.active
       border-bottom 1px solid green
+    &.active1
+      border-bottom 1px solid green  
   .right
     display block
     font-size 18px
@@ -58,6 +60,8 @@ import {mapState} from 'vuex'
     width 20%
     &.active
       border-bottom 1px solid green
+    &.active1
+      border-bottom 1px solid green    
   .icon-yaoqingyouli
     display block
     font-size 22px

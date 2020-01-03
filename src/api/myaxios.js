@@ -67,21 +67,6 @@ instence.interceptors.response.use(
         MessageBox('请求错误，'+error.message)
       }
     }
-
-
-
-    let { status } = error.response
-    if (status === 401) {
-      // const path = router.currentRoute.path
-      // if (path !== '/login') {
-      //   store.dispatch('logOut')
-      //   router.replace('/login')
-      //   Toast(response.data.message || '登录失效，请重新登录')
-      // }
-      console.log('无权限')
-    } else {
-      MessageBox(error.message)
-    }
     return Promise.reject()
   }
 )

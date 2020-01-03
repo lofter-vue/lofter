@@ -4,7 +4,7 @@
     <div class="swiper-container" >
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item, index) in swiperImg" :key="index">
-          <img :src="item" alt="" @click="$router.push('/swiperProducts')">
+          <img :src="item" alt="" @click="$router.push('/swiperProducts')"/>
         </div>
         <!-- <div class="swiper-slide">
           <img src="../../common/images/01.png" alt="">

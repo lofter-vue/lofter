@@ -2,7 +2,7 @@
   <div class="swiperProductsContainer" >
     <div class="swiperProductsHeader">
       <span class="iconfont icon-fanhui1" @click="$router.replace('/market')"></span>
-      <h1>魔道祖师</h1>
+      <h1>图书</h1>
       <span class="iconfont icon-arrow-" @click="changeShare"></span>
     </div>
     <div class="swiperImage">
@@ -179,7 +179,8 @@ Vue.component(Popup.name, Popup);
                     
                   ]
                 }
-      }
+     
+     }
     },
     methods: {
       // share(){

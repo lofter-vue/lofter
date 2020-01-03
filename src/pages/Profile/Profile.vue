@@ -23,7 +23,7 @@
         </transition>
       </div>
       <div class="user-fav-fan">
-        <div>
+        <div @click="$router.push('/attention')">
           <span>{{userInfo.attention ? userInfo.attention.length : 0}}</span>
           <span>关注</span>
         </div>
@@ -110,6 +110,9 @@ import { MessageBox,Toast } from "mint-ui";
 import { reqUpdataAvatar } from "../../api";
 import {UPDATA_AVATAR} from "../../store/mutations_types";
   export default {
+    mounted() {
+      this.$store.dispatch('saveMyAttention')
+    },
     data() {
       return {
         isUpdataAvatar:false,
@@ -226,6 +229,7 @@ import {UPDATA_AVATAR} from "../../store/mutations_types";
           button
             width 20%
             height 90%
+            line-height 16px
             border-radius 10px
             background  #468c77
             font-size 16px
@@ -305,15 +309,15 @@ import {UPDATA_AVATAR} from "../../store/mutations_types";
     li 
       height 40px 
       width 100%
+      display flex
+      justify-content start
       i   
-        float left
         width 10%
         height 41px
         text-align center
         line-height 41px
         font-size 16px
       span
-        float right
         width 90%
         height 40px
         border-bottom 1px solid #f5f3f3

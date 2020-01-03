@@ -7,19 +7,31 @@
 
 <script>
 import FootGuide from "./components/FootGuide/FootGuide";
-
+import { mapState } from "vuex";
 import { reqAttentions } from "./api";
 export default {
-  async created() {
+  created() {
     this.$store.dispatch('autoLogin')
-    let arr = ['5dccd15af495734150be910e','5dccd15ff495734150be910f']
-    let _idList = arr.join(',')
-    let result = await reqAttentions(_idList)
-    console.log(result)
+    setTimeout(() => {
+      this.$store.dispatch('saveMyAttention')
+    }, 300);
+  },
+  mounted() {
+    console.log(this.$route.path)
   },
   components: {
     FootGuide
-  }
+  },
+  computed: {
+    ...mapState({
+      attentions:state => state.user.attention
+    })
+  },
+  watch: {
+    attentions(){
+      this.$store.dispatch('getAttentionDatas',this.attentions)
+    }
+  },
 };
 </script>
 

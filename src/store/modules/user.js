@@ -29,7 +29,6 @@ export default {
       if(!state.userInfo._id && state.token){
         const result = await reqAutoLogin()
         const {status,data} = result
-        console.log(result)
         if(status === 0){
           commit(SAVE_USER,data)
           commit(SAVE_ATTENTION,data.attention)

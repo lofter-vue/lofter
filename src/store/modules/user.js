@@ -31,6 +31,7 @@ export default {
         const {status,data} = result
         if(status === 0){
           commit(SAVE_USER,data)
+          commit(SAVE_ATTENTION,data.attention)
         }
       }
     },
@@ -44,8 +45,7 @@ export default {
 
     //查找我的关注
     async saveMyAttention({commit,state}){
-      // let arr = JSON.parse(JSON.stringify(this.userInfo.attention))
-      // if(state.userInfo.attention){
+      if(state.userInfo.attention){
         let arr = state.userInfo.attention
         let _idList = arr.join(',')
         let result = await reqAttentions(_idList)
@@ -53,7 +53,7 @@ export default {
         if(status === 0){
           commit(SAVE_ATTENTION,data)
         }
-      // }
+      }
     }
   },
   mutations: {

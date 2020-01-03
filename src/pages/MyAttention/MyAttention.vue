@@ -1,7 +1,7 @@
 <template>
   <div class="myAttention">
     <div class='header'>
-      <span class="left">
+      <span class="left" @click="$router.back()">
         <i class='iconfont iconzuobian'></i>
       </span>
       <span class="title">我的关注（15）</span>
@@ -36,6 +36,9 @@
   import { mapState } from "vuex";
   import { reqAttentions } from "../../api";
   export default {
+    mounted() {
+      this.$store.dispatch('saveMyAttention')
+    },
     data() {
       return {
         userAttentions:[]
@@ -49,6 +52,7 @@
     },
     watch: {
       async userInfo(){
+        //监视的值不能直接改
         let arr = JSON.parse(JSON.stringify(this.userInfo.attention))
         let _idList = arr.join(',')
         let result = await reqAttentions(_idList)

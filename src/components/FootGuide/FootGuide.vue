@@ -1,22 +1,22 @@
 <template>
     <div class="foot-guide">  
     <div class="top">
-        <span class="guide-item-top yinyue" :class="[move?'up':'down']">
+        <span class="guide-item-top yinyue" :class="[move?'down':'up']" >
             <span>
               <i class="iconfont icon-yinyue" style="color:#66B8F5" :class="{on:$route.path === '/music'}" @click="goto('/music')"></i>
             </span>
         </span>
-        <span class="guide-item-top text" :class="[move?'up':'down']" >
+        <span class="guide-item-top text" :class="[move?'down':'up']" >
           <span>
             <i class="iconfont icon-bianjiqianbixieshuru" style="color:#FFC45F" :class="{on:$route.path === '/text'}" @click="goto('/text')"></i>
           </span>
         </span>
-        <span class="guide-item-top photo" :class="[move?'up':'down']">
+        <span class="guide-item-top photo" :class="[move?'down':'up']">
           <span>
             <i class="iconfont icon-tupian" style="color:#88E144"></i>
           </span>
         </span>
-        <span class="guide-item-top video" :class="[move?'up':'down']">
+        <span class="guide-item-top video" :class="[move?'down':'up']">
           <span>
             <i class="iconfont icon-shipin" style="color:#5BBAFF"></i>
           </span>
@@ -36,7 +36,7 @@
       </span>
       <span class="guide-item"  :class="{on:$route.path === '/more'}">
           <span @click="start">
-              <span :class="[rotate?'aa':'go']">
+              <span :class="[rotate?'go':'aa']">
                 <i class="iconfont iconjiahao" style="font-size:36px"></i>
               </span>
           </span>
@@ -63,8 +63,8 @@ import { mapState } from "vuex";
 export default {
   data(){
     return{
-      rotate:true,
-      move:true,
+      rotate:false,
+      move:false,
       mask: false
     }
   },
@@ -117,6 +117,7 @@ export default {
     &.cc
       display none 
   .guide-item 
+    z-index 999
     display: flex;
     flex-direction: column;
     width: 25%;
@@ -146,7 +147,7 @@ export default {
     // transition  all 1s
     .up
       opacity 0
-      transform translateY(50px)
+      transform translateY(70px)
     .down
       opacity 1
       transform translateY(0px)

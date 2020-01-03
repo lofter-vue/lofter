@@ -11357,6 +11357,8 @@ vue-pull-refresh@^0.2.7:
   version "0.2.7"
   resolved "https://registry.npm.taobao.org/vue-pull-refresh/download/vue-pull-refresh-0.2.7.tgz#ee4025fed2c2ff32390153a0ae2fcb86d5eeded6"
   integrity sha1-7kAl/tLC/zI5AVOgri/LhtXu3tY=
+  resolved "https://registry.yarnpkg.com/vue-pull-refresh/-/vue-pull-refresh-0.2.7.tgz#ee4025fed2c2ff32390153a0ae2fcb86d5eeded6"
+  integrity sha512-SN0DxNeKrcgduybhHrUgHPHiyjHlfLN29ycslfiV/NeQ5qgDaB3COl1m30cpcqQgk0+pKcCUsygdKrj3qB0AFw==
   dependencies:
     vue "^2.0.1"
 

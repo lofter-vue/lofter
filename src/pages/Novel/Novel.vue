@@ -15,10 +15,10 @@
       <div class="navContainer">
         <div class="routeContainer">
           <div class="route" @click="changeNavIndex(index)" v-for="(item,index) in navArr" :key="index" >
-              <router-link  :to="item.route">
+              <div  @click="jump(item.route)" >
                 {{item.name}} 
                 <div :class="{line:navIndex===index}"></div>
-              </router-link>
+              </div>
           </div>
         </div>
       </div>
@@ -29,6 +29,7 @@
 
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll'
+
   export default {
     data(){
       return {
@@ -62,6 +63,9 @@ import BScroll from 'better-scroll'
       //点击切换导航下边的小红线
       changeNavIndex(index){
         this.navIndex = index
+      },
+      jump(path){
+        this.$router.replace(path)
       }
     },
     mounted(){
@@ -69,6 +73,7 @@ import BScroll from 'better-scroll'
         scrollY:true,
         click:true
       })
+      
     }
   }
 </script>

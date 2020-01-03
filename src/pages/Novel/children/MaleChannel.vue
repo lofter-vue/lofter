@@ -83,7 +83,6 @@ import {reqNovelInfo} from '../../../api/index'
       }),
       this.result = await reqNovelInfo()
       this.content = this.result.data
-      console.log(this.content)
     }
   }
 </script>

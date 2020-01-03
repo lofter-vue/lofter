@@ -86,7 +86,7 @@
       border-radius 10px
       background-color #fff
       .title
-        padding 15px 
+        padding 10px 
         width 100%
         line-height 30px
         font-size 14px
@@ -95,7 +95,7 @@
         flex-wrap nowrap
         width 100%
         height 55px
-        padding-bottom 15px
+        padding-bottom 20px
         border-bottom  1px solid #989898
         li
           width 20%
@@ -119,12 +119,12 @@
             width 100%
             text-align center
       .refresh
-        margin-top 10px
+        margin-top 15px
         display flex
         flex-wrap nowrap
         width 100%
         height 60px
-        padding-bottom 5px
+        padding-bottom 10px
         border-bottom  1px solid #98989
         div
           display flex
@@ -135,6 +135,7 @@
             font-size 50px
             margin 0 10px
             color #878787
+            margin-top -10px
           .text
             margin-top 5px
             font-size 12px

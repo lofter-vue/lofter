@@ -9,7 +9,6 @@
 -->
   <transition name="shareMove">
 <div class="mask" v-if="shareShow" @touchmove.prevent>
-
     <div class="shareContainer" >
       <div class="title">分享到</div>
       <ul class="share">

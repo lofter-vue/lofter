@@ -7,15 +7,26 @@
 
 <script>
 import FootGuide from "./components/FootGuide/FootGuide";
+import { mapState } from "vuex";
 import { reqAttentions } from "./api";
 export default {
-  mounted() {
+  created() {
     this.$store.dispatch('autoLogin')
   },
   components: {
     FootGuide
     
-  }
+  },
+  computed: {
+    ...mapState({
+      attentions:state => state.user.attention
+    })
+  },
+  watch: {
+    attentions(){
+      this.$store.dispatch('getAttentionDatas',this.attentions)
+    }
+  },
 };
 </script>
 

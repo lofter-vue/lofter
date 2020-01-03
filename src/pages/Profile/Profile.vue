@@ -6,7 +6,7 @@
           <img :src="userInfo.avatar" alt="" @click="isUpdataAvatar=true">
           <span class="username">{{userInfo.username}}</span>
         </span>
-        <span class='more'><i class='iconfont iconyoubian'></i></span>
+        <span class='more' @click="$router.push('/personal')"><i class='iconfont iconyoubian'></i></span>
         <transition name='update'>
           <span class="avatar" v-if="isUpdataAvatar">
             <span>请输入新头像图片链接地址</span>

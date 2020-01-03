@@ -12,13 +12,13 @@
     <transition name="move">
       <!-- 点击加号生成菜单 -->
       <div v-show="isShowMenu" class="menu">
-        <div class="music">
+        <div class="music" @click="$router.push('/music')">
           <span>
             <i class="iconfont icon-yinyue"></i>
           </span>
           <p>音乐</p>
         </div>
-        <div class="words">
+        <div class="words" @click="$router.push('/text')">
           <span>
             <i class="iconfont icon-bianjiqianbixieshuru"></i>
           </span>

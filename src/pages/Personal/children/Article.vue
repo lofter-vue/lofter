@@ -42,6 +42,9 @@
     <!-- 遮罩 -->
     <!-- <div @click="isShowShare=false" v-show="isShowShare" class="mask"></div> -->
 
+    <!-- 分享内容 -->
+    <ShareContainer :shareShow="shareShow" :changeShare="changeShare"/>
+
     <div id="articleContainer">
 
       <!-- 文章结构切换 -->
@@ -49,17 +52,24 @@
         <i class="iconfont icon-xuanxiang"></i>
       </div>
 
+      <!-- 没有文章列表 -->
+      <div class="noArticle">
+        <p class="tip">你还没有发布过文章</p>
+        <p>去拍张照或者写点什么吧</p>
+        <mt-button @click="$router.push('/text')" class="btn">去发布</mt-button>
+      </div>
+
       <!-- 文章列表 -->
-      <div class="articleList">
+      <div class="articleList" v-if="isShowArticle">
 
         <div class="articleItem">
           <div class="userInfo">
-            <img src="../images/userImg.png" alt="">
+            <img :src="userInfo.avatar" alt="">
             <div class="name-date">
-              <p class="name">lofter用户</p>
+              <p class="name">{{userInfo.username}}</p>
               <p class="date">12-28</p>
             </div>
-            <div class="share">
+            <div class="share" @click="changeShare">
               <i class="iconfont icon-gengduo2"></i>
             </div>
           </div>
@@ -134,12 +144,34 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {Button} from 'mint-ui'
+  import {mapState} from 'vuex'
+  import ShareContainer from '../../../components/shareContainer'
+
   export default {
     data() {
       return {
-        isShowShare: false
+        isShowArticle: false,
+        isShowShare: false,
+        shareShow: false
       }
     },
+
+    computed: {
+      ...mapState({
+        userInfo: state => state.user.userInfo
+      })
+    },
+
+    methods: {
+      changeShare(){
+        this.shareShow = !this.shareShow
+      },
+    },
+    
+    components: {
+      ShareContainer
+    }
   }
 </script>
 
@@ -245,6 +277,30 @@
         font-size 22px
         color #aaa
         margin-right 10px
+
+    .noArticle
+      width 100%
+      height calc(100vh - 100px)
+      display flex
+      flex-direction column
+      align-items center
+      .tip
+        margin-top 40px
+        font-size 16px
+        color #999999
+        letter-spacing 1px
+      p
+        margin-top 10px
+        color #999999
+        line-height 26px
+        letter-spacing 0.5px
+      .btn
+        margin-top 10px
+        height 28px
+        font-size 14px
+        color #ffffff
+        background #A3C53C
+        border-radius 14px
 
     .articleList
       width 100%

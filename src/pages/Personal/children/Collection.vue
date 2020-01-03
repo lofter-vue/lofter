@@ -6,8 +6,7 @@
         <i class="iconfont iconjiahao"></i>
       </span>
       <p class="tip">你还没有创建过合集</p>
-      <p>前往网页版LOFTER创建和管理你的合集</p>
-      <p>电脑上访问www.lofter.com</p>
+      <mt-button class="btn">创建合集</mt-button>
     </div>
 
   </div>
@@ -29,18 +28,21 @@
       flex-direction column
       align-items center
       .create
-        margin-top 60px
+        margin-top 50px
         i
           font-size 70px
           color #999999
       .tip
-        margin-top 15px
-        font-size 16px
+        margin-top 20px
+        font-size 15px
         color #999999
         letter-spacing 1px
-      p
-        margin-top 10px
-        color #999999
-        line-height 26px
+      .btn
+        margin-top 20px
+        height 28px
+        font-size 14px
+        color #ffffff
+        background #A3C53C
+        border-radius 14px
 
 </style>

@@ -97,11 +97,7 @@ export default new VueRouter({
     },
       //个人页面路由
     {
-<<<<<<< HEAD
-      path:'/profile',
-=======
       path:'/profile', 
->>>>>>> e88b8744d0aac74577fe062446203c8275396e6a
       component:Profile,
       meta: {
         isShowFooter: true
@@ -143,18 +139,13 @@ export default new VueRouter({
       ]
     },
     {
-      path:'/Music',
+      path:'/music',
       component:Music,
       
     },
     {
-      path:'/Text',
+      path:'/text',
       component:Text,
-    },
-    {
-      path:'/',
-<<<<<<< HEAD
-      redirect:'/home'
     },
     {
       path: '/personal', // 个人中心页面
@@ -173,9 +164,6 @@ export default new VueRouter({
           redirect: '/personal/article'
         }
       ]
-=======
-      redirect:'/search'
->>>>>>> e88b8744d0aac74577fe062446203c8275396e6a
     },
     {
       path: '/home_sub', // 首页轮播跳转页面
@@ -194,6 +182,10 @@ export default new VueRouter({
           redirect: '/home_sub/most_hot'
         }
       ]
+    },
+    {
+      path:'/',
+      redirect:'/search'
     }
   ]
 })

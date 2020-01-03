@@ -7,7 +7,7 @@
         <span class="back" @click="$router.replace('/profile')">
           <i class="iconfont icon-arrow_left"></i>
         </span>
-        <!-- <span class="useId">用户名</span> -->
+        <span class="useId">{{userInfo.username}}</span>
         <span class="more" @click="actionSheet">
           <i class="iconfont icon-gengduo"></i>
         </span>
@@ -16,11 +16,14 @@
       <div class="userBg">
         <div class="userInfo">
           <div class="userImg">
-            <img src="./images/userImg.png" alt="">
+            <img :src="userInfo.avatar" alt="">
           </div>
-          <p class="userName">lofter用户</p>
+          <p class="userName">{{userInfo.username}}</p>
           <div class="follow-fans">
-            <span>关注 10</span>
+            <div class="follow" @click="$router.push('/attention')">
+              <span>关注</span>
+              <span>{{userInfo.attention ? userInfo.attention.length : 0}}</span>
+            </div>
             <span>粉丝 10</span>
             <span>推荐 10</span>
           </div>
@@ -37,7 +40,7 @@
       <!--内容 跳转 -->
       <div class="contentTab">
         <div class="contentTabItem">
-          <router-link to="/personal/article" replace>文章(22)</router-link>
+          <router-link to="/personal/article" replace>文章(0)</router-link>
         </div>
         <div class="contentTabItem">
           <router-link to="/personal/collection" replace>合集(0)</router-link>
@@ -58,6 +61,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {mapState} from 'vuex'
   import {Actionsheet} from 'mint-ui'
 
   export default {
@@ -81,11 +85,18 @@
       }
     },
 
+    computed: {
+      ...mapState({
+        userInfo: state => state.user.userInfo
+      })
+    },
+
     methods: {
       actionSheet () {
         // 显示sheetVisible
         this.sheetVisible = true
-      }
+      },
+      
     },
     
   }
@@ -100,12 +111,13 @@
         z-index 50
         width 100%
         height 46px
+        // background #F3DADA
         display flex
         align-items center
         background transparent
         justify-content space-between
         span
-          color #fff
+          color #333333
           font-size 16px
         .back
           margin-left 10px
@@ -118,7 +130,8 @@
       .userBg
         width 100%
         height 210px
-        background-image url('./images/bgImg.png')
+        // background-image url('./images/bgImg.png')
+        background linear-gradient(to top,white, rgba(231,179,179,0.5))
         background-size cover
         background-repeat no-repeat
         .userInfo
@@ -138,20 +151,23 @@
               width 100%
               height 100%
           .userName
-            color #ffffff
+            color #333333
             font-size 18px
             margin-top 5px
             letter-spacing 0.5px
           .follow-fans
-            color #ffffff
+            color #333333
             margin-top 15px
             width 200px
             display flex
             justify-content space-around
+            .follow
+              span
+                margin-right 5px 
       .userIntro
         width 100%
         height 40px
-        color #aaaaaa
+        color #999999
         font-size 12px
         text-align center
         line-height 30px

@@ -66,211 +66,24 @@
 <script>
 import Swiper from 'swiper'
 import 'swiper/css/swiper.css'
+import {reqNovelInfo} from '../../../api/index'
   export default {
     data () {
       return {
         //图书数组
-        content:[
-      {
-        "bid": "7864932",
-        "bookname": "重生之都市弃少",
-        "introduction": " 仙尊划破虚空而来，重生为都市小子！\n 　 他是叱咤风云的武道奇才，一拳震天慑地，无人敢不屈服！\n 这一世，叶爽纵横花都，逍遥快活，仇人，恶少脚下踩！辣妞，妹子怀中抱！ \n ",
-        "book_info": " 仙尊划破虚空而来，重生为都市小子！\n 　 他是叱咤风云的武道奇才，一拳震天慑地，无人敢不屈服！\n 这一世，叶爽纵横花都，逍遥快活，仇人，恶少脚下踩！辣妞，妹子怀中抱！ \n ",
-        "chapterid": "1257442",
-        "topic": "第八百零四章 交易",
-        "topic_first": "第一章不可置信",
-        "date_updated": 1577461202,
-        "author": "94637",
-        "author_name": "老酒",
-        "top_class": "502",
-        "state": "1",
-        "readCount": "0",
-        "praiseCount": "0",
-        "stat_name": "连载",
-        "class": "122",
-        "class_name": "都市异能",
-        "size": "1643905",
-        "book_cover": "http://img-tailor.11222.cn/bcv/big/1190037864932.jpg",
-        "chapterid_first": "1105656",
-        "chargeMode": "3",
-        "digest": "0",
-        "price": "0.5",
-        "tag": [
-          "爽文",
-          "重生",
-          "强者回归"
-        ],
-        "is_new": 1,
-        "discountNum": 10,
-        "quick_price": 0,
-        "formats": "1",
-        "audiobook_playCount": 0,
-        "chapterNum": "804",
-        "isShortStory": false,
-        "userid": "0",
-        "search_heat": 89,
-        "num_click": 96495,
-        "recommend_num": 14268,
-        "first_cate_id": "51",
-        "first_cate_name": "都市小说",
-        "disType": null,
-        "disInfo": null,
-        "isMonthlyBook": null,
-        "reason": ""
-      },
-      {
-        "bid": "7949140",
-        "bookname": "重生之仙帝赘婿",
-        "introduction": "一代仙帝张阳在突破境界时，失败后竟穿越到了废物‘赘婿’张阳的身上。在面对冷漠的妻子，咄咄逼人的丈母娘和蛮横的小姨子，且看张阳如何为‘赘婿’正名......",
-        "book_info": "一代仙帝张阳在突破境界时，失败后竟穿越到了废物‘赘婿’张阳的身上。在面对冷漠的妻子，咄咄逼人的丈母娘和蛮横的小姨子，且看张阳如何为‘赘婿’正名......",
-        "chapterid": "1288466",
-        "topic": "第四百八十九章：决议",
-        "topic_first": "第一章：重生赘婿",
-        "date_updated": 1577444702,
-        "author": "4233320",
-        "author_name": "东方威少",
-        "top_class": "502",
-        "state": "1",
-        "readCount": "0",
-        "praiseCount": "0",
-        "stat_name": "连载",
-        "class": "122",
-        "class_name": "都市异能",
-        "size": "987433",
-        "book_cover": "http://img-tailor.11222.cn/bcv/big/1186277949140.jpg",
-        "chapterid_first": "1185040",
-        "chargeMode": "3",
-        "digest": "0",
-        "price": "0.5",
-        "tag": [
-          "热血",
-          "争霸",
-          "重生",
-          "杀伐果断"
-        ],
-        "is_new": 1,
-        "discountNum": 10,
-        "quick_price": 0,
-        "formats": "1",
-        "audiobook_playCount": 0,
-        "chapterNum": "489",
-        "isShortStory": false,
-        "userid": "0",
-        "search_heat": 81,
-        "num_click": 63815,
-        "recommend_num": 11000,
-        "first_cate_id": "51",
-        "first_cate_name": "都市小说",
-        "disType": null,
-        "disInfo": null,
-        "isMonthlyBook": null,
-        "reason": ""
-      },
-      {
-        "bid": "7944124",
-        "bookname": "天降大富豪",
-        "introduction": "被女神拒绝，被富二代侮辱，吴天以为自己这辈子都将抬不起头，但当一个美女御姐说是自己的秘书开始，一切都不一样了……",
-        "book_info": "被女神拒绝，被富二代侮辱，吴天以为自己这辈子都将抬不起头，但当一个美女御姐说是自己的秘书开始，一切都不一样了……",
-        "chapterid": "1248469",
-        "topic": "823 攻守逆转",
-        "topic_first": "1 我是您秘书",
-        "date_updated": 1577497506,
-        "author": "9237",
-        "author_name": "乐天",
-        "top_class": "502",
-        "state": "1",
-        "readCount": "0",
-        "praiseCount": "0",
-        "stat_name": "连载",
-        "class": "121",
-        "class_name": "都市生活",
-        "size": "1697632",
-        "book_cover": "http://img-tailor.11222.cn/bcv/big/1153237944124.jpg",
-        "chapterid_first": "1146361",
-        "chargeMode": "3",
-        "digest": "0",
-        "price": "0.5",
-        "tag": [
-          "爽文",
-          "轻松",
-          "生存奇遇"
-        ],
-        "is_new": 1,
-        "discountNum": 10,
-        "quick_price": 0,
-        "formats": "1",
-        "audiobook_playCount": 0,
-        "chapterNum": "823",
-        "isShortStory": false,
-        "userid": "0",
-        "search_heat": 74,
-        "num_click": 87685,
-        "recommend_num": 13387,
-        "first_cate_id": "51",
-        "first_cate_name": "都市小说",
-        "disType": null,
-        "disInfo": null,
-        "isMonthlyBook": null,
-        "reason": ""
-      },
-      {
-        "bid": "7724285",
-        "bookname": "极品鉴宝师",
-        "introduction": "原本就是一个穷打工的，想要靠古董发家，结果被人骗光了积蓄，后来一直在洛阳送外卖，意外撞车之后，获得了特殊的鉴宝能力，从此走上了发家致富的道路。",
-        "book_info": "原本就是一个穷打工的，想要靠古董发家，结果被人骗光了积蓄，后来一直在洛阳送外卖，意外撞车之后，获得了特殊的鉴宝能力，从此走上了发家致富的道路。",
-        "chapterid": "1343718",
-        "topic": "第970章 赵炎的到来",
-        "topic_first": "第1章玄目天瞳",
-        "date_updated": 1577448907,
-        "author": "1009",
-        "author_name": "沧海一笑",
-        "top_class": "502",
-        "state": "1",
-        "readCount": "0",
-        "praiseCount": "0",
-        "stat_name": "连载",
-        "class": "121",
-        "class_name": "都市生活",
-        "size": "1951586",
-        "book_cover": "http://img-tailor.11222.cn/bcv/big/1144217724285.jpg",
-        "chapterid_first": "1111724",
-        "chargeMode": "3",
-        "digest": "0",
-        "price": "0.5",
-        "tag": [
-          "爽文",
-          "轻松",
-          "盗墓",
-          "鉴宝"
-        ],
-        "is_new": 1,
-        "discountNum": 10,
-        "quick_price": 0,
-        "formats": "1",
-        "audiobook_playCount": 0,
-        "chapterNum": "970",
-        "isShortStory": false,
-        "userid": "0",
-        "search_heat": 94,
-        "num_click": 103725,
-        "recommend_num": 14991,
-        "first_cate_id": "51",
-        "first_cate_name": "都市小说",
-        "disType": null,
-        "disInfo": null,
-        "isMonthlyBook": null,
-        "reason": ""
-      }
-    ]
+        content:[]
       }
     },
-    mounted() {
+    async mounted() {
       new Swiper(this.$refs.sc1,{
         loop:true, // 循环模式选项
         pagination:{// 如果需要分页器
           el:'.swiper-pagination'
         }
-      })
+      }),
+      this.result = await reqNovelInfo()
+      this.content = this.result.data
+      console.log(this.content)
     }
   }
 </script>

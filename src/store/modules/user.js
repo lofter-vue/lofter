@@ -3,14 +3,18 @@ import {
   SAVE_TOKEN,
   REMOVE_USER,
   REMOVE_TOKEN,
-  UPDATA_AVATAR
+  UPDATA_AVATAR,
+  SAVE_ATTENTION,
+  SAVE_MYATTENTION
 } from "../mutations_types";
 
-import { reqAutoLogin } from "../../api";
+import { reqAutoLogin,reqAttentions } from "../../api";
 export default {
   state: {
     userInfo:{},
-    token: localStorage.getItem('token_key') ||''
+    token: localStorage.getItem('token_key') ||'',
+    attention:[],
+    myAttention:[]
   },
   actions: {
     //登录保存用户信息
@@ -29,6 +33,7 @@ export default {
         const {status,data} = result
         if(status === 0){
           commit(SAVE_USER,data)
+          commit(SAVE_ATTENTION,data.attention)
         }
       }
     },
@@ -38,6 +43,19 @@ export default {
       localStorage.removeItem('token_key')
       commit(REMOVE_USER)
       commit(REMOVE_TOKEN)
+    },
+
+    //查找我的关注
+    async saveMyAttention({commit,state}){
+      if(state.attention){
+        let arr = state.attention
+        let _idList = arr.join(',')
+        let result = await reqAttentions(_idList)
+        const {status,data} = result
+        if(status === 0){
+          commit(SAVE_MYATTENTION,data)
+        }
+      }
     }
   },
   mutations: {
@@ -54,9 +72,13 @@ export default {
       state.token = ''
     },
     [UPDATA_AVATAR](state,avatar){
-      console.log(avatar);
-      
       state.userInfo.avatar = avatar
+    },
+    [SAVE_ATTENTION](state,attention){
+      state.attention = attention
+    },
+    [SAVE_MYATTENTION](state,attention){
+      state.myAttention = attention
     }
   },
   getters: {

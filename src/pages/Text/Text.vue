@@ -10,7 +10,7 @@
     <div class="text">
       <textarea v-model="article" class="article" name="title"  cols="33" rows="1" placeholder="文章标题(可不填)" aria-placeholder="placeholder"></textarea>
       <div class="line"></div>
-      <textarea v-model="content" class="content" name="text"  cols="33" rows="7" placeholder="说点什么" aria-placeholder="placeholder"></textarea>
+      <textarea v-model="content" class="content" name="text"  cols="33" rows="6" placeholder="说点什么" aria-placeholder="placeholder"></textarea>
       <div class="address">
           <span class="iconfont icon-weizhi">北京市，昌平区，郑平路</span>
       </div>

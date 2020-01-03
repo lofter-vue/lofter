@@ -29,3 +29,6 @@ export const reqNovelInfo = () => myAxios.get('/novel')
 
 // 获取菜单详情信息
 export const reqNavMenuInfo = () => myAxios.get('/menuInfo')
+
+// 获取音乐播放信息
+export const reqMusicPlay = () => myAxios.get('/musicList')

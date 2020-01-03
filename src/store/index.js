@@ -5,7 +5,7 @@ import mutations from "./mutations";
 import actions from "./actions";
 import getters from "./getters";
 import user from "./modules/user";
-
+import Home from './modules/Home'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -13,6 +13,7 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    user
+    user,
+    Home
   }
 })

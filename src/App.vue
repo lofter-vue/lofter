@@ -7,6 +7,7 @@
 
 <script>
 import FootGuide from "./components/FootGuide/FootGuide";
+import { mapState } from "vuex";
 import { reqAttentions } from "./api";
 export default {
   created() {
@@ -20,7 +21,17 @@ export default {
   },
   components: {
     FootGuide
-  }
+  },
+  computed: {
+    ...mapState({
+      attentions:state => state.user.attention
+    })
+  },
+  watch: {
+    attentions(){
+      this.$store.dispatch('getAttentionDatas',this.attentions)
+    }
+  },
 };
 </script>
 

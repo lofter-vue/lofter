@@ -8,7 +8,7 @@ export default {
   actions: {
     //获取attention组件数据
     async getAttentionDatas({commit,state},attention){
-      let arr = ["5dccd15ff495734150be910f"]
+      let arr = attention
       let _idList = arr.join('','')
       const result = await reqAttentions(_idList)
       if (result.status  == 0) {

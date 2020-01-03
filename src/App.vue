@@ -12,6 +12,7 @@ import { reqAttentions } from "./api";
 export default {
   created() {
     this.$store.dispatch('autoLogin')
+    // this.$store.dispatch('getAttentionDatas',this.attentions)
   },
   components: {
     FootGuide

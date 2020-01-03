@@ -1,5 +1,5 @@
 <template>
-  <VuePullRefresh :on-refresh="onRefresh">
+
     <div class="container">
       <div class="wapper">
         <div class="scroll">
@@ -17,7 +17,7 @@
               >
                 <img class="img" :src="mySub.img" alt="" />
                 {{ mySub.category }}
-                <span class="badge">12</span>
+                <span class="badge">{{mySub.count}}</span>
               </li>
             </ul>
           </ul>
@@ -27,7 +27,7 @@
                 <img class="img" src="../Attention/img/avactar.jpg" alt="">
                 <span>{{recSub}}</span>
                 </li> -->
-            <li class="title">推荐订阅</li>
+            <li class="title two">推荐订阅</li>
             <li
               class="list-group-item"
               v-for="(recSub, index) in list.recSubs"
@@ -41,35 +41,49 @@
         </div>
       </div>
     </div>
-  </VuePullRefresh>
 </template>
 
 <script type="text/ecmascript-6">
 import Vue from 'vue'
-import VuePullRefresh from 'vue-pull-refresh';
 import {mapState} from 'vuex'
 import {Toast} from 'mint-ui'
 import BScroll from 'better-scroll'
+
   export default {
     name:"Subscription",
-    components:{
-      VuePullRefresh
-    },
     data() {
       return {
         list:{
           mySubs:[
             {
               category: "文学",
-              img:"http://img2.imgtn.bdimg.com/it/u=2331778743,3079736865&fm=26&gp=0.jpg"
+              img:"http://img2.imgtn.bdimg.com/it/u=2331778743,3079736865&fm=26&gp=0.jpg",
+              count:18
             },
               {
               category: "影视",
-              img:"http://img1.imgtn.bdimg.com/it/u=580286014,1310966289&fm=15&gp=0.jpg"
+              img:"http://img1.imgtn.bdimg.com/it/u=580286014,1310966289&fm=15&gp=0.jpg",
+              count:17
             },
               {
               category:  "旅行",
-              img:"http://img3.imgtn.bdimg.com/it/u=263996334,3783093417&fm=26&gp=0.jpg"
+              img:"http://img3.imgtn.bdimg.com/it/u=263996334,3783093417&fm=26&gp=0.jpg",
+              count:8
+            },
+            {
+              category:  "摄影",
+              img:"http://img4.imgtn.bdimg.com/it/u=1348318242,2879429470&fm=26&gp=0.jpg",
+              count:9
+            },
+            {
+              category:  "吃货",
+              img:"http://img2.imgtn.bdimg.com/it/u=4076805044,278748952&fm=15&gp=0.jpg",
+              count:99
+            },
+            {
+              category:  "逛街",
+              img:"http://img3.imgtn.bdimg.com/it/u=263996334,3783093417&fm=26&gp=0.jpg",
+              count:13
             },
           ],
           recSubs:[
@@ -118,18 +132,17 @@ import BScroll from 'better-scroll'
             },
           ]
         },
-        isSub:false
+        isSub:false,
+        top:0
       }
     },
     mounted() {
-    let scroll = new BScroll(".container",{
+    this.scroll = new BScroll(".container",{
           mouseWheel: true,
           scrollY:true,
           click:true,
           // bounce: false
       })
-      console.log(scroll)
-      // scroll.hasVerticalScroll = true
     },
     methods: {
       subscr(event){
@@ -147,13 +160,6 @@ import BScroll from 'better-scroll'
         })
       }
       },
-        onRefresh: function () {
-      return new Promise(function (resolve, reject) {
-          setTimeout(function () {
-              resolve();
-          }, 1000);
-      });
-      },
     },
     computed: {
       ...mapState({
@@ -164,60 +170,61 @@ import BScroll from 'better-scroll'
 </script>
 
 <style scoped lang="stylus" ref="stylesheet/stylus">
+.pull-down-header
+  max-height 10px
+.xiala
+  // background-color #333
+  overflow-x hidden !important
+  overflow-y hidden !important
 .container
     height 100%
     background-color #eee
     display block !important
-    .scroll
-      padding-bottom 40%
+    .wrapper
+      height 100%
+      .scroll
+        padding-bottom 40%
 .mySub
-      width 100%
+      width 345px
+      margin 0 auto
   .title
       font-size 16px
       font-weight:bold
       padding 5px 10px
-    //   .item
-    //     padding 10px
-    //     border-bottom 1px solid #eee
-    //     .img
-    //       width 30px
-    //       height 30px
-    //       vertical-align middle
-    //     span
-    //       font-size 16px
-    //       font-weight:bold
-    //       vertical-align middle
-    //       margin-left 20px
-    // // .mySub
-    //   width 100%
-    //   .title
-    //     font-size 22px
-    //     font-weight:bold
-    //     padding 5px 10px
-    //     margin-top 10px
-      // .item
-      //   padding 10px
-      //   border-bottom 1px solid #eee
-      //   .img
-      //     width 30px
-      //     height 30px
-      //     vertical-align middle
-      //   span
-      //     font-size 16px
-      //     font-weight:bold
-      //     vertical-align middle
-      //     margin-left 20px
+      border-bottom 1px solid #eee
+      padding 10px
+      &.two
+        margin-top 30px
 .img
           width 30px
           height 30px
           vertical-align middle
 .list-group-item
-          font-size 14px
-          font-weight:bold
-          vertical-align middle
+            position relative
+            display block
+            padding 10px 15px
+            margin-bottom -1px
+            background-color #fff
+            border 1px solid #ddd
+            font-weight bold
+            :first-child
+              border-top-left-radius: 4px;
+              border-top-right-radius: 4px
+.badge
+    float right
+    color #fff
+    background #777
+    font-size 12px
+    padding 3px 7px 
+    font-weight 700
+    line-height 1  
+    text-align center
+    white-space nowrap
+    vertical-align middle
+    border-radius 10px 
 .badge
   &.init
-        border 1px solid green
-        color green
-        background-color #fff
+    border: 0.026667rem solid #008000;
+    color: #008000;
+    background-color: #fff
 </style>

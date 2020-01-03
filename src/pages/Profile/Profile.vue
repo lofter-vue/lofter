@@ -166,8 +166,6 @@ import {UPDATA_AVATAR} from "../../store/mutations_types";
       background: linear-gradient(to top,white, rgba(231,179,179,0.5)); 
       line-height 120px
       position relative
-
-
       .userInfo
         float left
         margin-left 12px

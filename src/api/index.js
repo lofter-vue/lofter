@@ -19,4 +19,5 @@ export const reqHome = () => myAxios('/homeData',{
 //更新头像
 export const reqUpdataAvatar = (_id,avatar) => myAxios.post('/updateAvatar',{_id,avatar})
 
+//获取关注信息请求
 export const reqAttentions = (_idList) => myAxios.post('/getAttentions',{_idList})

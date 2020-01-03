@@ -13,14 +13,14 @@
       </div>
       <button>搜索</button>
     </div>
-    <ul>
+    <ul v-if="userAttentions.length>0 || myAttentions.length>0">
       <li>
-        <div class="listLeft">
+        <div class="listLeft" >
           <span>
             <img src="https://tvax3.sinaimg.cn/crop.0.0.624.624.180/9e5389bbly8g93bx8ug1tj20hc0hcq4l.jpg?KID=imgbed,tva&Expires=1577723185&ssig=3W2kSv5s6l">
             <div class="userInfo">
-              <span class="name">一潮春池</span>
-              <span class="info">寻月记</span>
+              <span class="name">{{userAttentions.length>0 ? userAttentions[0].name : myAttentions[0].name}}</span>
+              <span class="info">寻月记式风格豆腐干山豆根但是</span>
             </div>
           </span>
         </div>
@@ -33,7 +33,30 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { mapState } from "vuex";
+  import { reqAttentions } from "../../api";
   export default {
+    data() {
+      return {
+        userAttentions:[]
+      }
+    },
+    computed: {
+      ...mapState({
+        userInfo:state => state.user.userInfo,
+        myAttentions:state => state.user.attention
+      })
+    },
+    watch: {
+      async userInfo(){
+        let arr = JSON.parse(JSON.stringify(this.userInfo.attention))
+        let _idList = arr.join(',')
+        let result = await reqAttentions(_idList)
+        if(result.status === 0){
+          this.userAttentions = result.data
+        }
+      }
+    },
   }
 </script>
 
@@ -105,26 +128,57 @@
       font-size 16px
   ul
     width 100%
-    background yellow
     li
-      display block
       width 100%
       height 60px
       display flex
       justify-content space-between
+      align-items center
+      border-bottom 1px solid #E2E2E2
+      padding 1% 0 
       .listLeft
-        width 50%
+        width 80%
         height 100%
-        background pink
+        padding-left 6%
+        box-sizing border-box
         span 
           width 100%
           height 100%
           display flex
-          justify-content space-around
+          justify-content start
           align-items center
           img 
-            width 60px
+            width 50px
             height 70px
             padding 10px 0
             box-sizing border-box
+            border-radius 50%
+          .userInfo
+            margin-left 10%
+            .name
+              font-size 18px
+              font-weight bold
+            .info
+              display block
+              width 90%
+              font-size 13px
+              margin-top 8px
+              white-space nowrap
+              overflow: hidden;
+              text-overflow:ellipsis;
+      .listRight
+        width 18%
+        height 100%
+        position relative
+        margin-right 10px
+        button
+          width 100%
+          height 40%
+          position absolute
+          top 50%
+          transform translateY(-50%)
+          background #c7c4c4
+          border none 
+          outline  none
+          border-radius 30px
 </style>

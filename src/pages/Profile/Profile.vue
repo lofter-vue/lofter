@@ -110,6 +110,9 @@ import { MessageBox,Toast } from "mint-ui";
 import { reqUpdataAvatar } from "../../api";
 import {UPDATA_AVATAR} from "../../store/mutations_types";
   export default {
+    mounted() {
+      this.$store.dispatch('saveMyAttention')
+    },
     data() {
       return {
         isUpdataAvatar:false,

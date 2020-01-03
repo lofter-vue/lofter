@@ -20,7 +20,6 @@ instence.interceptors.request.use((config) => {
 
   //从store中获取登录用户的token
   const { token } = store.state.user
-  console.log(token)
   //若取到了token，将token数据放入配置项config的头中
   if (token){
     config.headers.Authorization = token

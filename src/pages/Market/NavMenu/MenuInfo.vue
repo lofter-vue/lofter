@@ -203,11 +203,13 @@ import ShareContainer from '../../../components/shareContainer'
       }
     },
     mounted(){
+      //导航横向滚动
       this.scrollX =  new BScroll('.navBar',{
         scrollX:true,
         click:true,
         hasVerticalScroll:true
       }),
+      //页面竖向滚动
       this.scrollY = new BScroll('.concentContainer',{
         scrollY:true,
         click:true

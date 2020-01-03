@@ -2,7 +2,7 @@ import {reqAttentions} from '../../api'
 import {REQ_ATTENTION,IS_SHOWA,IS_SHOWB} from '../mutations_types'
 export default {
   state: {
-    attention:[],
+    attentions:[],
     isShowA:true,
   },
   actions: {
@@ -24,7 +24,7 @@ export default {
   },
   mutations: {
     [REQ_ATTENTION](state,attention){
-        state.attention = attention
+        state.attentions = attention
         console.log(state.attention)
     },
     [IS_SHOWA](state){

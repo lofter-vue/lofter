@@ -7,7 +7,6 @@
 
 <script>
 import FootGuide from "./components/FootGuide/FootGuide";
-
 import { reqAttentions } from "./api";
 export default {
   async created() {
@@ -19,6 +18,7 @@ export default {
   },
   components: {
     FootGuide
+    
   }
 };
 </script>

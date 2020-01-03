@@ -37,7 +37,7 @@
       <span class="guide-item"  :class="{on:$route.path === '/more'}">
           <span @click="start">
               <span :class="[rotate?'go':'aa']">
-                <i class="iconfont icon-jiahao" style="font-size:36px"></i>
+                <i class="iconfont icon-jiahao" style="font-size:36px" :class="{isshow}" @click="isshow = !ishow"></i>
               </span>
           </span>
       </span>
@@ -65,7 +65,8 @@ export default {
     return{
       rotate:false,
       move:false,
-      mask: false
+      mask: false,
+      isshow: false
     }
   },
   methods: {
@@ -125,7 +126,9 @@ export default {
     .aa 
       transform totateZ(0deg)
     .go
-      transform rotateZ(-45deg)
+      transform rotateZ(45deg)
+      .isshow
+        color #02a774
     &.on
       color $green
     span 
@@ -137,20 +140,20 @@ export default {
         font-size: 22px;
   .top
     position absolute 
-    bottom 80px
+    // bottom 80px
     width 80%
     left 10%
     height 50px
     line-height 50px
     display flex
     justify-content space-around
-    // transition  all 1s
     .up
       opacity 0
-      transform translateY(70px)
+      transform translateY(0px)
+      display none 
     .down
       opacity 1
-      transform translateY(0px)
+      transform translateY(-80px)
     .guide-item-top
       display block
       width 40px
@@ -161,15 +164,15 @@ export default {
       line-height 40px
       &.yinyue
         transition  all 400ms
+        font-size 25px
       &.text
         transition  all 600ms
       &.photo
         transition  all 800ms
       &.video
         transition  all 1s
-      
       .iconfont
-        font-size 30px  
+        font-size 25px  
         
   
     

@@ -212,7 +212,6 @@
         color #ffffff
         font-size 20px
         z-index 99
-
     .info 
       float left
       margin-top 20px

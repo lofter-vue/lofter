@@ -212,7 +212,6 @@ import ShareContainer from '../../../components/shareContainer'
         scrollY:true,
         click:true
       })
-      console.log(this.scrollY,'lalala');
       //截取路径字符串,获取路由的动态参数
       this.MenuIndex = this.$route.path.split('/')[this.$route.path.split('/').length - 1] -1
       this.initWidths()
@@ -228,11 +227,10 @@ import ShareContainer from '../../../components/shareContainer'
         this.$router.replace({name: 'menuinfo', params:{id:(index+1)}})
         this.MenuIndex = index
         //---------
-        //根据路由参数切换页面显示内容
+        //根据路由参数切换渲染数据,从而改变页面显示内容
         let info = this.menuInfo.filter((item,i)=>{
           return item.code === index+1
         })
-        console.log(info[0]);
         this.currentList = info[0]
       },
       //获取navBar中每个li的left值保存到data
@@ -248,11 +246,11 @@ import ShareContainer from '../../../components/shareContainer'
         // 更新tops数据
         this.widths = widths
       },
+      //初始化页面挂载时渲染数据
       initCurrentList(){
         let info = this.menuInfo.filter((item,index)=>{
           return item.code === this.MenuIndex+1
         })
-        console.log(info[0]);
         this.currentList = info[0]
       }
     },

@@ -207,7 +207,7 @@
 
         for (let i of this.$refs.imgScroll) {
           this.imgScroll = new BScroll(`.${i.className.slice(10)}`,{
-            scrollX:true,
+            // scrollX:true,
             // click:true,
             stopPropagation:true
           })         
@@ -383,7 +383,7 @@
                 width 183px
                 height 70%
               .itemIntro
-                margin 10px 0 10px 10px
+                margin 5px 0 5px 10px
                 font-size 14px
                 p
                   margin-bottom 6px
@@ -394,7 +394,7 @@
                 text-align center
                 border 1px solid gray 
                 border-radius 12px
-                margin 12px 0 12px 10px
+                margin 6px 0 6px 10px
                 pendding 8px
               .like
                 margin-left 10px

@@ -9,9 +9,9 @@
     <div class="search">
       <div class="search-wrapper">
         <i class="iconfont iconicon_sousuo"></i>
-        <input type="text" placeholder="搜索：关注的博客">
+        <input type="text" placeholder="搜索：关注的博客" v-model="searchName">
       </div>
-      <button>搜索</button>
+      <button @click="searchUser">搜索</button>
     </div>
     <ul >
       <li v-for="(a,index) in userAttentions" :key='index'>
@@ -36,12 +36,34 @@
   import { mapState } from "vuex";
   import { reqAttentions } from "../../api";
   export default {
+    data(){
+      return {
+        searchName:''
+      }
+    },
     computed: {
       ...mapState({
         userInfo:state => state.user.userInfo,
         userAttentions:state => state.user.myAttention
       })
     },
+    methods:{
+      searchUser(){
+        let searchName = this.searchName.toUpperCase().replace(' ', '').split('')  
+        if(searchName !== ''){
+          this.$router.push('/searchuser')
+          let matchName = searchName.every(key => this.userAttentions[0].name.toUpperCase().includes(key))
+          if(matchName){
+            this.$eventBus.$emit('searchUser',this.userAttentions)
+          }
+          this.searchName = ''
+            // let searchName = this.searchName.trim()
+            // this.$eventBus.$emit('search',searchName)
+            // this.searchName = ''
+          
+        }
+      }
+    }
     // watch: {
     //   async userInfo(){
     //     //监视的值不能直接改

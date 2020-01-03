@@ -210,7 +210,4 @@ import {reqNovelInfo} from '../../../api/index'
                 border-radius 5px
                 font-size 12px
                 margin-top 10px
-
-
-          
 </style>

@@ -12,9 +12,8 @@ Vue.use(MintUI)
 Vue.config.productionTip = false
 new Vue({
   //全局事件总线
-  beforeMount() {
-    Vue.prototype.$bus = this
-    
+  beforeCreate(){
+    Vue.prototype.$eventBus = this
   },
 
   //注册局部组件

@@ -13,17 +13,14 @@ export default {
       const result = await reqAttentions(_idList)
       if (result.status  == 0) {
         const attention = result.data
-        console.log(attention)
         commit(REQ_ATTENTION, attention)
       }
     }
   },
   mutations: {
     [REQ_ATTENTION](state,attention){
-        console.log(attention)
         state.attentions = attention
         setTimeout(() => {
-        console.log(state.attentions)
         }, 100);
     },
     [IS_SHOWA](state){

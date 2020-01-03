@@ -1,10 +1,10 @@
 <template>
-  <div class="myAttention">
+  <div class="myAttention" v-if="userAttentions.length>0">
     <div class='header'>
       <span class="left" @click="$router.back()">
         <i class='iconfont iconzuobian'></i>
       </span>
-      <span class="title">我的关注（15）</span>
+      <span class="title">我的关注（{{userAttentions.length}}）</span>
     </div>
     <div class="search">
       <div class="search-wrapper">
@@ -13,14 +13,14 @@
       </div>
       <button>搜索</button>
     </div>
-    <ul v-if="userAttentions.length>0 || myAttentions.length>0">
-      <li>
+    <ul >
+      <li v-for="(a,index) in userAttentions" :key='index'>
         <div class="listLeft" >
           <span>
-            <img src="https://tvax3.sinaimg.cn/crop.0.0.624.624.180/9e5389bbly8g93bx8ug1tj20hc0hcq4l.jpg?KID=imgbed,tva&Expires=1577723185&ssig=3W2kSv5s6l">
+            <img :src="a.avatar">
             <div class="userInfo">
-              <span class="name">{{userAttentions.length>0 ? userAttentions[0].name : myAttentions[0].name}}</span>
-              <span class="info">寻月记式风格豆腐干山豆根但是</span>
+              <span class="name">{{a.name}}</span>
+              <span class="info">{{a.article[0].content}}</span>
             </div>
           </span>
         </div>
@@ -36,31 +36,23 @@
   import { mapState } from "vuex";
   import { reqAttentions } from "../../api";
   export default {
-    mounted() {
-      this.$store.dispatch('saveMyAttention')
-    },
-    data() {
-      return {
-        userAttentions:[]
-      }
-    },
     computed: {
       ...mapState({
         userInfo:state => state.user.userInfo,
-        myAttentions:state => state.user.attention
+        userAttentions:state => state.user.myAttention
       })
     },
-    watch: {
-      async userInfo(){
-        //监视的值不能直接改
-        let arr = JSON.parse(JSON.stringify(this.userInfo.attention))
-        let _idList = arr.join(',')
-        let result = await reqAttentions(_idList)
-        if(result.status === 0){
-          this.userAttentions = result.data
-        }
-      }
-    },
+    // watch: {
+    //   async userInfo(){
+    //     //监视的值不能直接改
+    //     let arr = JSON.parse(JSON.stringify(this.userInfo.attention))
+    //     let _idList = arr.join(',')
+    //     let result = await reqAttentions(_idList)
+    //     if(result.status === 0){
+    //       this.userAttentions = result.data
+    //     }
+    //   }
+    // },
   }
 </script>
 

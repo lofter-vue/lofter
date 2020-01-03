@@ -22,7 +22,7 @@
           </span>
         </span>
     </div>
-      <span class="guide-item" :class="{on:$route.path === '/home'}" @click="goto('/home')">
+      <span class="guide-item" :class="{on:$route.path === '/home'}" @click="goto(userInfo._id? '/home' : '/login')">
         <span>
           <i class="iconfont iconshouye"></i>
         </span>
@@ -37,17 +37,17 @@
       <span class="guide-item"  :class="{on:$route.path === '/more'}">
           <span @click="start">
               <span :class="[rotate?'go':'aa']">
-                <i class="iconfont iconjiahao" style="font-size:36px"></i>
+                <i class="iconfont icon-jiahao" style="font-size:36px"></i>
               </span>
           </span>
       </span>
-      <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto('/market')">
+      <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto(userInfo._id? '/market' : '/login')">
         <span>
           <i class="iconfont icondingdan"></i>
         </span>
         <span>市集</span>
       </span>
-      <span class="guide-item" :class="{on:$route.path === '/profile'}" @click="goto('/profile')">
+      <span class="guide-item" :class="{on:$route.path === '/profile'}" @click="goto(userInfo._id? '/profile' : '/login')">
         <span>
           <i class="iconfont icongeren"></i>
         </span>
@@ -75,9 +75,13 @@ export default {
       }
     },
     start(){
-      this.rotate = ! this.rotate
-      this.move = ! this.move
-      this.mask = ! this.mask
+      if(this.userInfo._id){
+        this.rotate = ! this.rotate
+        this.move = ! this.move
+        this.mask = ! this.mask
+      }else{
+        this.$router.replace('login')
+      }
     }
     
   },

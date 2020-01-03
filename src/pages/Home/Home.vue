@@ -1,6 +1,6 @@
 <template>
   <div class="HomeContainer">
-      <HomeHeader class="top" @fn="show"></HomeHeader>
+      <HomeHeader class="top" @fn="show" :activeIndex="activeIndex"></HomeHeader>
         <div class="swiper-container" ref="gd">
           <div class="swiper-wrapper scroll">
               <div class="swiper-slide">
@@ -35,7 +35,7 @@ import Subscription from '../../components/Subscription/Subscription'
         //   {component:Attention,id:0},
         //   {component:Subscription,id:1},
         // ]
-       
+        activeIndex:0
       }
     },
     components:{
@@ -47,6 +47,8 @@ import Subscription from '../../components/Subscription/Subscription'
       show(index){
         this.scroll.slideTo(index)
         console.log(this.scroll);
+        this.activeIndex = this.scroll.activeIndex
+        console.log(this.activeIndex)
       }
     },  
     mounted() {

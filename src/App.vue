@@ -12,10 +12,15 @@ import { reqAttentions } from "./api";
 export default {
   created() {
     this.$store.dispatch('autoLogin')
+    setTimeout(() => {
+      this.$store.dispatch('saveMyAttention')
+    }, 300);
+  },
+  mounted() {
+    console.log(this.$route.path)
   },
   components: {
     FootGuide
-    
   },
   computed: {
     ...mapState({

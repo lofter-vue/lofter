@@ -7,12 +7,14 @@
 
 <script>
 import FootGuide from "./components/FootGuide/FootGuide";
+import { reqAttentions } from "./api";
 export default {
   mounted() {
     this.$store.dispatch('autoLogin')
   },
   components: {
     FootGuide
+    
   }
 };
 </script>

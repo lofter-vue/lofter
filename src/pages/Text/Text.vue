@@ -3,9 +3,9 @@
     <div class="header">
       <button @click="push" class="btn">取消</button>
       <div class="touxiang">
-        <img src="../../common/images/touxiang.jpg">
+        <img src="https://tvax2.sinaimg.cn/crop.0.0.996.996.180/005yq6zgly8g9szmsqfs7j30ro0rogoi.jpg?KID=imgbed,tva&Expires=1577516032&ssig=kBEYD0wZEK">
       </div>
-      <span class="name">'配角儿</span>
+      <span class="name">admin</span>
     </div>
     <div class="text">
       <textarea v-model="article" class="article" name="title"  cols="33" rows="1" placeholder="文章标题(可不填)" aria-placeholder="placeholder"></textarea>
@@ -89,7 +89,15 @@ import { Actionsheet } from 'mint-ui';
         if (this.content == '') return
           console.log(this.article);
           console.log(this.content);
+          this.$router.push({
+            path:'/home',
+            query:{
+              article:this.article,
+              content:this.content
+            }
+          })
       }
+      
   }
 }  
 </script>

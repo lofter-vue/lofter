@@ -1,6 +1,6 @@
 <template>
     <div class="foot-guide">  
-    <div class="top">
+    <div class="top" @click="start">
         <span class="guide-item-top yinyue" :class="[move?'down':'up']" >
             <span>
               <i class="iconfont icon-yinyue" style="color:#66B8F5" :class="{on:$route.path === '/music'}" @click="goto('/music')"></i>

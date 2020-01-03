@@ -21,6 +21,7 @@ export const reqUpdataAvatar = (_id,avatar) => myAxios.post('/updateAvatar',{_id
 
 //发送search页面数据请求
 export const reqSearch = () => myAxios.get('/searchList')
+
 //获取关注信息请求
 export const reqAttentions = (_idList) => myAxios.post('/getAttentions',{_idList})
 
@@ -32,3 +33,6 @@ export const reqNavMenuInfo = () => myAxios.get('/menuInfo')
 
 // 获取音乐播放信息
 export const reqMusicPlay = () => myAxios.get('/musicList')
+
+// 获取更新个人文章请求
+export const reqUpdateArtical = (_id,articalObj) => myAxios.post('/updataArtical',{_id,articalObj})

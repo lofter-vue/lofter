@@ -3,12 +3,12 @@
     <div class="top" @click="start">
         <span class="guide-item-top yinyue" :class="[move?'down':'up']" >
             <span>
-              <i class="iconfont icon-yinyue" style="color:#66B8F5" :class="{on:$route.path === '/music'}" @click="goto('/music')"></i>
+              <i class="iconfont icon-yinyue" style="color:#66B8F5" :class="{on:$route.path === '/music'}" @click="$router.push('/music')"></i>
             </span>
         </span>
         <span class="guide-item-top text" :class="[move?'down':'up']" >
           <span>
-            <i class="iconfont icon-bianjiqianbixieshuru" style="color:#FFC45F" :class="{on:$route.path === '/text'}" @click="goto('/text')"></i>
+            <i class="iconfont icon-bianjiqianbixieshuru" style="color:#FFC45F" :class="{on:$route.path === '/text'}" @click="$router.push('/text')"></i>
           </span>
         </span>
         <span class="guide-item-top photo" :class="[move?'down':'up']">

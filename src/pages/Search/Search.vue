@@ -36,7 +36,7 @@
             <!-- v-for="(item,index) in datas.data.search_tuijian.tuijian" :key="index" -->
             <ul class="contentWrap" v-if="datas.search_tuijian">  <!-- v-if="datas.search_tuijian" -->
               <li class="contentItem" v-for="(item,index) in datas.search_tuijian.tuijian" :key="index">
-                <img v-lazy="item.bgImg" alt="">
+                <img :src="item.bgImg" alt="">
                 <div class="itemIntro">
                   <p>{{item.p1}}</p>
                   <p>{{item.p2}}</p>
@@ -92,7 +92,6 @@
                   </li>
                 </ul>
               </div>
-            
             </div>
           </div>  
         </div>
@@ -108,7 +107,10 @@
           <i class="iconfont icon-xiangshangjiantou" @click="quxiao"></i>
         </div>
         <ul>
-          <li v-for="(item,index) in navList" :key="index">{{item}}</li>
+          <li v-for="(item,index) in navList" :key="index" @click="showDuihao(index)">
+            {{item}}
+            <i class="iconfont icon-xiangyou" v-show="index === currentIndex" @click="go(index)"></i>
+          </li>
         </ul>
       </div>
     </transition>
@@ -153,7 +155,9 @@
           '设计',
           '摄影',
         ],
-        isShow:false
+        isShow:false,
+        isShowduihao:false,
+        currentIndex:null
       }
     },
 
@@ -171,6 +175,17 @@
 
       quxiao(){
         this.isShow = !this.isShow
+      },
+
+      showDuihao(index){
+        this.currentIndex = index
+        this.isShowduihao = !this.isShowduihao
+      },
+
+      go(index){
+        this.isShow = !this.isShow
+        this.isShowduihao = !this.isShowduihao
+        this.choose(index)
       },
       // onLoad() {      //上拉加载
       //   setTimeout(() => {
@@ -426,6 +441,12 @@
                   display inline-block
                   margin-left 4px
                   font-size 12px
+              // .aixin
+              //   position relative
+              //   left -37.4%
+              //   font-size 14px
+              //   color red
+                
     .zhezhao
       width 100%
       height 100%
@@ -458,6 +479,7 @@
           top 2.3%
           font-size 30px
       ul
+        position relative
         width 100%
         height 92%
         li
@@ -466,7 +488,13 @@
           font-size 16px
           line-height 50px
           border-bottom 1px solid #eee
-          padding-left 10px
+          padding-left 13px
+          i 
+            position absolute
+            right 3%
+            color green 
+            font-size 26px
+
           
           
         

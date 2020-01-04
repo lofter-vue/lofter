@@ -6,6 +6,7 @@ import router from "./router";
 import App from './App';
 import store from "./store";
 import './validate';
+
 import VueLazyload from 'vue-lazyload'
 import loading from '@/common/images/loading.gif'
 

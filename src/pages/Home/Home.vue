@@ -46,26 +46,24 @@ import Subscription from '../../components/Subscription/Subscription'
     methods: {
       show(index){
         this.scroll.slideTo(index)
-        console.log(this.scroll);
         this.activeIndex = this.scroll.activeIndex
-        console.log(this.activeIndex)
-      }
+      },
+        
     },  
     mounted() {
     this.scroll = new Swiper(this.$refs.gd,{
         scrollx:true,
         on:{
-            slideChangeTransitionEnd: function(){
-              // console.log(this.activeIndex)
+            slideChangeTransitionEnd: (swiper)=>{
+              this.activeIndex = this.scroll.activeIndex
               if(this.activeIndex == 0){
-                this.isShowA = true
+                this.$store.commit("is_showa")
               }else{
-                this.isShowA = false
+                this.$store.commit("is_showa")
               }
           },
         }
       })
-      console.log(scroll)
     },
     computed: {
       ...mapState({
@@ -88,6 +86,7 @@ import Subscription from '../../components/Subscription/Subscription'
     height 100%
     .scroll
       width 100%
+      height 100%
       .swiper-slide
         width 100%
   // background-color #eee

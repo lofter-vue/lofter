@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {mapState} from 'vuex'
+// import {mapState} from 'vuex'
   export default {
     prop:["show","activeIndex"],
     data() {
@@ -19,18 +19,25 @@ import {mapState} from 'vuex'
         index:0,
       }
     },
+    // mounted() {
+    //   this.index = this.$attrs.activeIndex
+    // },
+    watch: {
+      $attrs(){
+        this.index = this.$attrs.activeIndex
+      }
+    },
     methods: {
         showA(index){
-          console.log(index)
           this.index = index
           this.$emit("fn",index)
         },
     },
-  computed: {
-    ...mapState({
-      isShowA:state => state.Home.isShowA
-    })
-  },
+    // computed: {
+    //   ...mapState({
+    //     isShowA:state => state.Home.isShowA
+    //   })
+    // },
   }
 </script>
 
@@ -49,6 +56,7 @@ import {mapState} from 'vuex'
     color black
     width 20%
     margin-left 30%
+    margin-top 10px
     &.active
       border-bottom 1px solid green
     &.active1
@@ -58,6 +66,7 @@ import {mapState} from 'vuex'
     font-size 18px
     color black
     width 20%
+    margin-top 10px
     &.active
       border-bottom 1px solid green
     &.active1
@@ -69,6 +78,7 @@ import {mapState} from 'vuex'
     right 0
     color black
     width 20%
+    margin-top 10px
         
   
 

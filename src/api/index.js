@@ -36,3 +36,14 @@ export const reqMusicPlay = () => myAxios.get('/musicList')
 
 // 获取更新个人文章请求
 export const reqUpdateArtical = ( _id, articalObj) => myAxios.post('/updataArtical',{ _id, articalObj})
+
+//获取关注id
+export const reqaddattentionid = ( _id, addid) => myAxios.post('/addattention',{ _id, addid})
+// 获取市集页面商品列表
+export const reqMarketProducts = () => myAxios.get('/marketList')
+
+// 获取首页轮播订阅话题最热页面
+export const reqHomeSubHot = () => myAxios.get('/homeSub')
+
+// 获取首页轮播订阅话题最新页面
+export const reqHomeSubNew = () => myAxios.get('/homeSub')

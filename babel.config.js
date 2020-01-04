@@ -12,5 +12,5 @@ module.exports = {
       libraryDirectory: 'es',
       style: true
     }, 'vant']
-  ]
+  ],
 }

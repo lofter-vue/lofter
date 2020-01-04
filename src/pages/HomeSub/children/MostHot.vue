@@ -6,7 +6,7 @@
       <span class="dataUpdate">数据更新于 2019-12-30 11:20</span>
       <div @click="isShowBox=!isShowBox" class="rank">
         <span>日榜</span>
-        <i class="iconfont icon-arrow-bottom"></i>
+        <i class="iconfont icon-arrowBottom"></i>
       </div>
     </div>
     <div v-show="isShowBox" class="rankBox">

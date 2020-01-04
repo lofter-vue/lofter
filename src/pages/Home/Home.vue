@@ -47,18 +47,19 @@ import Subscription from '../../components/Subscription/Subscription'
       show(index){
         this.scroll.slideTo(index)
         this.activeIndex = this.scroll.activeIndex
-      }
+      },
+        
     },  
     mounted() {
     this.scroll = new Swiper(this.$refs.gd,{
         scrollx:true,
         on:{
-            slideChangeTransitionEnd: function(){
-              // console.log(this.activeIndex)
+            slideChangeTransitionEnd: (swiper)=>{
+              this.activeIndex = this.scroll.activeIndex
               if(this.activeIndex == 0){
-                this.isShowA = true
+                this.$store.commit("is_showa")
               }else{
-                this.isShowA = false
+                this.$store.commit("is_showa")
               }
           },
         }
@@ -85,6 +86,7 @@ import Subscription from '../../components/Subscription/Subscription'
     height 100%
     .scroll
       width 100%
+      height 100%
       .swiper-slide
         width 100%
   // background-color #eee

@@ -162,7 +162,7 @@
             justify-content space-around
             .follow
               span
-                margin-right 5px 
+                margin-right 4px 
       .userIntro
         width 100%
         height 40px

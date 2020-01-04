@@ -276,5 +276,4 @@ Vue.component(Button.name, Button)
             color black
           .commenttext
             opacity 0.8
-       
 </style>

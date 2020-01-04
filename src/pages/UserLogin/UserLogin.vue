@@ -57,7 +57,6 @@ import { Toast } from "mint-ui";
             setTimeout(() => {
               this.$store.dispatch('saveMyAttention')
             }, 300);
-            console.log(request.data)
           }else{
             Toast('用户名或密码错误，请重新输入')
             this.username = ''

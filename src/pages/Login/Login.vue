@@ -48,6 +48,7 @@ import "swiper/css/swiper.css";
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .Login
   position relative
+  height 100% 
   .swiper-container
     position relative
     width: 100%

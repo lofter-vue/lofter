@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="header">
-      <button @click="push" class="btn">取消</button>
+      <button @click="$router.back()" class="btn">取消</button>
       <div class="touxiang">
-        <img src="../../common/images/touxiang.jpg">
+        <img :src="userInfo.avatar">
       </div>
-      <span class="name">'配角儿</span>
+      <span class="name">{{userInfo.username}}</span>
     </div>
     <div class="text">
       <textarea v-model="article" class="article" name="title"  cols="33" rows="1" placeholder="文章标题(可不填)" aria-placeholder="placeholder"></textarea>
       <div class="line"></div>
-      <textarea v-model="content" class="content" name="text"  cols="33" rows="7" placeholder="说点什么" aria-placeholder="placeholder"></textarea>
+      <textarea v-model="content" class="content" name="text"  cols="33" rows="6" placeholder="说点什么" aria-placeholder="placeholder"></textarea>
       <div class="address">
           <span class="iconfont icon-weizhi">北京市，昌平区，郑平路</span>
       </div>
@@ -56,10 +56,9 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {Switch} from 'mint-ui';  
-import { Actionsheet } from 'mint-ui';
-
-
+import {Switch,Actionsheet,Toast} from 'mint-ui';  
+import { mapState } from "vuex";
+import { reqUpdateArtical } from "../../api";
   export default {
     data(){
       return{
@@ -78,18 +77,31 @@ import { Actionsheet } from 'mint-ui';
         sheetVisible: false
       }
     },
+    computed: {
+      ...mapState({
+        userInfo:state => state.user.userInfo
+      })
+    },
     methods:{
-      push(){
-        this.$router.push({path:('/')})
-      },
       actionSheet(){
         this.sheetVisible = true
       },
-      release(){
+      async release(){
+        var myDate = new Date();
+        var y = myDate.getFullYear()
+        var m = myDate.getMonth() + 1
+        var d = myDate.getDate()
+        const _id = this.userInfo._id
         if (this.content == '') return
-          console.log(this.article);
-          console.log(this.content);
+        const articleObj = JSON.stringify({title:this.article,content:this.content,date:`${y}年${m}月${d}日`})
+        let result = await reqUpdateArtical(_id,articleObj)
+        const {status,data} = result
+        if(status === 0){
+          Toast('发布成功')
+          this.$router.back()
+        }
       }
+      
   }
 }  
 </script>
@@ -114,7 +126,7 @@ import { Actionsheet } from 'mint-ui';
       position absolute
       margin-top 10px 
       margin-left 40%
-      transform translateX(50%)
+      transform translateX(-50%)
       width 30px
       height 30px
       border-radius 50%
@@ -126,7 +138,7 @@ import { Actionsheet } from 'mint-ui';
       position absolute
       font-size 15px
       margin-left 50%
-      transform translateX(50%)
+      transform translateX(-20%)
       font-weight bold
   .text
     background #F8F8F8

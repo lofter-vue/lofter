@@ -13,10 +13,12 @@ export default {
   created() {
     this.$store.dispatch('autoLogin')
     // this.$store.dispatch('getAttentionDatas',this.attentions)
+    setTimeout(() => {
+      this.$store.dispatch('saveMyAttention')
+    }, 300);
   },
   components: {
     FootGuide
-    
   },
   computed: {
     ...mapState({

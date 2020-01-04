@@ -35,7 +35,7 @@
             >
               <img class="img" :src="recSub.img" alt="" />
               {{ recSub.category }}
-              <span class="badge init" @click="subscr">{{isSub?"取消订阅" : "订阅"}}</span>
+              <span class="badge init" :ref="recSub.id" @click="subscr(index)">{{recSub.isSub}}</span>
             </li>
           </ul>
         </div>
@@ -89,50 +89,60 @@ import BScroll from 'better-scroll'
           recSubs:[
             {
               category: "荒野猎人",
-              img:"http://img0.imgtn.bdimg.com/it/u=119682264,3654318534&fm=26&gp=0.jpg"
+              img:"http://img0.imgtn.bdimg.com/it/u=119682264,3654318534&fm=26&gp=0.jpg",
+              isSub:"订阅"
             },
             {
               category:"绘画",
-              img:"http://img3.imgtn.bdimg.com/it/u=1268000778,3787342819&fm=15&gp=0.jpg"
+              img:"http://img3.imgtn.bdimg.com/it/u=1268000778,3787342819&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
             {
               category: "一句话影评",
-              img:"http://img4.imgtn.bdimg.com/it/u=1348318242,2879429470&fm=26&gp=0.jpg"
+              img:"http://img4.imgtn.bdimg.com/it/u=1348318242,2879429470&fm=26&gp=0.jpg",
+              isSub:"订阅"
             },
               {
               category: "音乐",
-              img:"http://img4.imgtn.bdimg.com/it/u=2190384157,2682719953&fm=15&gp=0.jpg"
+              img:"http://img4.imgtn.bdimg.com/it/u=2190384157,2682719953&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
             
               {
               category: "电影海报",
-              img:"http://img5.imgtn.bdimg.com/it/u=505177556,691713951&fm=15&gp=0.jpg"
+              img:"http://img5.imgtn.bdimg.com/it/u=505177556,691713951&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
             
             {
               category:"lofter原创短篇",
-              img:"http://img0.imgtn.bdimg.com/it/u=805790518,1694126678&fm=15&gp=0.jpg"
+              img:"http://img0.imgtn.bdimg.com/it/u=805790518,1694126678&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
             
             {
               category: "lofter原创小说",
-              img:"http://img2.imgtn.bdimg.com/it/u=4076805044,278748952&fm=15&gp=0.jpg"
+              img:"http://img2.imgtn.bdimg.com/it/u=4076805044,278748952&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
               {
               category: "荒野猎人",
-              img:"http://img1.imgtn.bdimg.com/it/u=1185463873,3590847490&fm=15&gp=0.jpg"
+              img:"http://img1.imgtn.bdimg.com/it/u=1185463873,3590847490&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
               {
               category: "三国演义",
-              img:"http://img1.imgtn.bdimg.com/it/u=855521546,3924762435&fm=15&gp=0.jpg"
+              img:"http://img1.imgtn.bdimg.com/it/u=855521546,3924762435&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
                   {
               category: "水浒传",
-              img:"http://img3.imgtn.bdimg.com/it/u=1699213407,870066192&fm=15&gp=0.jpg"
+              img:"http://img3.imgtn.bdimg.com/it/u=1699213407,870066192&fm=15&gp=0.jpg",
+              isSub:"订阅"
             },
           ]
         },
-        isSub:false,
+        isSub:"订阅",
         top:0
       }
     },
@@ -145,15 +155,15 @@ import BScroll from 'better-scroll'
       })
     },
     methods: {
-      subscr(event){
-        this.isSub = !this.isSub
-        console.log(event)
-      if(this.isSub){
+      subscr(index){
+      if(this.list.recSubs[index].isSub!== "取消订阅" ){
+          this.list.recSubs[index].isSub ="取消订阅"
           Toast({
             message: '订阅成功',
             iconClass: 'iconfont icon-chenggong1'
         })
       }else{
+          this.list.recSubs[index].isSub ="订阅"
       Toast({
             message: '取消订阅',
             iconClass: 'iconfont icon-quxiao1'

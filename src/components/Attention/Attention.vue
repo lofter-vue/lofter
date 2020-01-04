@@ -1,5 +1,5 @@
 <template>
-<!-- <VuePullRefresh class="xiala" :on-refresh="onRefresh"> -->
+<VuePullRefresh class="xiala" :on-refresh="onRefresh">
   <div class="attention" ref="attention" v-if="showList">
     <div class="allcontainer">
         <!-- 第二栏 -->
@@ -39,7 +39,7 @@
                           <span class="iconfont icon-xinxi span"></span>
                           <span class="iconfont icon-dianzan span"></span>
                       </div>
-                      <span class="iconfont icon-fenxiang right"></span>
+                      <span class="iconfont icon-fenxiang right" @click="changeShare"></span>
                   </div>
                   <div class="hotAndComment">
                     <span>{{item.article[0].hot}}热度</span>
@@ -55,11 +55,11 @@
         </div>
       </div>
   </div>
-<!-- </VuePullRefresh> -->
+</VuePullRefresh>
 </template>
 
 <script type="text/ecmascript-6">
-// import VuePullRefresh from 'vue-pull-refresh';
+import VuePullRefresh from 'vue-pull-refresh';
 import Vue from 'vue'
 import { Button } from 'mint-ui'
 import BScroll from 'better-scroll'
@@ -79,7 +79,7 @@ Vue.component(Button.name, Button)
       }
     },
     components:{
-      // VuePullRefresh,
+      VuePullRefresh,
       ShareContainer
     },
     methods: {  
@@ -129,7 +129,6 @@ Vue.component(Button.name, Button)
 
 <style scoped lang="stylus" ref="stylesheet/stylus">
 .xiala
-  background-color #333
   overflow-x hidden !important
   overflow-y hidden !important
 .attention

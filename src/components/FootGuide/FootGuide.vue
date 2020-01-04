@@ -1,14 +1,14 @@
 <template>
     <div class="foot-guide">  
-    <div class="top">
+    <div class="top" @click="start">
         <span class="guide-item-top yinyue" :class="[move?'down':'up']" >
             <span>
-              <i class="iconfont icon-yinyue" style="color:#66B8F5" :class="{on:$route.path === '/music'}" @click="goto('/music')"></i>
+              <i class="iconfont icon-yinyue" style="color:#66B8F5" :class="{on:$route.path === '/music'}" @click="$router.push('/music')"></i>
             </span>
         </span>
         <span class="guide-item-top text" :class="[move?'down':'up']" >
           <span>
-            <i class="iconfont icon-bianjiqianbixieshuru" style="color:#FFC45F" :class="{on:$route.path === '/text'}" @click="goto('/text')"></i>
+            <i class="iconfont icon-bianjiqianbixieshuru" style="color:#FFC45F" :class="{on:$route.path === '/text'}" @click="$router.push('/text')"></i>
           </span>
         </span>
         <span class="guide-item-top photo" :class="[move?'down':'up']">
@@ -22,7 +22,7 @@
           </span>
         </span>
     </div>
-      <span class="guide-item" :class="{on:$route.path === '/home'}" @click="goto('/home')">
+      <span class="guide-item" :class="{on:$route.path === '/home'}" @click="goto(userInfo._id? '/home' : '/login')">
         <span>
           <i class="iconfont iconshouye"></i>
         </span>
@@ -37,17 +37,17 @@
       <span class="guide-item"  :class="{on:$route.path === '/more'}">
           <span @click="start">
               <span :class="[rotate?'go':'aa']">
-                <i class="iconfont icon-jiahao" style="font-size:36px"></i>
+                <i class="iconfont icon-jiahao" style="font-size:36px" :class="{isshow}" @click="isshow = !ishow"></i>
               </span>
           </span>
       </span>
-      <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto('/market')">
+      <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto(userInfo._id? '/market' : '/login')">
         <span>
           <i class="iconfont icondingdan"></i>
         </span>
         <span>市集</span>
       </span>
-      <span class="guide-item" :class="{on:$route.path === '/profile'}" @click="goto('/profile')">
+      <span class="guide-item" :class="{on:$route.path === '/profile'}" @click="goto(userInfo._id? '/profile' : '/login')">
         <span>
           <i class="iconfont icongeren"></i>
         </span>
@@ -65,7 +65,8 @@ export default {
     return{
       rotate:false,
       move:false,
-      mask: false
+      mask: false,
+      isshow: false
     }
   },
   methods: {
@@ -75,9 +76,13 @@ export default {
       }
     },
     start(){
-      this.rotate = ! this.rotate
-      this.move = ! this.move
-      this.mask = ! this.mask
+      if(this.userInfo._id){
+        this.rotate = ! this.rotate
+        this.move = ! this.move
+        this.mask = ! this.mask
+      }else{
+        this.$router.replace('login')
+      }
     }
     
   },
@@ -125,7 +130,9 @@ export default {
     .aa 
       transform totateZ(0deg)
     .go
-      transform rotateZ(-45deg)
+      transform rotateZ(45deg)
+      .isshow
+        color #02a774
     &.on
       color $green
     span 
@@ -137,20 +144,20 @@ export default {
         font-size: 22px;
   .top
     position absolute 
-    bottom 80px
+    // bottom 80px
     width 80%
     left 10%
     height 50px
     line-height 50px
     display flex
     justify-content space-around
-    // transition  all 1s
     .up
       opacity 0
-      transform translateY(70px)
+      transform translateY(0px)
+      display none 
     .down
       opacity 1
-      transform translateY(0px)
+      transform translateY(-80px)
     .guide-item-top
       display block
       width 40px
@@ -161,15 +168,15 @@ export default {
       line-height 40px
       &.yinyue
         transition  all 400ms
+        font-size 25px
       &.text
         transition  all 600ms
       &.photo
         transition  all 800ms
       &.video
         transition  all 1s
-      
       .iconfont
-        font-size 30px  
+        font-size 25px  
         
   
     

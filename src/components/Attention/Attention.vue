@@ -1,9 +1,11 @@
 <template>
-<VuePullRefresh class="xiala" :on-refresh="onRefresh">
+<VuePullRefresh class="xiala" :on-refresh="onRefresh" >
   <div class="attention" ref="attention" v-if="showList">
     <div class="allcontainer">
         <!-- 第二栏 -->
         <div class="wrapper">
+          <div @click="goto"><img class="lunbo" src="./img/banner.png" alt="111" ></div>
+          
           <ol class="breadcrumb second">
             <li>推些有趣的人给你</li>
             <span class="iconfont icon-qianjin more"></span>
@@ -88,6 +90,10 @@ Vue.component(Button.name, Button)
       // console.log(_id,addId)
       // this.$store.dispatch("getaddattentionid",{_id,addId})     
       },
+      goto(){
+        console.log(111)
+        this.$router.push("/home_sub")
+      },
       changeShare(){
         this.shareShow = !this.shareShow
       }, 
@@ -100,8 +106,9 @@ Vue.component(Button.name, Button)
       },
 
       initScroll(){
-          this.attention = new BScroll(this.$refs.attention,{
+          this.bscroll = new BScroll(this.$refs.attention,{
           scrolly:true,
+          click: true
       })
       },
     },
@@ -117,10 +124,13 @@ Vue.component(Button.name, Button)
     watch: {
       showList(){
         this.$nextTick(()=>{
-        this.initScroll()
-        console.log(this.attention)
+        this.bscroll.refresh()
         })
       }
+    },
+    mounted() {
+      this.initScroll()
+      
     },
   }
 </script>
@@ -135,12 +145,20 @@ Vue.component(Button.name, Button)
   // padding-bottom 10%
   .allcontainer
     background-color #eee
-    margin-top -30px
+    // margin-top -30px
     .wrapper
+      .lunbo
+        width 100%
+        height 20%
+        margin 0 auto
+        position relative
+        z-index 999 
+      .border
+        border-bottom 1px solid #fff
       .second
         width 100%
         height 8vh
-        margin-top 30px
+        margin-top 10px
         background-color #fff
         position relative
         border 1px solid #eee
@@ -258,8 +276,5 @@ Vue.component(Button.name, Button)
             color black
           .commenttext
             opacity 0.8
-
-
-.border
-  border-bottom 1px solid #fff       
+       
 </style>

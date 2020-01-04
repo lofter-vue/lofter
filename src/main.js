@@ -12,9 +12,9 @@ Vue.use(MintUI)
 Vue.config.productionTip = false
 new Vue({
   //全局事件总线
-  beforeCreate(){
-    Vue.prototype.$eventBus = this
-  },
+  // beforeCreate(){
+  //   Vue.prototype.$EventBus = new Vue()
+  // },
 
   //注册局部组件
   render: h => h(App),

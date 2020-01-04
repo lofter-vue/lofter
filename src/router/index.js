@@ -137,8 +137,9 @@ export default new VueRouter({
       path:'/Text',
       component:Text,
     },
-    {
-      path:'/searchuser',
+    { 
+      name:'searchuser',
+      path:'/searchuser/:id',
       component:SearchUser
     },
     {

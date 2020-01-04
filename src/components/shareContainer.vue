@@ -69,7 +69,7 @@
     top 0
     bottom 0
     right 0
-    z-index 100
+    z-index 9999
     background-color rgba(0,0,0,.4)
     &.shareMove-enter-active, &.shareMove-leave-active
         transition all .3s

@@ -49,18 +49,8 @@
     },
     methods:{
       searchUser(){
-        let searchName = this.searchName.toUpperCase().replace(' ', '').split('')  
-        if(searchName !== ''){
-          this.$router.push('/searchuser')
-          let matchName = searchName.every(key => this.userAttentions[0].name.toUpperCase().includes(key))
-          if(matchName){
-            this.$eventBus.$emit('searchUser',this.userAttentions)
-          }
-          this.searchName = ''
-            // let searchName = this.searchName.trim()
-            // this.$eventBus.$emit('search',searchName)
-            // this.searchName = ''
-          
+        if(this.searchName !== ''){
+            this.$router.push(`/searchuser/${this.searchName}`)
         }
       }
     }

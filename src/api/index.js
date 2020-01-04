@@ -39,3 +39,9 @@ export const reqUpdateArtical = ( _id, articalObj) => myAxios.post('/updataArtic
 
 // 获取市集页面商品列表
 export const reqMarketProducts = () => myAxios.get('/marketList')
+
+// 获取首页轮播订阅话题最热页面
+export const reqHomeSubHot = () => myAxios.get('/homeSub')
+
+// 获取首页轮播订阅话题最新页面
+export const reqHomeSubNew = () => myAxios.get('/homeSub')

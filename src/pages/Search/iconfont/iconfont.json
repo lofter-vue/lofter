@@ -13,11 +13,25 @@
       "unicode_decimal": 58964
     },
     {
+      "icon_id": "3015725",
+      "name": "向上箭头",
+      "font_class": "xiangshangjiantou",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "4333790",
       "name": "喜欢",
       "font_class": "xihuan",
       "unicode": "e610",
       "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "8288959",
+      "name": "爱心",
+      "font_class": "aixin",
+      "unicode": "e85c",
+      "unicode_decimal": 59484
     },
     {
       "icon_id": "10939359",

@@ -128,13 +128,11 @@ import BScroll from 'better-scroll'
           click:true,
           // bounce: false
       })
-      console.log(scroll)
       // scroll.hasVerticalScroll = true
     },
     methods: {
       subscr(event){
         this.isSub = !this.isSub
-        console.log(event)
       if(this.isSub){
           Toast({
             message: '订阅成功',

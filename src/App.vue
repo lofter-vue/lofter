@@ -12,7 +12,6 @@ import { reqAttentions } from "./api";
 export default {
   created() {
     this.$store.dispatch('autoLogin')
-    // this.$store.dispatch('getAttentionDatas',this.attentions)
     setTimeout(() => {
       this.$store.dispatch('saveMyAttention')
     }, 300);
@@ -22,13 +21,13 @@ export default {
   },
   computed: {
     ...mapState({
-      attentions:state => state.user.attention
+      myAttention:state => state.user.myAttention
     })
   },
-  watch: {
-    attentions(){
-      this.$store.dispatch('getAttentionDatas',this.attentions)
-    }
+  mounted() {
+    setTimeout(() => {
+      this.$store.commit('updateattention',this.myAttention)
+    }, 400);
   },
 };
 </script>

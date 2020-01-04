@@ -114,8 +114,7 @@ import BScroll from 'better-scroll'
           background   transparentify
           width 235px
           height 28px
-          transform translateY(-3
-          px)
+          transform translateY(-3px)
           border-radius 10px 0 0 10px
           outline none
           padding-left 5px 

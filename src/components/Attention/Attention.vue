@@ -26,7 +26,7 @@
                       <span class="iconfont icon-gengduo right" @click="changeShare"></span>
                     </div>
                 </div>
-                <img class="BigPic" src="https://thumbnail0.baidupcs.com/thumbnail/d3cb71ddckc67aab08b50cb2e3b37407?fid=3713260932-250528-108837212194467&time=1578027600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-S%2BXEOV0p%2BJBB511KhZyYOn0fUiU%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=59845039575848254&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video" alt="">
+                <img class="BigPic" :src="item.bigImg" alt="">
                 <p class="text">
                   {{item.article[0].content}}
                 </p> 

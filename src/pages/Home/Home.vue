@@ -103,5 +103,6 @@ import Subscription from '../../components/Subscription/Subscription'
         }
 .subscr-enter-active,.subscr-leave-active{
             transition: all 0.5s ease;
-        }        
+        }   
+         
 </style>

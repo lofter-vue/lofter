@@ -114,14 +114,14 @@ import BScroll from 'better-scroll'
           background   transparentify
           width 235px
           height 28px
-          transform translateY(-3px)
+          float left
           border-radius 10px 0 0 10px
           outline none
           padding-left 5px 
         .icon-Search
           display inline-block
           font-size 20px
-          margin 4px
+          line-height 28px
       .icon-user1
         width 30px
         height 28px

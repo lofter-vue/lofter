@@ -54,7 +54,9 @@ import { Toast } from "mint-ui";
             this.$router.replace('/profile')
             //将user保存到vuex中
             this.$store.dispatch('saveUser',data)
-            console.log(request.data)
+            setTimeout(() => {
+              this.$store.dispatch('saveMyAttention')
+            }, 300);
           }else{
             Toast('用户名或密码错误，请重新输入')
             this.username = ''

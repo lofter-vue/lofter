@@ -158,7 +158,8 @@ import BScroll from 'better-scroll'
       subscr(index){
       if(this.list.recSubs[index].isSub!== "取消订阅" ){
           this.list.recSubs[index].isSub ="取消订阅"
-          Toast({
+      // scroll.hasVerticalScroll = true
+      Toast({
             message: '订阅成功',
             iconClass: 'iconfont icon-chenggong1'
         })
@@ -169,8 +170,8 @@ import BScroll from 'better-scroll'
             iconClass: 'iconfont icon-quxiao1'
         })
       }
-      },
-    },
+      }
+    },  
     computed: {
       ...mapState({
           isShowA:state => state.Home.isShowA

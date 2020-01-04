@@ -28,8 +28,7 @@
       }
     },
     methods: {
-        showA(index){ 
-          console.log(index)
+        showA(index){
           this.index = index
           this.$emit("fn",index)
         },

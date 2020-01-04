@@ -46,7 +46,9 @@ import Subscription from '../../components/Subscription/Subscription'
     methods: {
       show(index){
         this.scroll.slideTo(index)
+        this.activeIndex = this.scroll.activeIndex
       },
+        
     },  
     mounted() {
     this.scroll = new Swiper(this.$refs.gd,{
@@ -62,7 +64,6 @@ import Subscription from '../../components/Subscription/Subscription'
           },
         }
       })
-      console.log(scroll)
     },
     computed: {
       ...mapState({

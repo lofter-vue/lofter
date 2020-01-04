@@ -79,7 +79,11 @@ import {reqNovelInfo} from '../../../api/index'
         loop:true, // 循环模式选项
         pagination:{// 如果需要分页器
           el:'.swiper-pagination'
-        }
+        },
+        autoplay: {
+          disableOnInteraction: false, //手动滑动之后不打断播放
+          delay: 2000
+        },
       }),
       this.result = await reqNovelInfo()
       this.content = this.result.data
@@ -210,7 +214,4 @@ import {reqNovelInfo} from '../../../api/index'
                 border-radius 5px
                 font-size 12px
                 margin-top 10px
-
-
-          
 </style>

@@ -6,7 +6,7 @@
       </div> 
       <div class="description">
         <p class="itemTitle">{{item.title}}</p>
-        <p class="discounts" >{{item.discount}}</p>
+        <p class="discounts" v-if="item.discount">{{item.discount}}</p>
         <p class="price"><span class="now">￥{{item.newPrice}}</span>  <span class="old">￥{{item.oldPrice}}</span></p>
       </div>   
     </div>

@@ -9,7 +9,7 @@
       <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578029657195&di=ccd25a7f2fa9c3ab306658c5ec822ea5&imgtype=0&src=http%3A%2F%2Fxqimg.imedao.com%2F16e9338c9c8d1e13feb6e690.jpeg" 
       alt="">
     </div>
-    <ProductsList :details="details.zbmc"></ProductsList>
+    <ProductsList :details="details.productsInfo"></ProductsList>
     <ul class="icon-fixed">
       <li @click="$router.replace('/Market')"><span >市集<br/>首页</span></li>
       <li><span class="iconfont icon-gouwuche"></span></li>
@@ -26,159 +26,83 @@ import ProductsList from "../../components/ProductsList/ProductsList"
 import ShareContainer from '../../components/shareContainer'
 import { Popup } from 'mint-ui';
 import Vue from "vue"
+import {reqMarketProducts} from "../../api/index.js"
 Vue.component(Popup.name, Popup);
   export default {
+    // async beforeCreate() {
+    //   let result = await reqMarketProducts()
+    //   this.swiperInfo = result.data.swiperHeader.swiperInfo
+    //   console.log(result)
+    // },
     data() {
       return {
         shareShow:false,
+        swiperInfo :[],
+
         details:{
-                  "zdzb":[
-                    {
-                      "title":"萌宠兔子迷你加湿器",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img14.360buyimg.com/n7/jfs/t1/81430/32/4888/90531/5d311c21Eac8c9a53/66bcbbcd1943f3ea.jpg"
-                    },
-                    {
-                      "title":"星空投影灯",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img13.360buyimg.com/n7/jfs/t1/93742/8/7881/205763/5e00270eE7ec72c14/e02c4c6639555dab.jpg"
-                    },
-                    {
-                      "title":"可爱卡通粉色萌宠发泄小猪",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img12.360buyimg.com/n7/jfs/t1/88348/35/53/542618/5da6835bE99bf976e/9f26e537389db700.jpg"
-                    },
-                    {
-                      "title":"小熊按摩仪",
-                      "discount":"立减39.1",
-                      "oldPrice":"369",
-                      "newPrice":"238",
-                      "imgUrl":"https://img11.360buyimg.com/n7/jfs/t1/106085/24/9292/312020/5e0d467fEd6503520/ba33d1ae8b19ed06.jpg"
-                    },
-                    {
-                      "title":"卖萌盒子小猫摆件",
-                      "discount":"立减39.1",
-                      "oldPrice":"39",
-                      "newPrice":"28",
-                      "imgUrl":"https://img14.360buyimg.com/n7/jfs/t2887/285/3276044240/173902/77e01a9e/57873108Nc69d273f.jpg"
-                    },
-                    {
-                      "title":"毛绒智能狗仿真萌宠",
-                      "discount":"立减39.1",
-                      "oldPrice":"398",
-                      "newPrice":"318",
-                      "imgUrl":"https://img13.360buyimg.com/n7/jfs/t1/41734/35/11143/96583/5d48de13Ecc6a8687/866ccb4f6ab2f1bf.jpg"
-                    },
-                    {
-                      "title":"北极熊玩偶公仔",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img13.360buyimg.com/n7/jfs/t15637/35/2513964727/149587/51c9981a/5aaf8136N2d59942c.jpg"
-                    },
-                    {
-                      "title":"仓鼠玩偶公仔布娃娃",
-                      "discount":"立减39.1",
-                      "oldPrice":"89",
-                      "newPrice":"68",
-                      "imgUrl":"https://img10.360buyimg.com/n7/jfs/t1/90570/35/2811/160903/5dd65bbeE4e45164e/c18d0ef22ebce616.jpg"
-                    },
-                    {
-                      "title":"毛绒玩具享福熊",
-                      "discount":"立减39.1",
-                      "oldPrice":"128",
-                      "newPrice":"89",
-                      "imgUrl":"https://img11.360buyimg.com/n7/jfs/t1/1924/18/4573/167768/5b9cdb6fE57d9556e/3a95b264d82a0f24.jpg"
-                    },
-                    {
-                      "title":"元旦礼物-小浣熊布艺娃娃抱枕",
-                      "discount":"立减39.1",
-                      "oldPrice":"88",
-                      "newPrice":"65",
-                      "imgUrl":"https://img10.360buyimg.com/n7/jfs/t1/50280/10/15331/267850/5dc8289cE6b7c87ab/b82e8675788f144e.jpg"
-                    }
-                    
-                  ],
-                  "zbmc":[
-                    {
-                      "title":"萌宠兔子迷你加湿器",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img14.360buyimg.com/n7/jfs/t1/81430/32/4888/90531/5d311c21Eac8c9a53/66bcbbcd1943f3ea.jpg"
-                    },
-                    {
-                      "title":"星空投影灯",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img13.360buyimg.com/n7/jfs/t1/93742/8/7881/205763/5e00270eE7ec72c14/e02c4c6639555dab.jpg"
-                    },
-                    {
-                      "title":"可爱卡通粉色萌宠发泄小猪",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img12.360buyimg.com/n7/jfs/t1/88348/35/53/542618/5da6835bE99bf976e/9f26e537389db700.jpg"
-                    },
-                    {
-                      "title":"小熊按摩仪",
-                      "discount":"立减39.1",
-                      "oldPrice":"369",
-                      "newPrice":"238",
-                      "imgUrl":"https://img11.360buyimg.com/n7/jfs/t1/106085/24/9292/312020/5e0d467fEd6503520/ba33d1ae8b19ed06.jpg"
-                    },
-                    {
-                      "title":"卖萌盒子小猫摆件",
-                      "discount":"立减39.1",
-                      "oldPrice":"39",
-                      "newPrice":"28",
-                      "imgUrl":"https://img14.360buyimg.com/n7/jfs/t2887/285/3276044240/173902/77e01a9e/57873108Nc69d273f.jpg"
-                    },
-                    {
-                      "title":"毛绒智能狗仿真萌宠",
-                      "discount":"立减39.1",
-                      "oldPrice":"398",
-                      "newPrice":"318",
-                      "imgUrl":"https://img13.360buyimg.com/n7/jfs/t1/41734/35/11143/96583/5d48de13Ecc6a8687/866ccb4f6ab2f1bf.jpg"
-                    },
-                    {
-                      "title":"北极熊玩偶公仔",
-                      "discount":"立减39.1",
-                      "oldPrice":"69",
-                      "newPrice":"39.9",
-                      "imgUrl":"https://img13.360buyimg.com/n7/jfs/t15637/35/2513964727/149587/51c9981a/5aaf8136N2d59942c.jpg"
-                    },
-                    {
-                      "title":"仓鼠玩偶公仔布娃娃",
-                      "discount":"立减39.1",
-                      "oldPrice":"89",
-                      "newPrice":"68",
-                      "imgUrl":"https://img10.360buyimg.com/n7/jfs/t1/90570/35/2811/160903/5dd65bbeE4e45164e/c18d0ef22ebce616.jpg"
-                    },
-                    {
-                      "title":"毛绒玩具享福熊",
-                      "discount":"立减39.1",
-                      "oldPrice":"128",
-                      "newPrice":"89",
-                      "imgUrl":"https://img11.360buyimg.com/n7/jfs/t1/1924/18/4573/167768/5b9cdb6fE57d9556e/3a95b264d82a0f24.jpg"
-                    },
-                    {
-                      "title":"元旦礼物-小浣熊布艺娃娃抱枕",
-                      "discount":"立减39.1",
-                      "oldPrice":"88",
-                      "newPrice":"65",
-                      "imgUrl":"https://img10.360buyimg.com/n7/jfs/t1/50280/10/15331/267850/5dc8289cE6b7c87ab/b82e8675788f144e.jpg"
-                    }
-                    
-                  ]
-                }
+          "productsInfo":[
+          {
+            "imgUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578029657195&di=ccd25a7f2fa9c3ab306658c5ec822ea5&imgtype=0&src=http%3A%2F%2Fxqimg.imedao.com%2F16e9338c9c8d1e13feb6e690.jpeg",
+            "title":"一看就停不下来的中国史",
+            "oldPrice":67.4,
+            "newPrice":46.88
+          },
+          {
+            "imgUrl":"https://img11.360buyimg.com/n1/s200x200_jfs/t26623/338/419718625/245064/7ef5b21b/5b9106caNc9b79061.jpg",
+            "title":"贫穷的本质",
+            "oldPrice":52.6,
+            "newPrice":34.8
+          },
+          {
+            "imgUrl":"https://img13.360buyimg.com/n1/s200x200_jfs/t1/5562/31/13613/1115699/5bd9058aE99b2f798/1d371398b4031846.jpg",
+            "title":"环球国家地理百科全书(套装共十册)",
+            "oldPrice":264.5,
+            "newPrice":174.10
+          },
+          {
+            "imgUrl":"https://img10.360buyimg.com/n1/s200x200_jfs/t10162/279/1390942739/246693/50c56f9d/59e02214N37418280.jpg",
+            "title":"余华作品:活着",
+            "oldPrice":38.8,
+            "newPrice":28
+          },
+          {
+            "imgUrl":"https://img11.360buyimg.com/n1/s200x200_jfs/t1/27289/23/7777/351831/5c6e18b2Ee7c48be6/77f9c8539ab40c2a.jpg",
+            "title":"局外人",
+            "oldPrice":46.7,
+            "newPrice":23.4
+          },
+          {
+            "imgUrl":"https://img12.360buyimg.com/n1/s200x200_jfs/t1/30329/18/3291/139128/5c737b7cE33245b89/b3ddced06184057d.jpg",
+            "title":"深度沟通",
+            "oldPrice":47.4,
+            "newPrice":39
+          },
+          {
+            "imgUrl":"https://img10.360buyimg.com/n1/s200x200_jfs/t1/86551/16/4453/510848/5de74f49E62b4aae0/f0a4ea7981c08841.jpg",
+            "title":"马尔克斯:百年孤独",
+            "oldPrice":36.8,
+            "newPrice":34.8
+          },
+          {
+            "imgUrl":"https://img13.360buyimg.com/n1/s200x200_jfs/t15667/160/563569281/151713/d4fab374/5a373299N4978d724.jpg",
+            "title":"原则",
+            "oldPrice":57,
+            "newPrice":47.6
+          },
+          {
+            "imgUrl":"https://img10.360buyimg.com/n1/s200x200_jfs/t1/94308/37/4479/405085/5de75992E339ed0e3/02a83c69b7a1b856.jpg",
+            "title":"东野圭吾:解忧杂货店",
+            "oldPrice":29.8,
+            "newPrice":23.4
+          },
+          {
+            "imgUrl":"https://img13.360buyimg.com/n1/s200x200_jfs/t29623/161/163538582/162899/4dded798/5bea3dceN10e51b04.jpg",
+            "title":"漫长的告别",
+            "oldPrice":35.6,
+            "newPrice":29.9
+          }
+      ]
+        }
      
      }
     },

@@ -3,7 +3,7 @@
 
     <div class="noCollection">
       <span class="create">
-        <i class="iconfont iconjiahao"></i>
+        <i class="iconfont icon-chuangjian2"></i>
       </span>
       <p class="tip">你还没有创建过合集</p>
       <mt-button class="btn">创建合集</mt-button>

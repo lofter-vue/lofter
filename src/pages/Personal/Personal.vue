@@ -24,8 +24,8 @@
               <span>关注</span>
               <span>{{userInfo.attention ? userInfo.attention.length : 0}}</span>
             </div>
-            <span>粉丝 10</span>
-            <span>推荐 10</span>
+            <span>粉丝 1</span>
+            <span>推荐 15</span>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
       <!--内容 跳转 -->
       <div class="contentTab">
         <div class="contentTabItem">
-          <router-link to="/personal/article" replace>文章(0)</router-link>
+          <router-link to="/personal/article" replace>文章({{userInfo.artical.length}})</router-link>
         </div>
         <div class="contentTabItem">
           <router-link to="/personal/collection" replace>合集(0)</router-link>
@@ -163,7 +163,7 @@
             justify-content space-around
             .follow
               span
-                margin-right 5px 
+                margin-right 4px 
       .userIntro
         width 100%
         height 40px

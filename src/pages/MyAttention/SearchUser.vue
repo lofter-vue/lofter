@@ -68,6 +68,7 @@ import {mapState} from 'vuex'
   .userNum
     height 20px
     width 100%
+    line-height 20px
     background-color rgba(0,0,0,.1)
   .listLeft
     padding 2% 6%

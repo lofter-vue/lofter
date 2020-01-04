@@ -118,7 +118,7 @@
         width 14%
         height 100%
         text-align center
-        line-height 25px
+        line-height 30px
         font-size 18px
       input
         height 100%

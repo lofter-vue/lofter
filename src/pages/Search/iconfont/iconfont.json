@@ -34,6 +34,13 @@
       "unicode_decimal": 59484
     },
     {
+      "icon_id": "10082910",
+      "name": "向右",
+      "font_class": "xiangyou",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "10939359",
       "name": "向下箭头",
       "font_class": "ico_arrowdown",

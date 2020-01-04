@@ -5,7 +5,7 @@
       <i class="iconfont icon-fenxiang2"></i>
     </div>
     <div @click="isShowMenu = !isShowMenu" class="home">
-      <i class="iconfont iconjiahao"></i>
+      <i class="iconfont icon-jiahao"></i>
     </div>
     
     <!-- 加过渡 -->

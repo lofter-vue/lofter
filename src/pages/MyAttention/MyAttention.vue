@@ -156,7 +156,7 @@
               font-weight bold
             .info
               display block
-              width 90%
+              width 180px
               font-size 13px
               margin-top 8px
               white-space nowrap

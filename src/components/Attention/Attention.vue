@@ -84,12 +84,11 @@ Vue.component(Button.name, Button)
     },
     methods: {  
       change(index){
-      let id = index
+      let id 
       this.showList.forEach((item,index1)=>{
-          if(item.id == index){
-            this.isShow = !this.isShow
-          }
-      })      
+        id = item._id
+      }) 
+      this.$store.dispatch("getaddattentionid",id)     
       },
       changeShare(){
         this.shareShow = !this.shareShow

@@ -1,9 +1,10 @@
-import {reqAttentions} from '../../api'
-import {REQ_ATTENTION,IS_SHOWA,IS_SHOWB} from '../mutations_types'
+import {reqAttentions,reqaddattentionid} from '../../api'
+import {REQ_ATTENTION,IS_SHOWA,IS_SHOWB,ADD_ATTENTIONID} from '../mutations_types'
 export default {
   state: {
     attentions:[],
     isShowA:true,
+    id:[]
   },
   actions: {
     //获取attention组件数据
@@ -16,6 +17,14 @@ export default {
         console.log(attention)
         commit(REQ_ATTENTION, attention)
       }
+    },
+    async getaddattentionid({commit,state}, _id){
+      let  addid = state.attentions[0]._id
+      const result = await reqaddattentionid({ _id, addid})
+      if(result.status == 0){
+        const id = result.data
+        commit(ADD_ATTENTIONID,id)
+      }
     }
   },
   mutations: {
@@ -25,6 +34,9 @@ export default {
         setTimeout(() => {
         console.log(state.attentions)
         }, 100);
+    },
+    [ADD_ATTENTIONID](state,id){
+        state.id = id
     },
     [IS_SHOWA](state){
         state.isShowA = true

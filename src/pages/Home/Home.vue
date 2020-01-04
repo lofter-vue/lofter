@@ -46,9 +46,7 @@ import Subscription from '../../components/Subscription/Subscription'
     methods: {
       show(index){
         this.scroll.slideTo(index)
-        console.log(this.scroll);
         this.activeIndex = this.scroll.activeIndex
-        console.log(this.activeIndex)
       }
     },  
     mounted() {
@@ -65,7 +63,6 @@ import Subscription from '../../components/Subscription/Subscription'
           },
         }
       })
-      console.log(scroll)
     },
     computed: {
       ...mapState({

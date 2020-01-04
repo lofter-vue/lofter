@@ -56,7 +56,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {Switch,Actionsheet} from 'mint-ui';  
+import {Switch,Actionsheet,Toast} from 'mint-ui';  
 import { mapState } from "vuex";
 import { reqUpdateArtical } from "../../api";
   export default {
@@ -93,17 +93,15 @@ import { reqUpdateArtical } from "../../api";
         var d = myDate.getDate()
         const _id = this.userInfo._id
         if (this.content == '') return
-        const articleObj = {title:this.article,content:this.content,date:`${y}年${m}月${d}日`}
-        console.log(articleObj)
+        const articleObj = JSON.stringify({title:this.article,content:this.content,date:`${y}年${m}月${d}日`})
         let result = await reqUpdateArtical(_id,articleObj)
         console.log(result)
-          // this.$router.push({
-          //   path:'/home',
-          //   query:{
-          //     article:this.article,
-          //     content:this.content
-          //   }
-          // })
+        const {status,data} = result
+        if(status === 0){
+          Toast('发布成功')
+          this.$store.commit('save_user',data)
+          this.$router.back()
+        }
       }
       
   }

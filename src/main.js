@@ -15,16 +15,24 @@ Vue.component(Actionsheet.name, Actionsheet)
 
 
 import './validate';
+
+
+import VueLazyload from 'vue-lazyload'
+import loading from '@/common/images/loading.gif'
+
+// 懒加载
+Vue.use(VueLazyload,{
+  loading,
+})
 //全局事件总线
 //Vue.prototype.$bus = new Vue()
 Vue.use(MintUI)
 Vue.config.productionTip = false
 new Vue({
   //全局事件总线
-  beforeMount() {
-    Vue.prototype.$bus = this
-    
-  },
+  // beforeCreate(){
+  //   Vue.prototype.$EventBus = new Vue()
+  // },
 
   //注册局部组件
   render: h => h(App),

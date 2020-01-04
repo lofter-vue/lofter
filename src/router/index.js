@@ -13,6 +13,7 @@ import Music from "@/pages/Music/Music.vue";
 import Text from "@/pages/Text/Text.vue";
 
 import MyAttention from "@/pages/MyAttention/MyAttention";
+import SearchUser from "@/pages/MyAttention/SearchUser";
 import Novel from '@/pages/Novel/Novel';
 import MaleChannel from '@/pages/Novel/children/MaleChannel';
 import FemaleChannel from '@/pages/Novel/children/FemaleChannel';
@@ -148,6 +149,11 @@ export default new VueRouter({
     {
       path:'/text',
       component:Text,
+    },
+    { 
+      name:'searchuser',
+      path:'/searchuser/:id',
+      component:SearchUser
     },
     {
       path: '/personal', // 个人中心页面

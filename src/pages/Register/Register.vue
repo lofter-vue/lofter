@@ -14,7 +14,7 @@
         v-model="username"
         name="name"
         v-validate="'required'">
-        <i class="iconfont icondelete usernameI" v-show="username.length > 0" @click="username=''"></i>
+        <i class="iconfont icon-cuowu-tianchong usernameI" v-show="username.length > 0" @click="username=''"></i>
         <span style="color: red;font-size:18px;margin-bottom:20px" v-show="errors.has('name')">{{ errors.first('name') }}</span>
       </div>
 
@@ -27,7 +27,7 @@
         name="pwd"
         v-validate="'required'"
         />
-        <i class="iconfont icondelete pwdI" v-show="pwd.length >0" @click="pwd=''"></i>
+        <i class="iconfont icon-cuowu-tianchong pwdI" v-show="pwd.length >0" @click="pwd=''"></i>
         <span style="color: red;font-size:18px;margin-bottom:20px" v-show="errors.has('pwd')">{{ errors.first('pwd') }}</span>
       </div>
 
@@ -40,7 +40,7 @@
         name="repwd"
         v-validate="'required'"
         />
-        <i class="iconfont icondelete repwdI" v-show="repwd.length >0" @click="repwd=''"></i>
+        <i class="iconfont icon-cuowu-tianchong repwdI" v-show="repwd.length >0" @click="repwd=''"></i>
         <span style="color: red;font-size:18px;" v-show="errors.has('repwd')">{{ errors.first('repwd') }}</span>
       </div>
     </div>

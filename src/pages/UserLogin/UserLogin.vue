@@ -6,26 +6,31 @@
     </div>
     <div class="content">
       <!-- 登陆用户名 -->
-      <input 
-      type="tel"
-      autocomplete="off"
-      placeholder="用户名"
-      v-model="username"
-      name="name"
-      v-validate="'required'">
-      <i class="iconfont icondelete usernameI" v-show="username.length > 0" @click="username=''"></i>
-      <span style="color: red;font-size:18px;margin-bottom:20px" v-show="errors.has('name')">{{ errors.first('name') }}</span>
-      
+      <div class='user'>
+        <input 
+        type="tel"
+        autocomplete="off"
+        placeholder="用户名"
+        v-model="username"
+        name="name"
+        v-validate="'required'">
+        <i class="iconfont icon-cuowu-tianchong usernameI" v-show="username.length > 0" @click="username=''"></i>
+        <span style="color: red;font-size:18px;margin-bottom:20px" v-show="errors.has('name')">{{ errors.first('name') }}</span>
+      </div>
+
       <!-- 登录密码 -->
-      <input 
-      type="password" 
-      placeholder="请输入密码" 
-      v-model="pwd"
-      maxlength="8"
-      name="pwd"
-      v-validate="'required'"
-      />
-      <i class="iconfont icondelete pwdI" v-show="pwd.length >0" @click="pwd=''"></i>
+      <div class='pwd'>
+        <input 
+        type="password" 
+        placeholder="请输入密码" 
+        v-model="pwd"
+        maxlength="8"
+        name="pwd"
+        v-validate="'required'"
+        />
+        <i class="iconfont icon-cuowu-tianchong pwdI" v-show="pwd.length >0" @click="pwd=''"></i>
+      </div>
+      
       <span style="color: red;font-size:18px;" v-show="errors.has('pwd')">{{ errors.first('pwd') }}</span>
     </div>
     <button :class="{active:pwd.length >0 && username.length > 0}" @click="login">登录</button>
@@ -98,25 +103,42 @@ import { Toast } from "mint-ui";
     left 0
     right 0
     margin 120px auto 0
-    input
+    .user
+      position relative
       width 100%
-      margin-bottom 10px
-      height 40px
-      outline none
-      border-bottom 1px solid #e5e0e0
-      background transparent
-      font-size 20px
-      padding 0 4px
-    .usernameI
-      position absolute
-      top 14px
-      right 0px
-      color #6d6b6b
-    .pwdI
-      position absolute
-      top 65px
-      right 0px
-      color #6d6b6b
+      input
+        width 100%
+        margin-bottom 10px
+        height 40px
+        outline none
+        border-bottom 1px solid #e5e0e0
+        background transparent
+        font-size 20px
+        padding 0 4px
+        position relative
+      .usernameI
+        position absolute
+        top 30%
+        right 0px
+        color #6d6b6b
+    .pwd
+      position relative
+      width 100%
+      input
+        width 100%
+        margin-bottom 10px
+        height 40px
+        outline none
+        border-bottom 1px solid #e5e0e0
+        background transparent
+        font-size 20px
+        padding 0 4px
+        position relative
+      .pwdI
+        position absolute
+        top 30%
+        right 0px
+        color #6d6b6b
   button 
     width 100%
     height 60px

@@ -53,11 +53,11 @@
       </div>
 
       <!-- 没有文章列表 -->
-      <div class="noArticle">
+      <!-- <div class="noArticle">
         <p class="tip">你还没有发布过文章</p>
         <p>去拍张照或者写点什么吧</p>
         <mt-button @click="$router.push('/text')" class="btn">去发布</mt-button>
-      </div>
+      </div> -->
 
       <!-- 文章列表 -->
       <div class="articleList" v-if="isShowArticle">
@@ -67,57 +67,20 @@
             <img :src="userInfo.avatar" alt="">
             <div class="name-date">
               <p class="name">{{userInfo.username}}</p>
-              <p class="date">12-28</p>
+              <p class="date">{{userInfo.artical[0].date}}</p>
             </div>
             <div class="share" @click="changeShare">
               <i class="iconfont icon-gengduo2"></i>
             </div>
           </div>
           <div class="articleContent">
-            <div class="imgCount">共6张</div>
-            <img src="../images/bgImg.png" alt="">
-            <p class="title">一张图片</p>
-            <p class="articleText"></p>
+            <!-- <div class="imgCount">共6张</div> -->
+            <!-- <img src="../images/bgImg.png" alt=""> -->
+            <p class="title">{{userInfo.artical[0].title}}</p>
+            <p class="articleText">{{userInfo.artical[0].content}}</p>
             <div class="titleType">
-              <div class="titleTypeItem">摄影</div>
-              <div class="titleTypeItem">电影</div>
-            </div>
-            <div class="like-share">
-              <span class="like">
-                <i class="iconfont icon-iconset0220"></i>
-              </span>
-              <span class="comment">
-                <i class="iconfont icon-pinglun"></i>
-              </span>
-              <span @click="isShowShare=!isShowShare" class="share">
-                <i class="iconfont icon-share"></i>
-              </span>
-            </div>
-            <div class="hot-read">
-              <span class="hot">3热度</span>
-              <span class="read">320次阅读</span>
-            </div>
-          </div>
-        </div>
-        <div class="articleItem">
-          <div class="userInfo">
-            <img src="../images/userImg.png" alt="">
-            <div class="name-date">
-              <p class="name">lofter用户</p>
-              <p class="date">12-28</p>
-            </div>
-            <div class="share">
-              <i class="iconfont icon-gengduo2"></i>
-            </div>
-          </div>
-          <div class="articleContent">
-            <div class="imgCount">共6张</div>
-            <img src="../images/bgImg.png" alt="">
-            <p class="title">一张图片</p>
-            <p class="articleText"></p>
-            <div class="titleType">
-              <div class="titleTypeItem">摄影</div>
-              <div class="titleTypeItem">电影</div>
+              <div class="titleTypeItem">心情</div>
+              <div class="titleTypeItem">想法</div>
             </div>
             <div class="like-share">
               <span class="like">
@@ -151,7 +114,7 @@
   export default {
     data() {
       return {
-        isShowArticle: false,
+        isShowArticle: true,
         isShowShare: false,
         shareShow: false
       }
@@ -304,6 +267,7 @@
 
     .articleList
       width 100%
+      background #bbffaa
       .articleItem
         width 100%
         background #ffffff
@@ -348,9 +312,18 @@
           .title
             height 36px
             line-height 30px
-            font-size 15px
+            font-size 20px
             color #333333
             margin-left 12px
+          .articleText
+            color #555555
+            font-size 14px
+            line-height 14px
+            padding 13px
+            display -webkit-box
+            -webkit-box-orient vertical
+            -webkit-line-clamp 5
+            overflow hidden
           .titleType
             width 94%
             height 46px

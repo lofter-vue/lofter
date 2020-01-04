@@ -71,18 +71,29 @@ import { Toast } from "mint-ui";
           }else{
             let {username,pwd} = this
             let request = await reqRegister(this.username,this.pwd)
-            if(request.status === 0){
+            const {status,data,msg} = request
+            if(status === 0){
               let req = await reqLogin(username,pwd)
-              const {status,data} = req
+              console.log(req)
+              const {status,data,msg} = req
               if(status === 0){
                 this.$store.dispatch('saveUser',data)
-                this.$router.replace('profile')
+                setTimeout(() => {
+                  this.$store.dispatch('saveMyAttention')
+                }, 300);
+                this.$router.replace('/profile')
               }
+            }
+            else if(status === 1){
+              Toast('此用户已存在，请重新注册')
+              this.username=''
+              this.pwd=''
+              this.repwd=''
             }
           }
         }
       }
-    },
+    }
   }
 </script>
 

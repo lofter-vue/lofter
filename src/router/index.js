@@ -9,6 +9,11 @@ import Search from "@/pages/Search/Search";
 import More from "@/pages/More/More";
 import Market from "@/pages/Market/Market";
 import Profile from "@/pages/Profile/Profile";
+import SwiperProducts from "@/pages/Market/SwiperProducts";
+// import Shopping from "@/pages/Market/Shopping";
+
+
+
 import Music from "@/pages/Music/Music.vue";
 import Text from "@/pages/Text/Text.vue";
 
@@ -88,7 +93,11 @@ export default new VueRouter({
       component:Market,
       meta: {
         isShowFooter: true
-      }
+      },
+    },
+    {
+      path:'/swiperProducts',
+      component:SwiperProducts,
     },
     //导航页面路由
     {

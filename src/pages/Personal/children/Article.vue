@@ -61,13 +61,12 @@
 
       <!-- 文章列表 -->
       <div class="articleList" v-if="isShowArticle">
-
-        <div class="articleItem">
+        <div class="articleItem" v-for="(artical,index) in userInfo.artical" :key='index'>
           <div class="userInfo">
             <img :src="userInfo.avatar" alt="">
             <div class="name-date">
               <p class="name">{{userInfo.username}}</p>
-              <p class="date">{{userInfo.artical[0].date}}</p>
+              <p class="date">{{artical.date}}</p>
             </div>
             <div class="share" @click="changeShare">
               <i class="iconfont icon-gengduo2"></i>
@@ -76,8 +75,8 @@
           <div class="articleContent">
             <!-- <div class="imgCount">共6张</div> -->
             <!-- <img src="../images/bgImg.png" alt=""> -->
-            <p class="title">{{userInfo.artical[0].title}}</p>
-            <p class="articleText">{{userInfo.artical[0].content}}</p>
+            <p class="title">{{artical.title}}</p>
+            <p class="articleText">{{artical.content}}</p>
             <div class="titleType">
               <div class="titleTypeItem">心情</div>
               <div class="titleTypeItem">想法</div>
@@ -267,7 +266,6 @@
 
     .articleList
       width 100%
-      background #bbffaa
       .articleItem
         width 100%
         background #ffffff

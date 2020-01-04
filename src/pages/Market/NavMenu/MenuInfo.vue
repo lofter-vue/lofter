@@ -72,11 +72,12 @@ import {reqNavMenuInfo} from '../../../api/index'
       //截取路径字符串,获取路由的动态参数
       this.MenuIndex = this.$route.path.split('/')[this.$route.path.split('/').length - 1] -1
       this.initWidths()
-      this.result = await reqNavMenuInfo()
-      this.menuInfo = this.result.data
-      console.log(this.menuInfo);
-      this.initCurrentList()
-      
+      let result = await reqNavMenuInfo()
+      const {status,data} = result
+      if(status === 0){
+        this.menuInfo = data
+        this.initCurrentList()
+      }
     },
     methods:{
       changeShare(){
@@ -183,7 +184,7 @@ import {reqNavMenuInfo} from '../../../api/index'
       box-sizing border-box
       .shopInfo
         width 100%
-        padding-bottom 12%
+        padding-bottom 13%
         .shopList
           padding-bottom 10px
           display flex

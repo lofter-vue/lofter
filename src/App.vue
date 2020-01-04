@@ -16,9 +16,6 @@ export default {
       this.$store.dispatch('saveMyAttention')
     }, 300);
   },
-  mounted() {
-    console.log(this.$route.path)
-  },
   components: {
     FootGuide
   },

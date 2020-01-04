@@ -35,11 +35,11 @@
         <span>发现</span>
       </span>
       <span class="guide-item"  :class="{on:$route.path === '/more'}">
-          <span @click="start">
-              <span :class="[rotate?'go':'aa']">
-                <i class="iconfont icon-jiahao" style="font-size:36px" :class="{isshow}" @click="isshow = !isshow"></i>
-              </span>
+        <span @click="start">
+          <span :class="[rotate?'go':'aa']">
+            <i class="iconfont icon-jiahao" style="font-size:36px" :class="{isshow}" @click="isshow = !isshow"></i>
           </span>
+        </span>
       </span>
       <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto(userInfo._id? '/market' : '/login')">
         <span>

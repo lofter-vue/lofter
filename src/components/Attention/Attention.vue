@@ -10,18 +10,18 @@
         <img class="avactar" src="./img/big.jpg" alt="">
       </ol>
     <!-- 内容区 -->
-    <div class="border" v-for="(item, index) in showList" :key="index">
+      <div class="border" v-for="(item, index) in showList" :key="index">
         <div class="homeContent">
           <div class="itemTop">
-              <div class="user">
-                <img :src="item.avatar" alt="">
-                <div class="name_date_container">
-                <span>{{item.name}}</span>
-                <span>{{item.data}}</span>
-                </div>
-                <button class="btn" type="default" size="small" @click="change" v-show="isShow">关注</button>
-                <span class="iconfont icon-gengduo right"></span>
+            <div class="user">
+              <img :src="item.avatar" alt="">
+              <div class="name_date_container">
+              <span>{{item.name}}</span>
+              <span>{{item.data}}</span>
               </div>
+              <button class="btn" type="default" size="small" @click="change" v-show="isShow">关注</button>
+              <span class="iconfont icon-gengduo right"></span>
+            </div>
           </div>
           <img class="BigPic" src="https://thumbnail0.baidupcs.com/thumbnail/d3cb71ddckc67aab08b50cb2e3b37407?fid=3713260932-250528-108837212194467&time=1578027600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-S%2BXEOV0p%2BJBB511KhZyYOn0fUiU%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=59845039575848254&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video" alt="">
           <p class="text">
@@ -30,42 +30,38 @@
           <div class="biaoqian">
             <button>{{item.article[0].title? item.article[0].title : 'lofter' }}</button>
           </div>
-      </div>
-      <div class="itemBottom">
-            <div class="icon">
-                <div class="iconleft">
-                    <span @click="toggle(index)" class="iconfont icon-icon-test1 span" :class="isAttention? 'icon-aixin':'icon-icon-test1'"></span>
-                    <span class="iconfont icon-xinxi span"></span>
-                    <span class="iconfont icon-dianzan span"></span>
-                </div>
-                <span class="iconfont icon-fenxiang right"></span>
-            </div>
-            <div class="hotAndComment">
-              <span>{{item.article[0].hot}}热度</span>
-              <span>{{item.article[0].comments.many}}评论</span>
-              <div class="comment" v-for="(user, index) in item.article[0].comments.detail" :key="index">
-                  <span class="commentname">{{user.name}}:</span>
-                  <span class="commenttext">{{user.content}}</span>
+        </div>
+        <div class="itemBottom">
+          <div class="icon">
+              <div class="iconleft">
+                  <span @click="toggle(index)" class="iconfont icon-icon-test1 span" :class="isAttention? 'icon-aixin':'icon-icon-test1'"></span>
+                  <span class="iconfont icon-xinxi span"></span>
+                  <span class="iconfont icon-dianzan span"></span>
               </div>
+              <span class="iconfont icon-fenxiang right"></span>
+          </div>
+          <div class="hotAndComment">
+            <span>{{item.article[0].hot}}热度</span>
+            <span>{{item.article[0].comments.many}}评论</span>
+            <div class="comment" v-for="(user, index) in item.article[0].comments.detail" :key="index">
+                <span class="commentname">{{user.name}}:</span>
+                <span class="commenttext">{{user.content}}</span>
             </div>
+          </div>
+        </div> 
       </div> 
-    </div> 
-
-
-
-
-    <div class="border" v-for="(item, index) in showList" :key="index++">
+      <div class="border" v-for="(item, index) in showList" :key="index++">
         <div class="homeContent">
           <div class="itemTop">
-              <div class="user">
-                <img :src="item.avatar" alt="">
-                <div class="name_date_container">
-                <span>{{item.name}}</span>
-                <span>{{item.data}}</span>
-                </div>
-                <button class="btn" type="default" size="small" @click="change" v-show="isShow">关注</button>
-                <span class="iconfont icon-gengduo right"></span>
+            <div class="user">
+              <img :src="item.avatar" alt="">
+              <div class="name_date_container">
+              <span>{{item.name}}</span>
+              <span>{{item.data}}</span>
               </div>
+              <button class="btn" type="default" size="small" @click="change" v-show="isShow">关注</button>
+              <span class="iconfont icon-gengduo right"></span>
+            </div>
           </div>
           <img class="BigPic" src="https://thumbnail0.baidupcs.com/thumbnail/d3cb71ddckc67aab08b50cb2e3b37407?fid=3713260932-250528-108837212194467&time=1578027600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-S%2BXEOV0p%2BJBB511KhZyYOn0fUiU%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=59845039575848254&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video" alt="">
           <p class="text">
@@ -74,29 +70,29 @@
           <div class="biaoqian">
             <button>{{item.article[0].title? item.article[0].title : 'lofter' }}</button>
           </div>
-      </div>
-      <div class="itemBottom">
+        </div>
+          <div class="itemBottom">
             <div class="icon">
-                <div class="iconleft">
-                    <span @click="toggle(index)" class="iconfont icon-icon-test1 span" :class="isAttention? 'icon-aixin':'icon-icon-test1'"></span>
-                    <span class="iconfont icon-xinxi span"></span>
-                    <span class="iconfont icon-dianzan span"></span>
-                </div>
-                <span class="iconfont icon-fenxiang right"></span>
+              <div class="iconleft">
+                <span @click="toggle(index)" class="iconfont icon-icon-test1 span" :class="isAttention? 'icon-aixin':'icon-icon-test1'"></span>
+                <span class="iconfont icon-xinxi span"></span>
+                <span class="iconfont icon-dianzan span"></span>
+              </div>
+              <span class="iconfont icon-fenxiang right"></span>
             </div>
             <div class="hotAndComment">
               <span>{{item.article[0].hot}}热度</span>
               <span>{{item.article[0].comments.many}}评论</span>
               <div class="comment" v-for="(user, index) in item.article[0].comments.detail" :key="index">
-                  <span class="commentname">{{user.name}}:</span>
-                  <span class="commenttext">{{user.content}}</span>
+                <span class="commentname">{{user.name}}:</span>
+                <span class="commenttext">{{user.content}}</span>
               </div>
             </div>
-      </div> 
-    </div>   
+          </div> 
+      </div>   
     </div>
   </div>
-  </VuePullRefresh>
+</VuePullRefresh>
 </template>
 
 <script type="text/ecmascript-6">

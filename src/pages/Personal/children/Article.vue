@@ -53,14 +53,14 @@
       </div>
 
       <!-- 没有文章列表 -->
-      <!-- <div class="noArticle">
+      <div class="noArticle" v-if="userInfo.artical.length=0">
         <p class="tip">你还没有发布过文章</p>
         <p>去拍张照或者写点什么吧</p>
         <mt-button @click="$router.push('/text')" class="btn">去发布</mt-button>
-      </div> -->
+      </div>
 
       <!-- 文章列表 -->
-      <div class="articleList" v-if="isShowArticle">
+      <div class="articleList" v-if="userInfo.artical.length>0">
         <div class="articleItem" v-for="(artical,index) in userInfo.artical" :key='index'>
           <div class="userInfo">
             <img :src="userInfo.avatar" alt="">
@@ -113,7 +113,6 @@
   export default {
     data() {
       return {
-        isShowArticle: true,
         isShowShare: false,
         shareShow: false
       }

@@ -2,12 +2,11 @@
   <div id="personalContainer">
     <!-- 头部 -->
     <div class="header">
-
       <div class="headerTop">
         <span class="back" @click="$router.replace('/profile')">
           <i class="iconfont icon-arrow_left"></i>
         </span>
-        <span class="useId">{{userInfo.username}}</span>
+        <!-- <span class="useId">{{userInfo.username}}</span> -->
         <span class="more" @click="actionSheet">
           <i class="iconfont icon-gengduo"></i>
         </span>

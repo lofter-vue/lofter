@@ -5,7 +5,8 @@ import {
   REMOVE_TOKEN,
   UPDATA_AVATAR,
   SAVE_ATTENTION,
-  SAVE_MYATTENTION
+  SAVE_MYATTENTION,
+  SAVE_ALLATTENTION
 } from "../mutations_types";
 
 import { reqAutoLogin,reqAttentions } from "../../api";
@@ -14,7 +15,8 @@ export default {
     userInfo:{},
     token: localStorage.getItem('token_key') ||'',
     attention:[],
-    myAttention:[]
+    myAttention:[],
+    allAttention:[]
   },
   actions: {
     //登录保存用户信息
@@ -80,9 +82,23 @@ export default {
     },
     [SAVE_MYATTENTION](state,attention){
       state.myAttention = attention
+    },
+    [SAVE_ALLATTENTION](state,allAttention){
+      state.allAttention = allAttention
     }
+
   },
   getters: {
-    
+    unAttention(state){
+      let newArr=[]
+      state.attention.forEach(attentioned => {
+        state.allAttention.forEach(attention => {
+          if(attention._id != attentioned){
+            newArr.push(attention)
+          }
+        })
+      })
+      return newArr
+    }
   }
 }

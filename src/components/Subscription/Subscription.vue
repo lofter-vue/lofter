@@ -12,12 +12,11 @@
             <ul class="list-group">
               <li
                 class="list-group-item"
-                v-for="(mySub, index) in list.mySubs"
+                v-for="(mySub, index) in myAttention"
                 :key="index"
               >
-                <img class="img" :src="mySub.img" alt="" />
-                {{ mySub.category }}
-                <span class="badge">{{mySub.count}}</span>
+                <img class="img" :src="mySub.avatar" alt="" />
+                {{ mySub.name }}
               </li>
             </ul>
           </ul>
@@ -30,12 +29,12 @@
             <li class="title two">推荐订阅</li>
             <li
               class="list-group-item"
-              v-for="(recSub, index) in list.recSubs"
+              v-for="(recSub, index) in unAttention"
               :key="index"
             >
-              <img class="img" :src="recSub.img" alt="" />
-              {{ recSub.category }}
-              <span class="badge init" :ref="recSub.id" @click="subscr(index)">{{recSub.isSub}}</span>
+              <img class="img" :src="recSub.avatar" alt="" />
+              {{ recSub.name }}
+              <span class="badge init" :ref="recSub.id" @click="subscr(recSub._id)">订阅</span>
             </li>
           </ul>
         </div>
@@ -45,137 +44,68 @@
 
 <script type="text/ecmascript-6">
 import Vue from 'vue'
-import {mapState} from 'vuex'
+import {mapState,mapGetters} from 'vuex'
 import {Toast} from 'mint-ui'
 import BScroll from 'better-scroll'
+import { SAVE_USER , SAVE_ATTENTION ,SAVE_ALLATTENTION} from "../../store/mutations_types";
+import {reqAllAttentions,reqaddattentionid} from '../../api'
 
   export default {
     name:"Subscription",
     data() {
       return {
-        list:{
-          mySubs:[
-            {
-              category: "文学",
-              img:"http://img2.imgtn.bdimg.com/it/u=2331778743,3079736865&fm=26&gp=0.jpg",
-              count:18
-            },
-              {
-              category: "影视",
-              img:"http://img1.imgtn.bdimg.com/it/u=580286014,1310966289&fm=15&gp=0.jpg",
-              count:17
-            },
-              {
-              category:  "旅行",
-              img:"http://img3.imgtn.bdimg.com/it/u=263996334,3783093417&fm=26&gp=0.jpg",
-              count:8
-            },
-            {
-              category:  "摄影",
-              img:"http://img4.imgtn.bdimg.com/it/u=1348318242,2879429470&fm=26&gp=0.jpg",
-              count:9
-            },
-            {
-              category:  "吃货",
-              img:"http://img2.imgtn.bdimg.com/it/u=4076805044,278748952&fm=15&gp=0.jpg",
-              count:99
-            },
-            {
-              category:  "逛街",
-              img:"http://img3.imgtn.bdimg.com/it/u=263996334,3783093417&fm=26&gp=0.jpg",
-              count:13
-            },
-          ],
-          recSubs:[
-            {
-              category: "荒野猎人",
-              img:"http://img0.imgtn.bdimg.com/it/u=119682264,3654318534&fm=26&gp=0.jpg",
-              isSub:"订阅"
-            },
-            {
-              category:"绘画",
-              img:"http://img3.imgtn.bdimg.com/it/u=1268000778,3787342819&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-            {
-              category: "一句话影评",
-              img:"http://img4.imgtn.bdimg.com/it/u=1348318242,2879429470&fm=26&gp=0.jpg",
-              isSub:"订阅"
-            },
-              {
-              category: "音乐",
-              img:"http://img4.imgtn.bdimg.com/it/u=2190384157,2682719953&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-            
-              {
-              category: "电影海报",
-              img:"http://img5.imgtn.bdimg.com/it/u=505177556,691713951&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-            
-            {
-              category:"lofter原创短篇",
-              img:"http://img0.imgtn.bdimg.com/it/u=805790518,1694126678&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-            
-            {
-              category: "lofter原创小说",
-              img:"http://img2.imgtn.bdimg.com/it/u=4076805044,278748952&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-              {
-              category: "荒野猎人",
-              img:"http://img1.imgtn.bdimg.com/it/u=1185463873,3590847490&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-              {
-              category: "三国演义",
-              img:"http://img1.imgtn.bdimg.com/it/u=855521546,3924762435&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-                  {
-              category: "水浒传",
-              img:"http://img3.imgtn.bdimg.com/it/u=1699213407,870066192&fm=15&gp=0.jpg",
-              isSub:"订阅"
-            },
-          ]
-        },
         isSub:"订阅",
-        top:0
+        top:0,
+        allAttention:[]
       }
     },
-    mounted() {
+    async mounted() {
+    let result = await reqAllAttentions()
+    if(result.status === 0){
+      // this.allAttention = result.data
+      this.$store.commit(SAVE_ALLATTENTION,result.data)
+    }else{
+      Toast('出错了')
+    }
     this.scroll = new BScroll(".container",{
           mouseWheel: true,
           scrollY:true,
           click:true,
-          // bounce: false
+          bounce: false
       })
     },
     methods: {
-      subscr(index){
-      if(this.list.recSubs[index].isSub!== "取消订阅" ){
-          this.list.recSubs[index].isSub ="取消订阅"
-      // scroll.hasVerticalScroll = true
-      Toast({
-            message: '订阅成功',
-            iconClass: 'iconfont icon-chenggong1'
-        })
-      }else{
-          this.list.recSubs[index].isSub ="订阅"
-      Toast({
-            message: '取消订阅',
-            iconClass: 'iconfont icon-quxiao1'
-        })
-      }
+    async subscr(addId){
+        let _id = this.userInfo._id
+        let result = await reqaddattentionid({_id,addId})
+        console.log(result)
+        if(result.status == 0){
+          this.$store.commit(SAVE_USER,result.msg)
+          this.$store.commit(SAVE_ATTENTION,result.msg.attention)
+          this.$store.dispatch("saveMyAttention")
+          this.myAttention.push(result.msg)
+        }
       }
     },  
     computed: {
       ...mapState({
-          isShowA:state => state.Home.isShowA
-      })
+          isShowA:state => state.Home.isShowA,
+          showLists:(state) => state.user.attention,
+          userInfo:(state) => state.user.userInfo,
+          myAttention:(state) => state.user.myAttention,
+      }),
+      ...mapGetters(["unAttention"])
+      // unAttention(){
+      //   let newArr=[]
+      //   this.showLists.forEach(attentioned => {
+      //     this.allAttention.forEach(attention => {
+      //       if(attention._id != attentioned){
+      //         newArr.push(attention)
+      //       }
+      //     })
+      //   })
+      //   return newArr
+      // }
     },
   }
 </script>
@@ -191,6 +121,7 @@ import BScroll from 'better-scroll'
     height 100%
     background-color #eee
     display block !important
+    padding-bottom 20%
     .wrapper
       height 100%
       .scroll

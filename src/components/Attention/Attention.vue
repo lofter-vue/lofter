@@ -82,12 +82,11 @@ Vue.component(Button.name, Button)
       ShareContainer
     },
     methods: {  
-      change(index){
-      let id 
-      this.showList.forEach((item,index1)=>{
-        id = item._id
-      }) 
-      this.$store.dispatch("getaddattentionid",id)     
+      change(){
+      // let _id = this.showLists
+      // let addId = this.userInfo._id
+      // console.log(_id,addId)
+      // this.$store.dispatch("getaddattentionid",{_id,addId})     
       },
       changeShare(){
         this.shareShow = !this.shareShow
@@ -104,20 +103,22 @@ Vue.component(Button.name, Button)
           this.attention = new BScroll(this.$refs.attention,{
           scrolly:true,
       })
-      // this.attention.hasVerticalScroll = true
       },
     },
 
     computed: {
       ...mapState({
+        showLists:(state) => state.user.attention,
         showList:(state) => state.Home.attentions,
-        isShowA:(state) => state.Home.isShowA
+        isShowA:(state) => state.Home.isShowA,
+        userInfo:(state) => state.user.userInfo
       })
     },
     watch: {
       showList(){
         this.$nextTick(()=>{
         this.initScroll()
+        console.log(this.attention)
         })
       }
     },
@@ -131,6 +132,7 @@ Vue.component(Button.name, Button)
 .attention
   width 100%
   height 100%
+  // padding-bottom 10%
   .allcontainer
     background-color #eee
     margin-top -30px

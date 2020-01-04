@@ -17,7 +17,7 @@
       <li v-for="(a,index) in userAttentions" :key='index'>
         <div class="listLeft" >
           <span>
-            <img :src="a.avatar">
+            <img v-lazy="a.avatar">
             <div class="userInfo">
               <span class="name">{{a.name}}</span>
               <span class="info">{{a.article[0].content}}</span>

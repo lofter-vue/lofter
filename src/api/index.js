@@ -39,7 +39,6 @@ export const reqUpdateArtical = ( _id, articalObj) => myAxios.post('/updataArtic
 
 //获取关注id
 export const reqaddattentionid = ( _id, addid) => myAxios.post('/addattention',{ _id, addid})
-export const reqUpdateArtical = (_id,articalObj) => myAxios.post('/updataArtical',{_id,articalObj})
 
 // 获取首页轮播订阅话题最热页面
 export const reqHomeSubHot = () => myAxios.get('/homeSub')

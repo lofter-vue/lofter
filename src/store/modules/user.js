@@ -22,6 +22,7 @@ export default {
       const {token,user} = userInfo
       commit(SAVE_USER,user)
       commit(SAVE_TOKEN,token)
+      commit(SAVE_ATTENTION,user.attention)
       //将token保存到localstorage中
       localStorage.setItem('token_key', token)
     },

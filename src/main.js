@@ -5,6 +5,15 @@ import 'mint-ui/lib/style.css'
 import router from "./router";
 import App from './App';
 import store from "./store";
+
+import {Button,Actionsheet} from 'mint-ui'
+
+
+// 注册全局组件(mint-ui)
+Vue.component(Button.name, Button)
+Vue.component(Actionsheet.name, Actionsheet)
+
+
 import './validate';
 
 

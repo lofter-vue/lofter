@@ -16,14 +16,12 @@
             >{{navItem}}</li>
           </ul>
         </div>
-        <span class="sanjiao iconfont icon-ico_arrowdown"></span>
+        <span class="sanjiao iconfont icon-ico_arrowdown" @click="showZhezhao"></span>
       </div>
     </div>
 
     <!-- 内容区 1-->
-    
-    <!-- <VuePullRefresh :on-refresh="onRefresh" class="refresh"> -->
-      
+  
     <div class="swiper-container contentScroll swiper1">
       
         
@@ -38,7 +36,7 @@
             <!-- v-for="(item,index) in datas.data.search_tuijian.tuijian" :key="index" -->
             <ul class="contentWrap" v-if="datas.search_tuijian">  <!-- v-if="datas.search_tuijian" -->
               <li class="contentItem" v-for="(item,index) in datas.search_tuijian.tuijian" :key="index">
-                <img :src="item.bgImg" alt="">
+                <img v-lazy="item.bgImg" alt="">
                 <div class="itemIntro">
                   <p>{{item.p1}}</p>
                   <p>{{item.p2}}</p>
@@ -100,9 +98,20 @@
         </div>
   
     </div>
-    <!-- </VuePullRefresh> -->
     
-    
+    <!-- 遮罩 -->
+    <transition name="fade">
+      <div class="zhezhao" v-show="isShow">
+        <div class="zhezhaoTop">
+          <h1>选择领域</h1>
+          <p>调整顺序</p>
+          <i class="iconfont icon-xiangshangjiantou" @click="quxiao"></i>
+        </div>
+        <ul>
+          <li v-for="(item,index) in navList" :key="index">{{item}}</li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -114,8 +123,8 @@
   // import VuePullRefresh from 'vue-pull-refresh'
   
 
-// import Vue from 'vue';
-// import { PullRefresh } from 'vant';
+  // import Vue from 'vue';
+  // import { PullRefresh } from 'vant';
 
 // Vue.use(PullRefresh);
 
@@ -128,6 +137,7 @@
         datas:{},
         icon:'\ue654 陈情令',
         navIndex:0,
+        swiperIndex:'',
         img1:'',
         navList:[
           '推荐',
@@ -143,6 +153,7 @@
           '设计',
           '摄影',
         ],
+        isShow:false
       }
     },
 
@@ -150,8 +161,17 @@
       choose(index){
         // console.log('xxxx')
         this.navIndex = index
+        this.swiper1.slideTo(this.navIndex)
       },
 
+      showZhezhao(){
+        // console.log('xxx')
+        this.isShow = !this.isShow
+      },
+
+      quxiao(){
+        this.isShow = !this.isShow
+      },
       // onLoad() {      //上拉加载
       //   setTimeout(() => {
       //     for (let i = 0; i < 15; i++) {
@@ -197,17 +217,16 @@
               // stopPropagation:true
               // pullDownRefresh:true
           })
-        }
-        
+        }       
       },
       
       initImg(){
-        console.log(this.$refs.imgScroll[0].className.slice(10))
-        console.log(this.$refs.imgScroll)
+        // console.log(this.$refs.imgScroll[0].className.slice(10))
+        // console.log(this.$refs.imgScroll)
 
         for (let i of this.$refs.imgScroll) {
           this.imgScroll = new BScroll(`.${i.className.slice(10)}`,{
-            // scrollX:true,
+            scrollX:true,
             // click:true,
             stopPropagation:true
           })         
@@ -217,7 +236,11 @@
       initSwiper1(){
           this.swiper1 = new Swiper('.swiper1',{
           loop:false,
-          autoplay:false
+          on:{
+              slideChangeTransitionEnd:swiper => {
+              this.navIndex = this.swiper1.activeIndex
+            }
+          }
         })
       },
       initSwiper2(){
@@ -403,8 +426,54 @@
                   display inline-block
                   margin-left 4px
                   font-size 12px
-.refresh
-  overflow hidden !important  
+    .zhezhao
+      width 100%
+      height 100%
+      background white
+      position fixed
+      top 0
+      left 0
+      z-index 9999
+      .zhezhaoTop
+        display flex
+        width 100%
+        height 8%
+        text-align center
+        border-bottom 1px solid #eeeeee
+        h1
+          position absolute
+          left 30%
+          top 3%
+          font-size 16px
+          color gray 
+        p
+          position absolute
+          left 68%
+          color green
+          top 3%
+          font-size 16px
+        i 
+          position absolute
+          left 90%
+          top 2.3%
+          font-size 30px
+      ul
+        width 100%
+        height 92%
+        li
+          width 100%
+          height 50px
+          font-size 16px
+          line-height 50px
+          border-bottom 1px solid #eee
+          padding-left 10px
+          
+          
+        
+
+// .refresh
+
+//   overflow hidden !important  
             
 
 </style>

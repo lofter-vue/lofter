@@ -21,7 +21,6 @@ import {mapState} from 'vuex'
     },
     methods: {
         showA(index){
-          console.log(index)
           this.index = index
           this.$emit("fn",index)
         },

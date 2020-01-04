@@ -112,7 +112,6 @@ Vue.component(Button.name, Button)
     data() {
       return {
         isAttention:false,
-        isCurrent:0,
         isShow:true,
       }
     },
@@ -155,7 +154,6 @@ Vue.component(Button.name, Button)
       showList(){
         this.$nextTick(()=>{
         this.initScroll()
-        console.log(this.attention)
         })
       }
     },

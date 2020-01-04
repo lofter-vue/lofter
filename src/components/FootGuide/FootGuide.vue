@@ -37,13 +37,13 @@
       <span class="guide-item"  :class="{on:$route.path === '/more'}">
           <span @click="start">
               <span :class="[rotate?'go':'aa']">
-                <i class="iconfont icon-jiahao" style="font-size:36px" :class="{isshow}" @click="isshow = !ishow"></i>
+                <i class="iconfont icon-jiahao" style="font-size:36px" :class="{isshow}" @click="isshow = !isshow"></i>
               </span>
           </span>
       </span>
       <span class="guide-item" :class="{on:$route.path === '/market'}" @click="goto(userInfo._id? '/market' : '/login')">
         <span>
-          <i class="iconfont icondingdan"></i>
+          <i class="iconfont icon-dingdan1"></i>
         </span>
         <span>市集</span>
       </span>

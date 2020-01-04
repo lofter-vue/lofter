@@ -2,12 +2,11 @@
   <div id="personalContainer">
     <!-- 头部 -->
     <div class="header">
-
       <div class="headerTop">
         <span class="back" @click="$router.replace('/profile')">
           <i class="iconfont icon-arrow_left"></i>
         </span>
-        <span class="useId">{{userInfo.username}}</span>
+        <!-- <span class="useId">{{userInfo.username}}</span> -->
         <span class="more" @click="actionSheet">
           <i class="iconfont icon-gengduo"></i>
         </span>
@@ -24,8 +23,8 @@
               <span>关注</span>
               <span>{{userInfo.attention ? userInfo.attention.length : 0}}</span>
             </div>
-            <span>粉丝 10</span>
-            <span>推荐 10</span>
+            <span>粉丝 1</span>
+            <span>推荐 15</span>
           </div>
         </div>
       </div>
@@ -40,7 +39,7 @@
       <!--内容 跳转 -->
       <div class="contentTab">
         <div class="contentTabItem">
-          <router-link to="/personal/article" replace>文章(0)</router-link>
+          <router-link to="/personal/article" replace>文章({{userInfo.artical.length}})</router-link>
         </div>
         <div class="contentTabItem">
           <router-link to="/personal/collection" replace>合集(0)</router-link>

@@ -35,7 +35,9 @@ import "swiper/css/swiper.css";
       new Swiper(".swiper-container", {
         //循环模式
         loop: true,
-        autoplay:true,
+        autoplay:{
+          disableOnInteraction: false
+        },
         //分页器
         pagination: {
           el: ".swiper-pagination"
@@ -80,7 +82,7 @@ import "swiper/css/swiper.css";
     bottom 8%
     display flex
     justify-content space-around
-    button 
+    button
       width 42%
       font-size 18px
       font-weight bolder

@@ -118,6 +118,7 @@ Vue.component(Button.name, Button)
       showList(){
         this.$nextTick(()=>{
         this.initScroll()
+        console.log(this.attention)
         })
       }
     },
@@ -131,7 +132,7 @@ Vue.component(Button.name, Button)
 .attention
   width 100%
   height 100%
-  padding-bottom 10%
+  // padding-bottom 10%
   .allcontainer
     background-color #eee
     margin-top -30px

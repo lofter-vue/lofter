@@ -98,11 +98,15 @@ Vue.component(Button.name, Button)
         this.shareShow = !this.shareShow
       }, 
       onRefresh: function () {
+        console.log( this.bscroll)
+        if(this.$refs.attention){
+          // location.reload()
           return new Promise(function (resolve, reject) {
               setTimeout(function () {
                   resolve();
               }, 1000);
           });
+        }
       },
 
       initScroll(){
@@ -130,7 +134,7 @@ Vue.component(Button.name, Button)
     },
     mounted() {
       this.initScroll()
-      
+      console.log(this.bscroll)
     },
   }
 </script>
@@ -142,7 +146,6 @@ Vue.component(Button.name, Button)
 .attention
   width 100%
   height 100%
-  // padding-bottom 10%
   .allcontainer
     background-color #eee
     // margin-top -30px

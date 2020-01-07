@@ -8,12 +8,15 @@
 <script>
 import FootGuide from "./components/FootGuide/FootGuide";
 import { mapState } from "vuex";
-import { reqAttentions } from "./api";
+import {Toast} from 'mint-ui'
+import { reqAttentions,reqAllAttentions } from "./api";
+import { SAVE_ALLATTENTION} from "./store/mutations_types";
 export default {
   created() {
     this.$store.dispatch('autoLogin')
     setTimeout(() => {
       this.$store.dispatch('saveMyAttention')
+      this.$store.dispatch('saveUnAttention')
     }, 300);
   },
   components: {
@@ -24,7 +27,7 @@ export default {
       myAttention:state => state.user.myAttention
     })
   },
-  mounted() {
+  async mounted() {
     setTimeout(() => {
       this.$store.commit('updateattention',this.myAttention)
     }, 400);

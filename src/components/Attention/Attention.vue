@@ -99,8 +99,10 @@ Vue.component(Button.name, Button)
       }, 
       onRefresh: function () {
         console.log( this.bscroll)
-        if(this.$refs.attention){
-          // location.reload()
+      let node = document.querySelector(".allcontainer")
+      console.log(node.style.transform)
+        if(node.style.transform < "translatey(0)"){
+          location.reload()
           return new Promise(function (resolve, reject) {
               setTimeout(function () {
                   resolve();
@@ -110,9 +112,9 @@ Vue.component(Button.name, Button)
       },
 
       initScroll(){
-          this.bscroll = new BScroll(this.$refs.attention,{
-          scrolly:true,
-          click: true
+        this.bscroll = new BScroll(this.$refs.attention,{
+        scrolly:true,
+        click: true,
       })
       },
     },
@@ -145,10 +147,9 @@ Vue.component(Button.name, Button)
   overflow-y hidden !important
 .attention
   width 100%
-  height 100%
+  height 85%
   .allcontainer
     background-color #eee
-    // margin-top -30px
     .wrapper
       .lunbo
         width 100%

@@ -34,7 +34,6 @@
             >
               <img class="img" :src="recSub.avatar" alt="" />
               {{ recSub.name }}
-              <span class="badge init" :ref="recSub.id" @click="subscr(recSub._id,index)">{{isSub}}</span>
               <span class="badge init" :ref="recSub.id" @click="subscr(recSub._id)">{{addAtten.indexOf(recSub._id) === -1 ? '订阅':'已订阅'}}</span>
             </li>
           </ul>
@@ -76,7 +75,6 @@ import {reqAllAttentions,reqaddattentionid} from '../../api'
           mouseWheel: true,
           scrollY:true,
           click:true,
-          bounce: false
       })
     },
     methods: {
@@ -112,10 +110,9 @@ import {reqAllAttentions,reqaddattentionid} from '../../api'
   overflow-x hidden !important
   overflow-y hidden !important
 .container
-    height 100%
+    height 83%
     background-color #eee
     display block !important
-    padding-bottom 20%
     .wrapper
       height 100%
       .scroll

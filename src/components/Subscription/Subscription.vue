@@ -34,7 +34,7 @@
             >
               <img class="img" :src="recSub.avatar" alt="" />
               {{ recSub.name }}
-              <span class="badge init" :ref="recSub.id" @click="subscr(recSub._id)">订阅</span>
+              <span class="badge init" :ref="recSub.id" @click="subscr(recSub._id,index)">{{isSub}}</span>
             </li>
           </ul>
         </div>
@@ -56,7 +56,7 @@ import {reqAllAttentions,reqaddattentionid} from '../../api'
       return {
         isSub:"订阅",
         top:0,
-        allAttention:[]
+        allAttention:[],
       }
     },
     async mounted() {
@@ -75,7 +75,7 @@ import {reqAllAttentions,reqaddattentionid} from '../../api'
       })
     },
     methods: {
-    async subscr(addId){
+    async subscr(addId,index){
         let _id = this.userInfo._id
         let result = await reqaddattentionid({_id,addId})
         console.log(result)

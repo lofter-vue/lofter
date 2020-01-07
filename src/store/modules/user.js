@@ -6,7 +6,8 @@ import {
   UPDATA_AVATAR,
   SAVE_ATTENTION,
   SAVE_MYATTENTION,
-  SAVE_ALLATTENTION
+  SAVE_ALLATTENTION,
+  UPDATEUNATTENTION
 } from "../mutations_types";
 
 import { reqAutoLogin,reqAttentions } from "../../api";
@@ -16,7 +17,8 @@ export default {
     token: localStorage.getItem('token_key') ||'',
     attention:[],
     myAttention:[],
-    allAttention:[]
+    allAttention:{},
+    unAttention:[]
   },
   actions: {
     //登录保存用户信息
@@ -59,6 +61,19 @@ export default {
           commit(SAVE_MYATTENTION,data)
         }
       }
+    },
+
+    //查找没有关注list
+    saveUnAttention({commit,state}){
+      let a = state.allAttention
+      let newUnattention = []
+      state.attention.forEach(attentionedID => {
+        delete a[attentionedID]
+      })
+      Object.keys(a).forEach(function(key){
+        newUnattention.push(a[key])
+      })
+      commit(UPDATEUNATTENTION,newUnattention)
     }
   },
   mutations: {
@@ -85,20 +100,23 @@ export default {
     },
     [SAVE_ALLATTENTION](state,allAttention){
       state.allAttention = allAttention
-    }
-
-  },
-  getters: {
-    unAttention(state){
-      let newArr=[]
-      state.attention.forEach(attentioned => {
-        state.allAttention.forEach(attention => {
-          if(attention._id != attentioned){
-            newArr.push(attention)
-          }
-        })
-      })
-      return newArr
+    },
+    [UPDATEUNATTENTION](state,UnAttention){
+      state.unAttention = UnAttention
     }
   }
+  // getters: {
+  //   unAttention(state){
+  //     let newArr = []
+  //     state.attention.forEach(attentionedID => {
+  //       state.allAttention.forEach(attention => {
+  //         if(attention._id != attentionedID){
+  //           newArr.push(attention)
+  //         }
+  //       })
+  //     })
+  //     this.unAttention = newArr
+  //     newArr = []
+  //   }
+  // }
 }

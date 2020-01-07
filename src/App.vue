@@ -16,6 +16,7 @@ export default {
     this.$store.dispatch('autoLogin')
     setTimeout(() => {
       this.$store.dispatch('saveMyAttention')
+      this.$store.dispatch('saveUnAttention')
     }, 300);
   },
   components: {
@@ -30,12 +31,6 @@ export default {
     setTimeout(() => {
       this.$store.commit('updateattention',this.myAttention)
     }, 400);
-    // let result = await reqAllAttentions()
-    // if(result.status === 0){
-    //   this.$store.commit(SAVE_ALLATTENTION,result.data)
-    // }else{
-    //   Toast('出错了')
-    // }
   },
 };
 </script>

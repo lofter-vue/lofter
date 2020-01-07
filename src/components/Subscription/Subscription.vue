@@ -34,7 +34,7 @@
             >
               <img class="img" :src="recSub.avatar" alt="" />
               {{ recSub.name }}
-              <span class="badge init" :ref="recSub.id" @click="subscr(recSub._id)">订阅</span>
+              <span class="badge init" :ref="recSub.id" @click="subscr(recSub._id)">{{addAtten.indexOf(recSub._id) === -1 ? '订阅':'已订阅'}}</span>
             </li>
           </ul>
         </div>
@@ -56,14 +56,18 @@ import {reqAllAttentions,reqaddattentionid} from '../../api'
       return {
         isSub:"订阅",
         top:0,
-        allAttention:[]
+        allAttention:[],
+        addAtten:[]
       }
     },
     async mounted() {
     let result = await reqAllAttentions()
     if(result.status === 0){
-      // this.allAttention = result.data
-      this.$store.commit(SAVE_ALLATTENTION,result.data)
+      let all = {}
+      result.data.forEach(item =>{
+        all[item._id] = item
+      })
+      this.$store.commit(SAVE_ALLATTENTION,all)
     }else{
       Toast('出错了')
     }
@@ -76,9 +80,9 @@ import {reqAllAttentions,reqaddattentionid} from '../../api'
     },
     methods: {
     async subscr(addId){
+        this.addAtten.push(addId)
         let _id = this.userInfo._id
         let result = await reqaddattentionid({_id,addId})
-        console.log(result)
         if(result.status == 0){
           this.$store.commit(SAVE_USER,result.msg)
           this.$store.commit(SAVE_ATTENTION,result.msg.attention)
@@ -93,19 +97,8 @@ import {reqAllAttentions,reqaddattentionid} from '../../api'
           showLists:(state) => state.user.attention,
           userInfo:(state) => state.user.userInfo,
           myAttention:(state) => state.user.myAttention,
-      }),
-      ...mapGetters(["unAttention"])
-      // unAttention(){
-      //   let newArr=[]
-      //   this.showLists.forEach(attentioned => {
-      //     this.allAttention.forEach(attention => {
-      //       if(attention._id != attentioned){
-      //         newArr.push(attention)
-      //       }
-      //     })
-      //   })
-      //   return newArr
-      // }
+          unAttention:(state) => state.user.unAttention,
+      })
     },
   }
 </script>

@@ -32,6 +32,7 @@ import Subscription from '../Subscription/Subscription'
     mounted() {
     let scroll = new Swiper(this.$refs.gd,{
         scrollx:true,
+        preventInteractionOnTransition : true,
       })
       console.log(scroll)
     },

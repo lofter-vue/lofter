@@ -53,6 +53,7 @@ import Subscription from '../../components/Subscription/Subscription'
     mounted() {
     this.scroll = new Swiper(this.$refs.gd,{
         scrollx:true,
+        preventInteractionOnTransition : true,
         on:{
             slideChangeTransitionEnd: (swiper)=>{
               this.activeIndex = this.scroll.activeIndex

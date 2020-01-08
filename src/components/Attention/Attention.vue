@@ -98,10 +98,7 @@ Vue.component(Button.name, Button)
         this.shareShow = !this.shareShow
       }, 
       onRefresh: function () {
-        console.log( this.bscroll)
-      let node = document.querySelector(".allcontainer")
-      console.log(node.style.transform)
-        if(node.style.transform < "translatey(0)"){
+        if(this.scrollY>0){
           location.reload()
           return new Promise(function (resolve, reject) {
               setTimeout(function () {
@@ -115,7 +112,11 @@ Vue.component(Button.name, Button)
         this.bscroll = new BScroll(this.$refs.attention,{
         scrolly:true,
         click: true,
+        pullDownRefresh:true
       })
+        this.bscroll.on('scroll', ({x, y}) => {
+        this.scrollY = y
+        })
       },
     },
 
